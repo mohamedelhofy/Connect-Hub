@@ -12,6 +12,7 @@ import javax.swing.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.io.File;
+import java.util.Map;
 
 public class ProfileManagementPage extends JFrame {
 
@@ -19,6 +20,9 @@ public class ProfileManagementPage extends JFrame {
     private JTextField profilePhotoField;
     private JTextField coverPhotoField;
     private JButton saveButton;
+    private User user=new User();
+    private ProfilesData dataProfile=new ProfilesData(user.getUserId());
+    private Map<String, Object> userProfile=dataProfile.getData();
 
     public ProfileManagementPage(String userId) {
         setTitle("Profile Management");
@@ -63,7 +67,7 @@ public class ProfileManagementPage extends JFrame {
 
                 if (result == JFileChooser.APPROVE_OPTION) {
                     File selectedFile = fileChooser.getSelectedFile();
-                    profilePhotoField.setText(selectedFile.getAbsolutePath());
+                    userProfile.put("profile photo",selectedFile.getAbsolutePath() );
                 }
             }
         });
@@ -94,17 +98,18 @@ public class ProfileManagementPage extends JFrame {
 
                 if (result == JFileChooser.APPROVE_OPTION) {
                     File selectedFile = fileChooser.getSelectedFile();
-                    coverPhotoField.setText(selectedFile.getAbsolutePath());
+                    userProfile.put("cover photo",selectedFile.getAbsolutePath() );
                 }
             }
         });
 
         saveButton = new JButton("Save");
         saveButton.setBounds(200, 200, 100, 30); // Centered save button
+        saveButton.addActionListener(e ->  {
+            userProfile.put("bio",bioField.getText() );
+            dataProfile.setData(userProfile);
+        });
         add(saveButton);
     }
-
-    public static void main(String[] args) {
-        SwingUtilities.invokeLater(() -> new ProfileManagementPage("1").setVisible(true));
-    }
 }
+

@@ -4,6 +4,8 @@
  */
 package connect.hub;
 
+import javax.swing.SwingUtilities;
+
 /**
  *
  * @author Compu City
@@ -14,7 +16,7 @@ public class ConnectHub {
      * @param args the command line arguments
      */
     public static void main(String[] args) {
-        // TODO code application logic here
+        SwingUtilities.invokeLater(() -> new ProfileManagementPage("1").setVisible(true));
     }
     
 }
