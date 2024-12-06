@@ -24,7 +24,7 @@ public class ProfileManagementPage extends JFrame {
     private ProfilesData dataProfile=new ProfilesData(user.getUserId());
     private Map<String, Object> userProfile=dataProfile.getData();
 
-    public ProfileManagementPage(String userId) {
+    public ProfileManagementPage() {
         setTitle("Profile Management");
         setSize(500, 300);
         setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);

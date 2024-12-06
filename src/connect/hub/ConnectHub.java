@@ -16,7 +16,7 @@ public class ConnectHub {
      * @param args the command line arguments
      */
     public static void main(String[] args) {
-        SwingUtilities.invokeLater(() -> new ProfileManagementPage("1").setVisible(true));
+        SwingUtilities.invokeLater(() -> new ChangePass().setVisible(true));
     }
     
 }
