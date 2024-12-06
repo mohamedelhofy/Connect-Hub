@@ -13,12 +13,12 @@ import java.util.Date;
 
 
 import java.util.Date;
-
-
+import java.util.ArrayList;
+import java.util.Date;
+import java.util.List;
 
 public class User {
-    
-    private static int idCounter = 0; 
+    private static User instance;
     private String userId;
     private String email;
     private String username;
@@ -26,8 +26,25 @@ public class User {
     private boolean status;
     private String hashedPassword;
 
+    private User() {
+    }
+
     public User(String email, String username, String hashedPassword, Date DOB) {
-        this.userId = generateUserId();
+        this.email = email;
+        this.username = username;
+        this.DOB = DOB;
+        this.hashedPassword = hashedPassword;
+    }
+
+    public static User getInstance() {
+        if (instance == null) {
+            instance = new User();
+        }
+        return instance;
+    }
+
+    public void initialize(String userId, String email, String username, String hashedPassword, Date DOB) {
+        this.userId = userId;
         this.email = email;
         this.username = username;
         this.hashedPassword = hashedPassword;
@@ -35,17 +52,14 @@ public class User {
         this.status = false; 
     }
 
-    public User() {
-    }
-    
-    
-
-    private static synchronized String generateUserId() {
-        idCounter++;
-        return String.valueOf(idCounter); 
+    public void updateProfile(String email, String username, String bio, String profilePhotoPath, String coverPhotoPath) {
+        this.email = email;
+        this.username = username;
+        this.hashedPassword =hashedPassword;
+        this.DOB = DOB; 
     }
 
-    // Getters and setters
+    // Getters and setters for other fields
     public String getUserId() {
         return userId;
     }
@@ -54,7 +68,6 @@ public class User {
         this.userId = userId;
     }
 
-    // Other getters and setters remain unchanged
     public String getEmail() {
         return email;
     }
@@ -87,10 +100,6 @@ public class User {
         this.DOB = DOB;
     }
 
-    public static void setIdCounter(int idCounter) {
-        User.idCounter = idCounter;
-    }
-
     public boolean isOnline() {
         return status;
     }
@@ -98,4 +107,7 @@ public class User {
     public void setStatus(boolean status) {
         this.status = status;
     }
+
+
+
 }

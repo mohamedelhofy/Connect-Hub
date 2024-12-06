@@ -4,11 +4,14 @@
  */
 package connect.hub.FrontEndContentCreation;
 import connect.hub.BackEndContentCreation.UpdateDB;
+import connect.hub.NewsfeedPage;
 import org.json.JSONArray;
 import org.json.JSONObject;
 
 import javax.swing.*;
 import java.awt.*;
+import java.awt.event.WindowAdapter;
+import java.awt.event.WindowEvent;
 import java.io.IOException;
 import java.nio.file.Files;
 import java.nio.file.Paths;
@@ -21,7 +24,7 @@ import java.time.LocalDateTime;
 public class PostScrollingPage {
     public static void createAndShowGUI() {
         JFrame frame = new JFrame("Posts");
-        frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+        //frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         frame.setSize(600, 500);
         frame.setLocationRelativeTo(null);
         frame.setLayout(new BorderLayout());
@@ -37,7 +40,13 @@ public class PostScrollingPage {
         frame.add(titleLabel, BorderLayout.NORTH);
 
         loadPostsAndStories(postPanel);
-
+        frame.addWindowListener(new WindowAdapter() {
+            @Override
+            public void windowClosing(WindowEvent e) {
+                new NewsfeedPage().setVisible(true);
+                frame.dispose(); 
+            }
+        });
         frame.setVisible(true);
     }
 
