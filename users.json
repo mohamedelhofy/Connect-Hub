@@ -1,57 +1,73 @@
 [
     {
-        "userId": "user1",
         "password": "12345\n\n",
         "dateOfBirth": "1990-01-01\n",
         "isOnline": false,
+        "userId": "user1@example.com\n\n",
         "email": "user1@example.com\n\n",
         "username": "user1\n\n"
     },
     {
-        "userId": "user4",
         "password": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855\n\n",
         "dateOfBirth": "2024-12-06\n",
         "isOnline": false,
+        "userId": "user4@example.com\n\n",
         "email": "user4@example.com\n\n",
         "username": "user4\n\n"
     },
     {
-        "userId": "user7",
+        "password": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+        "dateOfBirth": "2004-09-15\n",
+        "isOnline": true,
+        "userId": "alhofymohamed@gmail.com",
+        "email": "alhofymohamed@gmail.com",
+        "username": "elhofy"
+    },
+    {
         "password": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
         "dateOfBirth": "2024-12-06\n",
         "isOnline": false,
+        "userId": "user7@example.com",
         "email": "user7@example.com",
         "username": "user7"
     },
     {
-        "userId": "user2",
         "password": "6b3a55e0261b0304143f805a249d8c9d4b9c8f5b4c8a5f5b4c8a5f5b4c8a5f5b\n\n",
         "dateOfBirth": "1992-02-02\n",
         "isOnline": true,
+        "userId": "user2@example.com\n\n",
         "email": "user2@example.com\n\n",
         "username": "user2\n\n"
     },
     {
-        "userId": "user5",
+        "password": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+        "dateOfBirth": "2004-09-15\n",
+        "isOnline": false,
+        "userId": "alhofymohamed2004@gmail.com",
+        "email": "alhofymohamed2004@gmail.com",
+        "username": "elhofy"
+    },
+    {
         "password": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855\n\n",
         "dateOfBirth": "2024-12-06\n",
         "isOnline": false,
+        "userId": "user5@example.com\n\n",
         "email": "user5@example.com\n\n",
         "username": "user5\n\n"
     },
     {
-        "userId": "user3",
         "password": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855\n\n",
         "dateOfBirth": "2024-12-06\n",
         "isOnline": false,
+        "userId": "user3@example.com\n\n",
         "email": "user3@example.com\n\n",
         "username": "user3\n\n"
     },
     {
-        "userId": "user6",
         "password": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855\n",
         "dateOfBirth": "2024-12-06\n",
         "isOnline": false,
+        "userId": "user6@example.com\n",
         "email": "user6@example.com\n",
         "username": "user6\n"
     }
