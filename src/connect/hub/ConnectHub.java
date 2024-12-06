@@ -17,6 +17,6 @@ public class ConnectHub {
      */
     public static void main(String[] args){
         checkRequestStatus checker = new checkRequestStatus();
-        System.out.println(checker.check("ss", "moh"));
+        System.out.println(checker.check("moh", "ss"));
     }
 }
