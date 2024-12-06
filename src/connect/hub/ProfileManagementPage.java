@@ -11,62 +11,100 @@ package connect.hub;
 import javax.swing.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.io.File;
 
 public class ProfileManagementPage extends JFrame {
+
     private JTextField bioField;
     private JTextField profilePhotoField;
     private JTextField coverPhotoField;
     private JButton saveButton;
 
-    public ProfileManagementPage( String userId) {
+    public ProfileManagementPage(String userId) {
         setTitle("Profile Management");
-        setSize(400, 300);
+        setSize(500, 300);
         setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         setLayout(null);
-        
+        setLocationRelativeTo(null);
+
+        JLabel userNameLabel = new JLabel("Hello, User!");  // we need to add user name if possible
+        userNameLabel.setBounds(190, 10, 120, 20); 
+        add(userNameLabel);
 
         JLabel bioLabel = new JLabel("Bio:");
-        bioLabel.setBounds(20, 20, 100, 20);
+        bioLabel.setBounds(20, 50, 100, 20);
         add(bioLabel);
-
         bioField = new JTextField();
-        bioField.setBounds(120, 20, 200, 20);
+        bioField.setBounds(120, 50, 310, 20); 
         add(bioField);
 
-        JLabel profilePhotoLabel = new JLabel("Profile Photo Path:");
-        profilePhotoLabel.setBounds(20, 60, 150, 20);
+        JLabel profilePhotoLabel = new JLabel("Profile Photo:");
+        profilePhotoLabel.setBounds(20, 90, 150, 20);
         add(profilePhotoLabel);
 
         profilePhotoField = new JTextField();
-        profilePhotoField.setBounds(170, 60, 150, 20);
+        profilePhotoField.setBounds(120, 90, 200, 20);
         add(profilePhotoField);
 
-        JLabel coverPhotoLabel = new JLabel("Cover Photo Path:");
-        coverPhotoLabel.setBounds(20, 100, 150, 20);
+        JButton browseProfileButton = new JButton("Select");
+        browseProfileButton.setBounds(330, 90, 100, 20);
+        add(browseProfileButton);
+
+        browseProfileButton.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                JFileChooser fileChooser = new JFileChooser();
+                fileChooser.setFileSelectionMode(JFileChooser.FILES_ONLY);
+                fileChooser.setDialogTitle("Select Profile Photo");
+                fileChooser.setFileFilter(new javax.swing.filechooser.FileNameExtensionFilter(
+                        "Image Files", "jpg", "png", "jpeg", "bmp", "gif"));
+
+                int result = fileChooser.showOpenDialog(null);
+
+                if (result == JFileChooser.APPROVE_OPTION) {
+                    File selectedFile = fileChooser.getSelectedFile();
+                    profilePhotoField.setText(selectedFile.getAbsolutePath());
+                }
+            }
+        });
+
+        // Cover Photo Section
+        JLabel coverPhotoLabel = new JLabel("Cover Photo:");
+        coverPhotoLabel.setBounds(20, 130, 150, 20);
         add(coverPhotoLabel);
 
         coverPhotoField = new JTextField();
-        coverPhotoField.setBounds(170, 100, 150, 20);
+        coverPhotoField.setBounds(120, 130, 200, 20);
         add(coverPhotoField);
 
-        saveButton = new JButton("Save");
-        saveButton.setBounds(150, 150, 80, 30);
-        add(saveButton);
+        JButton browseCoverButton = new JButton("Select");
+        browseCoverButton.setBounds(330, 130, 100, 20);
+        add(browseCoverButton);
 
-        saveButton.addActionListener(new ActionListener() {
+        browseCoverButton.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
-                String bio = bioField.getText();
-                String profilePhotoPath = profilePhotoField.getText();
-                String coverPhotoPath = coverPhotoField.getText();
+                JFileChooser fileChooser = new JFileChooser();
+                fileChooser.setFileSelectionMode(JFileChooser.FILES_ONLY);
+                fileChooser.setDialogTitle("Select Cover Photo");
 
-                JOptionPane.showMessageDialog(null, "Profile updated successfully!");
+                fileChooser.setFileFilter(new javax.swing.filechooser.FileNameExtensionFilter(
+                        "Image Files", "jpg", "png", "jpeg", "bmp", "gif"));
+                int result = fileChooser.showOpenDialog(null);
+
+                if (result == JFileChooser.APPROVE_OPTION) {
+                    File selectedFile = fileChooser.getSelectedFile();
+                    coverPhotoField.setText(selectedFile.getAbsolutePath());
+                }
             }
         });
+
+        saveButton = new JButton("Save");
+        saveButton.setBounds(200, 200, 100, 30); // Centered save button
+        add(saveButton);
     }
 
     public static void main(String[] args) {
-         new ProfileManagementPage( "1").setVisible(true);
+        SwingUtilities.invokeLater(() -> new ProfileManagementPage("1").setVisible(true));
     }
 }
-
