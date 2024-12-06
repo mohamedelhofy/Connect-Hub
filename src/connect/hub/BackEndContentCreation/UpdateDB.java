@@ -18,11 +18,22 @@ import org.json.JSONObject;
  *
  * @author رحمه صبرى
  */
-public class UpdateDB {
+public class UpdateDB extends Thread{
     private String filePath;
 
     public UpdateDB(String filePath) {
         this.filePath = filePath;
+    }
+    
+    public void run() {
+        try {
+            while (!Thread.currentThread().isInterrupted()) {
+               update();
+                Thread.sleep(1000 ); 
+            }
+        } catch (InterruptedException e) {
+            
+        }
     }
     
     public void update(){

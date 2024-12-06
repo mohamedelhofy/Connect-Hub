@@ -116,7 +116,7 @@ public class NewPostGUI {
             JOptionPane.showMessageDialog(frame, "Post created successfully!");
             frame.dispose();
         });
-
+         //  here we need to back to the newsFeed
         cancelButton.addActionListener(e -> frame.dispose());
 
         // Add components to the frame

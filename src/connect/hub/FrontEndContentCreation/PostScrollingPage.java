@@ -3,6 +3,7 @@
  * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Class.java to edit this template
  */
 package connect.hub.FrontEndContentCreation;
+import connect.hub.BackEndContentCreation.UpdateDB;
 import org.json.JSONArray;
 import org.json.JSONObject;
 
@@ -19,7 +20,7 @@ import java.time.LocalDateTime;
  */
 public class PostScrollingPage {
     public static void createAndShowGUI() {
-        JFrame frame = new JFrame("Posts and Stories");
+        JFrame frame = new JFrame("Posts");
         frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         frame.setSize(600, 500);
         frame.setLocationRelativeTo(null);
@@ -30,7 +31,7 @@ public class PostScrollingPage {
         JScrollPane scrollPane = new JScrollPane(postPanel);
         frame.add(scrollPane, BorderLayout.CENTER);
 
-        JLabel titleLabel = new JLabel("Your Posts and Stories", SwingConstants.CENTER);
+        JLabel titleLabel = new JLabel("Posts ", SwingConstants.CENTER);
         titleLabel.setFont(new Font("Arial", Font.BOLD, 24));
         titleLabel.setForeground(new Color(59, 89, 152));
         frame.add(titleLabel, BorderLayout.NORTH);
@@ -42,7 +43,6 @@ public class PostScrollingPage {
 
     private static void loadPostsAndStories(JPanel postPanel) {
         String filePath = "PostsDB.json";
-
         try {
             String content = Files.readString(Paths.get(filePath));
             JSONArray posts = new JSONArray(content);
@@ -75,6 +75,9 @@ public class PostScrollingPage {
                 contentArea.setWrapStyleWord(true);
                 contentArea.setEditable(false);
                 contentArea.setBackground(new Color(245, 245, 245));
+               
+                Dimension preferredSize = new Dimension(300, 150); // Adjust these values as needed
+                contentArea.setPreferredSize(preferredSize);
 
                 // Add optional image
                 JLabel imageLabel = new JLabel();
@@ -84,13 +87,14 @@ public class PostScrollingPage {
                     ImageIcon imageIcon = new ImageIcon(imageBytes);
                     Image scaledImage = imageIcon.getImage().getScaledInstance(200, 150, Image.SCALE_SMOOTH);
                     imageLabel.setIcon(new ImageIcon(scaledImage));
+                    imageLabel.setBorder(BorderFactory.createLineBorder(Color.BLACK, 2)); 
                 }
 
                 // Layout the post item panel
                 postItemPanel.add(metaPanel, BorderLayout.NORTH);
                 postItemPanel.add(new JScrollPane(contentArea), BorderLayout.CENTER);
                 if (post.has("image")) {
-                    postItemPanel.add(imageLabel, BorderLayout.EAST);
+                    postItemPanel.add(imageLabel, BorderLayout.WEST);
                 }
 
                 // Add some spacing
@@ -100,6 +104,7 @@ public class PostScrollingPage {
 
                 postPanel.add(postItemPanel);
                 postPanel.add(spacer);
+                
             }
 
         } catch (IOException e) {
