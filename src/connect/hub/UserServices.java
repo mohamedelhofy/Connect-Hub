@@ -69,8 +69,7 @@ public class UserServices implements Services {
             throw new RuntimeException("Error hashing password", ex);
         }
 
-        System.out.println("Hashed input password: " + hashedPassword);
-        System.out.println("Stored hashed password: " + user.getHashedPassword());
+
 
         if (!hashedPassword.equals(user.getHashedPassword())) {
             throw new IllegalArgumentException("Invalid password");

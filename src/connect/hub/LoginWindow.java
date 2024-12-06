@@ -57,7 +57,7 @@ public class LoginWindow extends JFrame {
         passwordField = new JPasswordField();
         loginButton = new JButton("Login");
         signUpButton = new JButton("Sign Up");
-
+        this.setLocationRelativeTo(null);
         loginButton.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
@@ -66,7 +66,8 @@ public class LoginWindow extends JFrame {
                 try {
                     currentUser = userServices.login(email, password);
                     JOptionPane.showMessageDialog(LoginWindow.this, "Login successful!");
-                    // Proceed to the next window or functionality
+                    dispose();
+                    new NewsfeedPage().setVisible(true);
                 } catch (IllegalArgumentException ex) {
                     JOptionPane.showMessageDialog(LoginWindow.this, ex.getMessage(), "Login Failed", JOptionPane.ERROR_MESSAGE);
                 }
@@ -92,6 +93,7 @@ public class LoginWindow extends JFrame {
 
     private void openSignUpWindow() {
         signupWindow signUpWindow = new signupWindow(userServices);
+        this.dispose();
         signUpWindow.setVisible(true);
     }
 

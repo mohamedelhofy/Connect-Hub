@@ -16,7 +16,6 @@ import javax.swing.JPanel;
  *
  * @author rawan
  */
-public class newsFeedGUI {
  
 public class NewsfeedPage extends JFrame {
     private JPanel headerPanel;
@@ -92,4 +91,4 @@ public class NewsfeedPage extends JFrame {
 
 
 }
-}
+

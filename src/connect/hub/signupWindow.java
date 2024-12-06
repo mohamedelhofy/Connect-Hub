@@ -25,6 +25,7 @@ public class signupWindow extends JFrame {
     private UserServices userServices;
 
     public signupWindow(UserServices userServices) {
+        this.setLocationRelativeTo(null);
         this.userServices = userServices;
         setTitle("Sign Up");
         setSize(300, 300);
@@ -43,6 +44,7 @@ public class signupWindow extends JFrame {
             @Override
             public void actionPerformed(ActionEvent e) {
                 performSignUp();
+                new LoginWindow(userServices).setVisible(true);
             }
         });
 
