@@ -2,19 +2,13 @@
  * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
  * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Class.java to edit this template
  */
-package connect.hub;
+package connect.hub.BackEndContentCreation;
 
 /**
  *
  * @author Lenovo
  */
 public class DatabaseManager { // Handles storage and retrieval of user and friendship data from a JSON file
-    public void saveUser(User user){
-        
-    }
-    public void loadUser(String userId){
-        
-    }
     public void saveFriendRequest(FriendRequest request){
         
     }

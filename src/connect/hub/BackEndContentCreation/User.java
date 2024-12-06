@@ -1,4 +1,4 @@
-package connect.hub;
+package connect.hub.BackEndContentCreation;
 
 
 import java.time.LocalDate;
