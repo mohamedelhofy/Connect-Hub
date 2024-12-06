@@ -24,13 +24,13 @@ import java.util.Map;
 public class ReadFromJSON {
 
     private final Path filePath;
-
+    List<Map<String, Object>> dataList = new ArrayList<>();
     public ReadFromJSON(String fileName) {
         this.filePath = Paths.get(fileName);
     }
 
-    public List<Map<String, Object>> getDataAsListOfMaps() throws IOException, org.json.JSONException {
-        List<Map<String, Object>> dataList = new ArrayList<>();
+    public void getDataAsListOfMaps() throws IOException, org.json.JSONException {
+        
 
         if (Files.exists(filePath)) {
             String jsonContent = Files.readString(filePath);
@@ -49,6 +49,10 @@ public class ReadFromJSON {
                 dataList.add(dataMap);
             }
         }
+    }
+
+    public List<Map<String, Object>> getDataList() {
         return dataList;
     }
+    
 }
