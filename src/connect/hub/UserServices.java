@@ -3,7 +3,6 @@
  * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Class.java to edit this template
  */
 package connect.hub;
-
 import java.io.FileReader;
 import java.security.NoSuchAlgorithmException;
 import java.text.SimpleDateFormat;
@@ -28,11 +27,6 @@ public class UserServices implements Services {
     public UserServices() {
     }
 
-    
-    
-  
-    
-    
     @Override
     public void signUp(User user) {
         if (!isValidEmail(user.getEmail())) {

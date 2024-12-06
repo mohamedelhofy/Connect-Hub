@@ -23,6 +23,17 @@ import org.json.JSONObject;
 
 public class FileDataActions implements UserDataActions {
 
+    public Map<String, User> getUsers() {
+        return users;
+    }
+
+    public static String getFILE_PATH() {
+        return FILE_PATH;
+    }
+
+    public UserServices getUserService() {
+        return userService;
+    }
     private Map<String, User> users = new HashMap<>();
     private static final String FILE_PATH = "users.json";
     private UserServices userService = new UserServices();
@@ -77,6 +88,8 @@ public class FileDataActions implements UserDataActions {
             for (int i = 0; i < jsonArray.length(); i++) {
                 JSONObject jsonObject = jsonArray.getJSONObject(i);
                 try {
+                    String userId = jsonObject.getString("userId");
+                
                     String email = jsonObject.getString("email");
                     String username = jsonObject.getString("username");
                     String password = jsonObject.getString("password");
@@ -95,61 +108,25 @@ public class FileDataActions implements UserDataActions {
         }
     }
 
-    private int countObjectsInJson(String filePath) {
-        int userCount = 0; 
-        try {
-            String content = new String(Files.readAllBytes(Paths.get(filePath)));
-            if (content.isEmpty()) {
-                return 0; 
-            }
-
-            JSONArray jsonArray = new JSONArray(content);
-            for (int i = 0; i < jsonArray.length(); i++) {
-                try {
-                    JSONObject jsonObject = jsonArray.getJSONObject(i);
-                    userCount++; 
-                } catch (Exception e) {
-                    System.err.println("Error parsing user at index " + i + ": " + e.getMessage());
-                }
-            }
-        } catch (IOException e) {
-            System.err.println("Error reading the file at " + filePath + ": " + e.getMessage());
-        } catch (JSONException e) {
-            System.err.println("Error parsing JSON content: " + e.getMessage());
-        }
-        return userCount; 
-    }
-
-    private void saveUsers() throws JSONException {
+   private void saveUsers() throws JSONException {
         JSONArray jsonArray = new JSONArray();
         for (User user : users.values()) {
             JSONObject jsonObject = new JSONObject();
-            jsonObject.put("email", user.getEmail());
+             jsonObject.put("userId", user.getEmail() );
 
+            jsonObject.put("email", user.getEmail() );
+            
             jsonObject.put("username", user.getUsername());
             jsonObject.put("password", user.getHashedPassword());
-            jsonObject.put("dateOfBirth", new SimpleDateFormat("yyyy-MM-dd").format(user.getDOB()) + "\n");
+            jsonObject.put("dateOfBirth", new SimpleDateFormat("yyyy-MM-dd").format(user.getDOB())+ "\n");
             jsonObject.put("isOnline", user.isOnline());
             jsonArray.put(jsonObject);
         }
 
         try (BufferedWriter writer = new BufferedWriter(new FileWriter(FILE_PATH))) {
-            writer.write(jsonArray.toString(4));
+            writer.write(jsonArray.toString(4)); 
         } catch (IOException e) {
             e.printStackTrace();
-        }
-    }
-    
-    public static void main(String[] args) {
-        // Create an instance of FileDataActions
-        try {
-            FileDataActions fileDataActions = new FileDataActions();
-
-            // Call the countObjectsInJson method and print the result
-            int numberOfUsers = fileDataActions.countObjectsInJson("users.json");
-            System.out.println("Number of users in the JSON: " + numberOfUsers);
-        } catch (JSONException e) {
-            System.err.println("Error initializing FileDataActions: " + e.getMessage());
         }
     }
 }

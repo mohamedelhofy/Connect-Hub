@@ -1,12 +1,14 @@
 [
     {
-        "password": "5994471abb01112afcc18159f6cc74b4f511b99806da59b3caf5a9c173cacfc5\n\n",
+        "userId": "user1",
+        "password": "12345\n\n",
         "dateOfBirth": "1990-01-01\n",
         "isOnline": false,
         "email": "user1@example.com\n\n",
         "username": "user1\n\n"
     },
     {
+        "userId": "user4",
         "password": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855\n\n",
         "dateOfBirth": "2024-12-06\n",
         "isOnline": false,
@@ -14,13 +16,7 @@
         "username": "user4\n\n"
     },
     {
-        "password": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
-        "dateOfBirth": "2024-12-06\n",
-        "isOnline": true,
-        "email": "rahmasabry@gmail.com",
-        "username": "Rahma Sabry"
-    },
-    {
+        "userId": "user7",
         "password": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
         "dateOfBirth": "2024-12-06\n",
         "isOnline": false,
@@ -28,6 +24,7 @@
         "username": "user7"
     },
     {
+        "userId": "user2",
         "password": "6b3a55e0261b0304143f805a249d8c9d4b9c8f5b4c8a5f5b4c8a5f5b4c8a5f5b\n\n",
         "dateOfBirth": "1992-02-02\n",
         "isOnline": true,
@@ -35,6 +32,7 @@
         "username": "user2\n\n"
     },
     {
+        "userId": "user5",
         "password": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855\n\n",
         "dateOfBirth": "2024-12-06\n",
         "isOnline": false,
@@ -42,6 +40,7 @@
         "username": "user5\n\n"
     },
     {
+        "userId": "user3",
         "password": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855\n\n",
         "dateOfBirth": "2024-12-06\n",
         "isOnline": false,
@@ -49,6 +48,7 @@
         "username": "user3\n\n"
     },
     {
+        "userId": "user6",
         "password": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855\n",
         "dateOfBirth": "2024-12-06\n",
         "isOnline": false,

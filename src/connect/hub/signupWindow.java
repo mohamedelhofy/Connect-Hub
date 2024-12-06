@@ -11,6 +11,8 @@ package connect.hub;
 import javax.swing.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.text.ParseException;
+import java.text.SimpleDateFormat;
 import java.time.LocalDate;
 import java.util.Date;
 
@@ -57,25 +59,29 @@ public class signupWindow extends JFrame {
     }
 
     private void performSignUp() {
-        String email = emailField.getText();
-        String username = usernameField.getText();
-        String password = new String(passwordField.getPassword());
-       Date dob =new Date();
-        try {
-            User user = new User(email ,username , password , dob );
-            user.setEmail(email);
-            user.setUsername(username);
-            user.setHashedPassword(password); 
-            user.setDOB(dob);
-            user.setStatus(false);
+    String email = emailField.getText();
+    String username = usernameField.getText();
+    String password = new String(passwordField.getPassword());
+    Date dob;
 
-            userServices.signUp(user);
-            JOptionPane.showMessageDialog(this, "Sign up successful!");
-            dispose(); 
-        } catch (IllegalArgumentException e) {
-            JOptionPane.showMessageDialog(this, e.getMessage());
-        }
-        
-        ///////////////////////// here newsfeed will start
+    try {
+        // Parse the date from the dobField
+        SimpleDateFormat dateFormat = new SimpleDateFormat("yyyy-MM-dd");
+        dob = dateFormat.parse(dobField.getText());
+
+        // Create a new User object (userId is generated automatically)
+        User user = new User(email, username, password, dob);
+
+        // Sign up the user using the service
+        userServices.signUp(user);
+
+        JOptionPane.showMessageDialog(this, "Sign up successful!");
+        dispose(); // Close the signup window
+    } catch (ParseException e) {
+        JOptionPane.showMessageDialog(this, "Invalid date format. Please use YYYY-MM-DD.");
+    } catch (IllegalArgumentException e) {
+        JOptionPane.showMessageDialog(this, e.getMessage());
     }
+}
+
 }
