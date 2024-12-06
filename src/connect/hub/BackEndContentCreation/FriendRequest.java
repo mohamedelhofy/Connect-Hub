@@ -14,14 +14,14 @@ import javax.swing.JOptionPane;
  *
  * @author Lenovo
  */
-public class FriendRequestManager { 
+public class FriendRequest{ 
     private String senderId;
     private String receiverId;
     private String requestStatus;  // Pending/Accepted/Blocked
     private ArrayList<Map<String, String>> friendRequestsList;
      
     
-    public FriendRequestManager(String senderId, String reveiverId){
+    public FriendRequest(String senderId, String reveiverId){
         this.senderId = senderId;
         this.receiverId = reveiverId;
     }

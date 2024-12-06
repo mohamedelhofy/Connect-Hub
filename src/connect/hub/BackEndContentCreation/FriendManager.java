@@ -22,12 +22,12 @@ public class FriendManager { // handles friend requests
     }
     
     public static void sendFriendRequest(String senderId, String receiverId){
-        FriendRequestManager friendRequestManager = new FriendRequestManager(senderId, receiverId);
+        FriendRequest friendRequestManager = new FriendRequest(senderId, receiverId);
         friendRequestManager.send();
     }
 
     public static void respondToFriendRequest(String senderId, String receiverId, String response){
-        FriendRequestManager friendRequestManager = new FriendRequestManager(senderId, receiverId);
+        FriendRequest friendRequestManager = new FriendRequest(senderId, receiverId);
         friendRequestManager.respond(response);
     }
 
