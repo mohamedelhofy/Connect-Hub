@@ -23,6 +23,7 @@ public class ProfileManagementPage extends JFrame {
         setSize(400, 300);
         setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         setLayout(null);
+        
 
         JLabel bioLabel = new JLabel("Bio:");
         bioLabel.setBounds(20, 20, 100, 20);
