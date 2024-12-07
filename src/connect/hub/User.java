@@ -17,8 +17,11 @@ import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
 
+import java.util.Date;
+
 public class User {
     private static User instance;
+    private static int idCounter = 1; // Static counter for unique IDs
     private String userId;
     private String email;
     private String username;
@@ -36,13 +39,19 @@ public class User {
         return instance;
     }
 
-    public User(String email, String username,  String hashedPassword,Date DOB) {
+    // Constructor to create a new user and assign a unique ID
+    public User(String userId , String email, String username, String hashedPassword, Date DOB) {
+        this.userId = generateUniqueId();
         this.email = email;
         this.username = username;
         this.DOB = DOB;
         this.hashedPassword = hashedPassword;
-        instance = new User();
-        instance.initialize(userId, email, username, hashedPassword, DOB);
+        this.status = false; // Default status to offline
+    }
+
+    // Static method to generate unique IDs
+    public static String generateUniqueId() {
+        return "User" + (idCounter++); 
     }
 
     public void initialize(String userId, String email, String username, String hashedPassword, Date DOB) {
@@ -54,20 +63,14 @@ public class User {
         this.status = false; 
     }
 
-    public void updateProfile(String email, String username, String bio, String profilePhotoPath, String coverPhotoPath) {
+    public void updateProfile(String email, String username) {
         this.email = email;
         this.username = username;
-        this.hashedPassword =hashedPassword;
-        this.DOB = DOB; 
     }
 
-    // Getters and setters for other fields
+    // Getters and setters
     public String getUserId() {
         return userId;
-    }
-
-    public void setUserId(String userId) {
-        this.userId = userId;
     }
 
     public String getEmail() {
@@ -109,7 +112,4 @@ public class User {
     public void setStatus(boolean status) {
         this.status = status;
     }
-
-
-
 }

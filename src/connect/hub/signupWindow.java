@@ -64,6 +64,8 @@ public class signupWindow extends JFrame {
     String email = emailField.getText();
     String username = usernameField.getText();
     String password = new String(passwordField.getPassword());
+    String userId = User.generateUniqueId();
+
     Date dob;
 
     try {
@@ -72,7 +74,7 @@ public class signupWindow extends JFrame {
         dob = dateFormat.parse(dobField.getText());
 
         // Create a new User object (userId is generated automatically)
-        User user = new User(email, username, password, dob);
+        User user = new User(userId , email, username, password, dob);
 
         // Sign up the user using the service
         userServices.signUp(user);
