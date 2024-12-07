@@ -21,12 +21,12 @@ public class ConnectHub {
      * @param args the command line arguments
      */
     public static void main(String[] args) throws org.json.JSONException {
-        UserDataActions userDataActions = new FileDataActions();
-        Hashing passwordHasher = new Hashing();
-        UserServices userServices = new UserServices(userDataActions, passwordHasher);
-        LoginWindow loginWindow = new LoginWindow(userServices);
-        loginWindow.setVisible(true);  
-            //new NewsfeedPage().setVisible(true);
+//        UserDataActions userDataActions = new FileDataActions();
+//        Hashing passwordHasher = new Hashing();
+//        UserServices userServices = new UserServices(userDataActions, passwordHasher);
+//        LoginWindow loginWindow = new LoginWindow(userServices);
+//        loginWindow.setVisible(true);  
+            new NewsfeedPage().setVisible(true);
 }
     
 }

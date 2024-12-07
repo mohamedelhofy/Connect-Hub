@@ -4,6 +4,8 @@
  */
 package connect.hub;
 
+import connect.hub.FrontEndContentCreation.NewPostGUI;
+import connect.hub.FrontEndContentCreation.NewStoryGUI;
 import connect.hub.FrontEndContentCreation.PostScrollingPage;
 import connect.hub.FrontEndContentCreation.StoryScrollingPage;
 import java.awt.BorderLayout;
@@ -26,7 +28,7 @@ public class NewsfeedPage extends JFrame {
     private JPanel headerPanel;
     private JPanel mainPanel;
     private CardLayout cardLayout;
-
+    private User user=User.getInstance();
     public NewsfeedPage() {
         setTitle("Newsfeed Page");
         setSize(800, 600);
@@ -62,6 +64,26 @@ public class NewsfeedPage extends JFrame {
             }
         });
         this.add(StoriesButton);
+        JButton newpostsButton = new JButton("New posts");
+        newpostsButton.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                dispose();
+                NewPostGUI newPostFrame = new NewPostGUI(user.getUserId());
+                newPostFrame.newPostFrame();
+            }
+        });
+        this.add(newpostsButton);  
+        JButton newstorysButton = new JButton("New stroy");
+        newstorysButton.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                dispose();
+                NewStoryGUI newstoryFrame = new NewStoryGUI(user.getUserId());
+                newstoryFrame.newStoryFrame();
+            }
+        });
+        this.add(newstorysButton);
 //        headerPanel.add(new JLabel("Newsfeed"));
 //        headerPanel.add(new JButton("Home"));
 //        headerPanel.add(new JButton("Posts"));

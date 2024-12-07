@@ -5,12 +5,15 @@
 package connect.hub.FrontEndContentCreation;
 
 import connect.hub.BackEndContentCreation.*;
+import connect.hub.NewsfeedPage;
 import java.awt.BorderLayout;
 import java.awt.Color;
 import java.awt.Dimension;
 import java.awt.FlowLayout;
 import java.awt.Font;
 import java.awt.Image;
+import java.awt.event.WindowAdapter;
+import java.awt.event.WindowEvent;
 import java.io.File;
 import java.io.IOException;
 import javax.imageio.ImageIO;
@@ -36,7 +39,7 @@ public class NewStoryGUI {
     }
     public  void newStoryFrame() {
         JFrame frame = new JFrame("Create New Story");
-        frame.setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
+        //frame.setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
         frame.setSize(900, 600); 
         frame.setLayout(new BorderLayout());
          frame.setLocationRelativeTo(null);
@@ -115,12 +118,24 @@ public class NewStoryGUI {
             jsonFile.addStoriesToJSON();
             JOptionPane.showMessageDialog(frame, "Post created successfully!");
             frame.dispose();
+            new NewsfeedPage().setVisible(true);
         });
-        cancelButton.addActionListener(e -> frame.dispose());
+        cancelButton.addActionListener(e -> 
+        {
+            frame.dispose();
+            new NewsfeedPage().setVisible(true);    
+        });
         frame.add(titleBar, BorderLayout.NORTH);
         frame.add(storyPanel, BorderLayout.CENTER);
         frame.add(imagePanel, BorderLayout.WEST);
         frame.add(buttonPanel, BorderLayout.SOUTH);
         frame.setVisible(true);
+        frame.addWindowListener(new WindowAdapter() {
+            @Override
+            public void windowClosing(WindowEvent e) {
+                new NewsfeedPage().setVisible(true);
+                frame.dispose(); 
+            }
+        });
     }
 }

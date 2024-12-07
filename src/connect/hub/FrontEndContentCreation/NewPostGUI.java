@@ -6,12 +6,15 @@ package connect.hub.FrontEndContentCreation;
 
 import connect.hub.BackEndContentCreation.Post;
 import connect.hub.BackEndContentCreation.StoreIntoJSON;
+import connect.hub.NewsfeedPage;
 import java.awt.BorderLayout;
 import java.awt.Color;
 import java.awt.Dimension;
 import java.awt.FlowLayout;
 import java.awt.Font;
 import java.awt.Image;
+import java.awt.event.WindowAdapter;
+import java.awt.event.WindowEvent;
 import java.io.File;
 import java.io.IOException;
 import javax.imageio.ImageIO;
@@ -37,7 +40,7 @@ public class NewPostGUI {
     
     public void newPostFrame(){
         JFrame frame = new JFrame("Create New Post");
-        frame.setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
+//        frame.setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
         frame.setSize(900, 600); 
         frame.setLocationRelativeTo(null);
         frame.setLayout(new BorderLayout());
@@ -115,10 +118,22 @@ public class NewPostGUI {
             jsonFile.addPostsToJSON();
             JOptionPane.showMessageDialog(frame, "Post created successfully!");
             frame.dispose();
+            new NewsfeedPage().setVisible(true); 
         });
          //  here we need to back to the newsFeed
-        cancelButton.addActionListener(e -> frame.dispose());
-
+        cancelButton.addActionListener(e -> 
+        {
+            frame.dispose();
+            new NewsfeedPage().setVisible(true);    
+        });
+        
+        frame.addWindowListener(new WindowAdapter() {
+            @Override
+            public void windowClosing(WindowEvent e) {
+                new NewsfeedPage().setVisible(true);
+                frame.dispose(); 
+            }
+        });
         // Add components to the frame
         frame.add(titleBar, BorderLayout.NORTH);
         frame.add(textPanel, BorderLayout.CENTER);

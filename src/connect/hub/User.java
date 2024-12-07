@@ -29,18 +29,18 @@ public class User {
     private User() {
     }
 
-    public User(String email, String username, String hashedPassword, Date DOB) {
-        this.email = email;
-        this.username = username;
-        this.DOB = DOB;
-        this.hashedPassword = hashedPassword;
-    }
-
     public static User getInstance() {
         if (instance == null) {
             instance = new User();
         }
         return instance;
+    }
+
+    public User(String email, String username,  String hashedPassword,Date DOB) {
+        this.email = email;
+        this.username = username;
+        this.DOB = DOB;
+        this.hashedPassword = hashedPassword;
     }
 
     public void initialize(String userId, String email, String username, String hashedPassword, Date DOB) {
