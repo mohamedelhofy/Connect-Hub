@@ -69,18 +69,15 @@ public class signupWindow extends JFrame {
     Date dob;
 
     try {
-        // Parse the date from the dobField
         SimpleDateFormat dateFormat = new SimpleDateFormat("yyyy-MM-dd");
         dob = dateFormat.parse(dobField.getText());
 
-        // Create a new User object (userId is generated automatically)
         User user = new User(userId , email, username, password, dob);
 
-        // Sign up the user using the service
         userServices.signUp(user);
 
         JOptionPane.showMessageDialog(this, "Sign up successful!");
-        dispose(); // Close the signup window
+        dispose(); 
     } catch (ParseException e) {
         JOptionPane.showMessageDialog(this, "Invalid date format. Please use YYYY-MM-DD.");
     } catch (IllegalArgumentException e) {

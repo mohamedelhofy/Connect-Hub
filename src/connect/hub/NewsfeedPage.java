@@ -10,6 +10,7 @@ import connect.hub.FrontEndContentCreation.PostScrollingPage;
 import connect.hub.FrontEndContentCreation.StoryScrollingPage;
 import java.awt.BorderLayout;
 import java.awt.CardLayout;
+import java.awt.Color;
 import java.awt.FlowLayout;
 import java.awt.GridLayout;
 import java.awt.event.ActionEvent;
@@ -17,55 +18,55 @@ import java.awt.event.ActionListener;
 import javax.swing.JButton;
 import javax.swing.JFrame;
 import javax.swing.JLabel;
+import javax.swing.JOptionPane;
 import javax.swing.JPanel;
 
 /**
  *
  * @author rawan
  */
- 
+import javax.swing.*;
+import java.awt.*;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
+
 public class NewsfeedPage extends JFrame {
-    private JPanel headerPanel;
     private JPanel mainPanel;
     private CardLayout cardLayout;
-    private User user=User.getInstance();
+    private User user = User.getInstance();
+
     public NewsfeedPage() {
         setTitle("Newsfeed Page");
-        setSize(800, 600);
+        setSize(900, 600);
         setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         setLocationRelativeTo(null);
-        setLayout(new GridLayout(2, 2));
-        JButton homeButton = new JButton("Home");
-        homeButton.addActionListener(new ActionListener() {
+        setLayout(new GridLayout(2, 2)); 
+
+       
+        JButton postsButton = new JButton("Posts");
+        postsButton.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
                 dispose();
-                new NewsfeedPage().setVisible(true);
+                PostScrollingPage postScrollingPage = new PostScrollingPage();
+                postScrollingPage.createAndShowGUI();
             }
         });
-        this.add(homeButton);
-        JButton PostsButton = new JButton("Posts");
-        PostsButton.addActionListener(new ActionListener() {
+        this.add(postsButton);
+
+        JButton storiesButton = new JButton("Stories");
+        storiesButton.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
                 dispose();
-                PostScrollingPage postscrollingPage =new PostScrollingPage();
-                postscrollingPage.createAndShowGUI();
+                StoryScrollingPage storyScrollingPage = new StoryScrollingPage();
+                storyScrollingPage.createAndShowGUI();
             }
         });
-        this.add(PostsButton);
-        JButton StoriesButton = new JButton("Stories");
-        StoriesButton.addActionListener(new ActionListener() {
-            @Override
-            public void actionPerformed(ActionEvent e) {
-                dispose();
-                StoryScrollingPage storyscrollingpage =new StoryScrollingPage();
-                storyscrollingpage.createAndShowGUI();
-            }
-        });
-        this.add(StoriesButton);
-        JButton newpostsButton = new JButton("New posts");
-        newpostsButton.addActionListener(new ActionListener() {
+        this.add(storiesButton);
+
+        JButton newPostsButton = new JButton("New Posts");
+        newPostsButton.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
                 dispose();
@@ -73,41 +74,34 @@ public class NewsfeedPage extends JFrame {
                 newPostFrame.newPostFrame();
             }
         });
-        this.add(newpostsButton);  
-        JButton newstorysButton = new JButton("New stroy");
-        newstorysButton.addActionListener(new ActionListener() {
+        this.add(newPostsButton);
+
+        JButton newStoryButton = new JButton("New Story");
+        newStoryButton.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
                 dispose();
-                NewStoryGUI newstoryFrame = new NewStoryGUI(user.getUserId());
-                newstoryFrame.newStoryFrame();
+                NewStoryGUI newStoryFrame = new NewStoryGUI(user.getUserId());
+                newStoryFrame.newStoryFrame();
             }
         });
-        this.add(newstorysButton);
+        this.add(newStoryButton);
+
         JButton profileButton = new JButton("Profile");
         profileButton.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
                 dispose();
-                new profileGui().setVisible(true);    
+                new ProfileManagementPage().setVisible(true);
             }
         });
         this.add(profileButton);
-//        headerPanel.add(new JLabel("Newsfeed"));
-//        headerPanel.add(new JButton("Home"));
-//        headerPanel.add(new JButton("Posts"));
-//        headerPanel.add(new JButton("Stories"));
-//        headerPanel.add(new JButton("Friends"));
-//        headerPanel.add(new JButton("Suggestions"));
-//        headerPanel.add(new JButton("logout"));
 
-        // Create main panel 
-
-    }
-
- 
-
+        /////////////// backend of logout (friendmanagement)
+        JButton logoutButton = new JButton("Log Out");
+        logoutButton.setBackground(Color.RED);
+        logoutButton.setForeground(Color.WHITE);
+        this.add(logoutButton);     }
 
 
 }
-

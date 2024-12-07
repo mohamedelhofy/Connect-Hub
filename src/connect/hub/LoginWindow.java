@@ -40,6 +40,9 @@ public class LoginWindow extends JFrame {
     private JTextField emailField;
     private JPasswordField passwordField;
     private JButton loginButton;
+///// empty constructor for login in newsfeed
+    public LoginWindow() {
+    }
     private JButton signUpButton;
     private UserServices userServices;
     private User currentUser;
