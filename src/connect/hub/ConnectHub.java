@@ -26,8 +26,8 @@ public class ConnectHub {
 //        UserServices userServices = new UserServices(userDataActions, passwordHasher);
 //        LoginWindow loginWindow = new LoginWindow(userServices);
 //        loginWindow.setVisible(true);  
-//            new NewsfeedPage().setVisible(true);
-//            new profileGui().setVisible(true);
+            new NewsfeedPage().setVisible(true);
+         //   new profileGui().setVisible(true);
 }
     
 }

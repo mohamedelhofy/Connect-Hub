@@ -30,20 +30,54 @@ import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 
+
+
 public class NewsfeedPage extends JFrame {
     private JPanel mainPanel;
     private CardLayout cardLayout;
     private User user = User.getInstance();
 
-    public NewsfeedPage() {
+         public NewsfeedPage() {
+        // Frame settings
         setTitle("Newsfeed Page");
-        setSize(900, 600);
+        setSize(1000, 700);  // Larger window for better space
         setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         setLocationRelativeTo(null);
-        setLayout(new GridLayout(2, 2)); 
+        setLayout(new BorderLayout(10, 10)); // Margin for neatness
 
-       
+        // Header Panel - Title and Log Out button
+        JPanel headerPanel = new JPanel(new BorderLayout());
+        headerPanel.setBackground(new Color(36, 48, 69)); // Dark Blue Header
+
+        JLabel titleLabel = new JLabel("Newsfeed", JLabel.CENTER);
+        titleLabel.setForeground(Color.WHITE);
+        titleLabel.setFont(new Font("Arial", Font.BOLD, 24));
+        headerPanel.add(titleLabel, BorderLayout.CENTER);
+
+        // Log Out Button
+        JButton logoutButton = new JButton("Log Out");
+        logoutButton.setBackground(Color.RED);
+        logoutButton.setForeground(Color.WHITE);
+        logoutButton.setPreferredSize(new Dimension(100, 40));
+        
+        /////////////////to friend //////////////////
+//        logoutButton.addActionListener(new ActionListener() {
+//            @Override
+//          
+//        });
+        headerPanel.add(logoutButton, BorderLayout.EAST);
+
+        add(headerPanel, BorderLayout.NORTH);
+
+        // Sidebar Panel for navigation
+        JPanel sidebarPanel = new JPanel();
+        sidebarPanel.setLayout(new GridLayout(6, 1, 10, 10));  
+        sidebarPanel.setBackground(new Color(240, 240, 240)); 
+        sidebarPanel.setBorder(BorderFactory.createEmptyBorder(10, 10, 10, 10));
+
+        //  Buttons to differnt windows
         JButton postsButton = new JButton("Posts");
+        postsButton.setPreferredSize(new Dimension(200, 50));
         postsButton.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
@@ -52,9 +86,10 @@ public class NewsfeedPage extends JFrame {
                 postScrollingPage.createAndShowGUI();
             }
         });
-        this.add(postsButton);
+        sidebarPanel.add(postsButton);
 
         JButton storiesButton = new JButton("Stories");
+        storiesButton.setPreferredSize(new Dimension(200, 50));
         storiesButton.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
@@ -63,9 +98,10 @@ public class NewsfeedPage extends JFrame {
                 storyScrollingPage.createAndShowGUI();
             }
         });
-        this.add(storiesButton);
+        sidebarPanel.add(storiesButton);
 
-        JButton newPostsButton = new JButton("New Posts");
+        JButton newPostsButton = new JButton("New Post");
+        newPostsButton.setPreferredSize(new Dimension(200, 50));
         newPostsButton.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
@@ -74,9 +110,10 @@ public class NewsfeedPage extends JFrame {
                 newPostFrame.newPostFrame();
             }
         });
-        this.add(newPostsButton);
+        sidebarPanel.add(newPostsButton);
 
         JButton newStoryButton = new JButton("New Story");
+        newStoryButton.setPreferredSize(new Dimension(200, 50));
         newStoryButton.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
@@ -85,9 +122,10 @@ public class NewsfeedPage extends JFrame {
                 newStoryFrame.newStoryFrame();
             }
         });
-        this.add(newStoryButton);
+        sidebarPanel.add(newStoryButton);
 
         JButton profileButton = new JButton("Profile");
+        profileButton.setPreferredSize(new Dimension(200, 50));
         profileButton.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
@@ -95,13 +133,35 @@ public class NewsfeedPage extends JFrame {
                 new ProfileManagementPage().setVisible(true);
             }
         });
-        this.add(profileButton);
+        sidebarPanel.add(profileButton);
 
-        /////////////// backend of logout (friendmanagement)
-        JButton logoutButton = new JButton("Log Out");
-        logoutButton.setBackground(Color.RED);
-        logoutButton.setForeground(Color.WHITE);
-        this.add(logoutButton);     }
+        sidebarPanel.add(logoutButton); // Add the logout button 
+        add(sidebarPanel, BorderLayout.WEST);
 
+        // Main Area 
+        mainPanel = new JPanel();
+        cardLayout = new CardLayout();
+        mainPanel.setLayout(cardLayout);
 
+        JPanel newsfeedPanel = new JPanel();
+        newsfeedPanel.setLayout(new BorderLayout());
+        JLabel newsfeedLabel = new JLabel("Welcome to connect HUB !", JLabel.CENTER);
+        newsfeedLabel.setFont(new Font("Arial", Font.PLAIN, 20));
+        newsfeedPanel.add(newsfeedLabel, BorderLayout.CENTER);
+        mainPanel.add(newsfeedPanel, "Newsfeed");
+
+        add(mainPanel, BorderLayout.CENTER);
+
+        // Set the default panel to Newsfeed
+        cardLayout.show(mainPanel, "Newsfeed");
+    }
+
+   // public static void main(String[] args) {
+// 
+////    SwingUtilities.invokeLater(() -> {
+//        NewsfeedPage newsfeedPage = new NewsfeedPage();
+//        newsfeedPage.setVisible(true);
+////        });
+//    }
 }
+

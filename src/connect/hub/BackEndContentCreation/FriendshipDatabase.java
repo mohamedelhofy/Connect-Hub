@@ -63,15 +63,14 @@ public class FriendshipDatabase {
                 for (int i = 0; i < jsonArray.length(); i++) {
                     JSONObject jsonObject = jsonArray.getJSONObject(i);
                     String userIdRecieved = jsonObject.getString("userId");
-
                     String email = jsonObject.getString("email");
                     String username = jsonObject.getString("username");
                     String password = jsonObject.getString("password");
                     boolean statusUser = jsonObject.getBoolean("isOnline");
                     Date dateOfBirth = Date.from(LocalDate.now().atStartOfDay(ZoneId.systemDefault()).toInstant());
                     
-                    User user = new User(email, username, password, dateOfBirth);
-                    user.setUserId(userIdRecieved);
+                    User user = new User(userIdRecieved , email, username, password, dateOfBirth);
+//                    user.setUserId(userIdRecieved);
                     user.setStatus(statusUser);
                     
                     
