@@ -84,6 +84,15 @@ public class NewsfeedPage extends JFrame {
             }
         });
         this.add(newstorysButton);
+        JButton profileButton = new JButton("Profile");
+        profileButton.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                dispose();
+                new profileGui().setVisible(true);    
+            }
+        });
+        this.add(profileButton);
 //        headerPanel.add(new JLabel("Newsfeed"));
 //        headerPanel.add(new JButton("Home"));
 //        headerPanel.add(new JButton("Posts"));

@@ -4,6 +4,8 @@
  */
 package connect.hub;
 
+import java.awt.event.WindowAdapter;
+import java.awt.event.WindowEvent;
 import javax.swing.JButton;
 import javax.swing.JFrame;
 import javax.swing.JLabel;
@@ -23,7 +25,14 @@ public class ChangePass extends JFrame {
     public ChangePass() {
         setTitle("Profile Management");
         setSize(500, 150);
-        setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+//        setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+        addWindowListener(new WindowAdapter() {
+            @Override
+            public void windowClosing(WindowEvent e) {
+                new profileGui().setVisible(true);
+                dispose(); 
+            }
+        });
         setLayout(null);
         setLocationRelativeTo(null);
         JLabel passLabel = new JLabel("new password:");
@@ -40,6 +49,8 @@ public class ChangePass extends JFrame {
            } catch (NoSuchAlgorithmException ex) {
                Logger.getLogger(ChangePass.class.getName()).log(Level.SEVERE, null, ex);
            }
+           new profileGui().setVisible(true);
+                dispose(); 
         });
         add(saveButton);
     }

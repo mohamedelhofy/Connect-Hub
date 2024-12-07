@@ -11,6 +11,8 @@ package connect.hub;
 import javax.swing.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.awt.event.WindowAdapter;
+import java.awt.event.WindowEvent;
 import java.io.File;
 import java.util.Map;
 
@@ -27,7 +29,7 @@ public class ProfileManagementPage extends JFrame {
     public ProfileManagementPage() {
         setTitle("Profile Management");
         setSize(500, 300);
-        setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+//        setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         setLayout(null);
         setLocationRelativeTo(null);
 
@@ -108,8 +110,17 @@ public class ProfileManagementPage extends JFrame {
         saveButton.addActionListener(e ->  {
             userProfile.put("bio",bioField.getText() );
             dataProfile.setData(userProfile);
+            new profileGui().setVisible(true);
+            dispose();
         });
         add(saveButton);
+        addWindowListener(new WindowAdapter() {
+            @Override
+            public void windowClosing(WindowEvent e) {
+                new profileGui().setVisible(true);
+                dispose(); 
+            }
+        });
     }
 }
 

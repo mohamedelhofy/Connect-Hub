@@ -41,6 +41,8 @@ public class User {
         this.username = username;
         this.DOB = DOB;
         this.hashedPassword = hashedPassword;
+        instance = new User();
+        instance.initialize(userId, email, username, hashedPassword, DOB);
     }
 
     public void initialize(String userId, String email, String username, String hashedPassword, Date DOB) {
