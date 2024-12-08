@@ -1,0 +1,90 @@
+[
+    {
+        "password": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+        "dateOfBirth": "2003-01-16\n",
+        "isOnline": false,
+        "userId": "User1",
+        "email": "rawan@gamil.com",
+        "username": "rawan"
+    },
+    {
+        "password": "12345\n\n",
+        "dateOfBirth": "1990-01-01\n",
+        "isOnline": false,
+        "userId": "User2",
+        "email": "user1@example.com\n\n",
+        "username": "user1\n\n"
+    },
+    {
+        "password": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855\n\n",
+        "dateOfBirth": "2024-12-06\n",
+        "isOnline": false,
+        "userId": "User3",
+        "email": "user4@example.com\n\n",
+        "username": "user4\n\n"
+    },
+    {
+        "password": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+        "dateOfBirth": "2004-09-15\n",
+        "isOnline": true,
+        "userId": "User4",
+        "email": "alhofymohamed@gmail.com",
+        "username": "elhofy"
+    },
+    {
+        "password": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+        "dateOfBirth": "2024-12-06\n",
+        "isOnline": false,
+        "userId": "User5",
+        "email": "user7@example.com",
+        "username": "user7"
+    },
+    {
+        "password": "6b3a55e0261b0304143f805a249d8c9d4b9c8f5b4c8a5f5b4c8a5f5b4c8a5f5b\n\n",
+        "dateOfBirth": "1992-02-02\n",
+        "isOnline": false,
+        "userId": "User6",
+        "email": "user2@example.com\n\n",
+        "username": "user2\n\n"
+    },
+    {
+        "password": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+        "dateOfBirth": "2004-09-15\n",
+        "isOnline": false,
+        "userId": "User7",
+        "email": "alhofymohamed2004@gmail.com",
+        "username": "elhofy"
+    },
+    {
+        "password": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855\n\n",
+        "dateOfBirth": "2024-12-06\n",
+        "isOnline": false,
+        "userId": "User8",
+        "email": "user5@example.com\n\n",
+        "username": "user5\n\n"
+    },
+    {
+        "password": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855\n\n",
+        "dateOfBirth": "2024-12-06\n",
+        "isOnline": false,
+        "userId": "User9",
+        "email": "user3@example.com\n\n",
+        "username": "user3\n\n"
+    },
+    {
+        "password": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855\n",
+        "dateOfBirth": "2024-12-06\n",
+        "isOnline": false,
+        "userId": "User10",
+        "email": "user6@example.com\n",
+        "username": "user6\n"
+    },
+    {
+        "password": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+        "dateOfBirth": "2003-01-16\n",
+        "isOnline": false,
+        "userId": "User11",
+        "email": "elhofy@gmail.com",
+        "username": "mooo"
+    }
+]

@@ -4,7 +4,8 @@
  */
 package connect.hub;
 
-import connect.hub.BackEndContentCreation.checkRequestStatus;
+import connect.hub.FrontEndFriendManagement.FriendStatusWindow;
+
 
 /**
  *
@@ -16,7 +17,11 @@ public class ConnectHub {
      * @param args the command line arguments
      */
     public static void main(String[] args){
-        checkRequestStatus checker = new checkRequestStatus();
-        System.out.println(checker.check("moh", "ss"));
+//        FriendManagementInterface fmi = new FriendManagementInterface();
+//        fmi.showFrame();
+        FriendStatusWindow friendStatusWindow = new FriendStatusWindow();
+        friendStatusWindow.showFrame();
+    
+        
     }
 }

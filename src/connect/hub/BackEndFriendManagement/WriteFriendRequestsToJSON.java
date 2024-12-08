@@ -1,4 +1,4 @@
-package connect.hub.BackEndContentCreation;
+package connect.hub.BackEndFriendManagement;
 
 import org.json.JSONArray;
 import org.json.JSONObject;
@@ -8,8 +8,6 @@ import java.nio.file.Path;
 import java.nio.file.Paths;
 import java.util.ArrayList;
 import java.util.Map;
-import java.util.logging.Level;
-import java.util.logging.Logger;
 import javax.swing.JOptionPane;
 import org.json.JSONException;
 
@@ -33,7 +31,6 @@ public class WriteFriendRequestsToJSON {
         try {
             // Write the JSONArray to the file
             Files.writeString(filePath, jsonArray.toString(4)); // 4 for pretty printing
-            System.out.println("Friend requests successfully written to JSON file.");
         } catch (JSONException ex) {
             JOptionPane.showMessageDialog(null, "Error processing JSON", "Message", JOptionPane.ERROR_MESSAGE);
         }
