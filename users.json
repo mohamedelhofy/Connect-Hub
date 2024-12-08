@@ -42,7 +42,7 @@
     {
         "password": "6b3a55e0261b0304143f805a249d8c9d4b9c8f5b4c8a5f5b4c8a5f5b4c8a5f5b\n\n",
         "dateOfBirth": "1992-02-02\n",
-        "isOnline": true,
+        "isOnline": false,
         "userId": "User6",
         "email": "user2@example.com\n\n",
         "username": "user2\n\n"

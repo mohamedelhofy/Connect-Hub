@@ -111,8 +111,15 @@ public class User {
     }
 
     public void setStatus(boolean status) {
-        instance = new User();
-        instance.initialize(userId, email, username, hashedPassword, DOB);
+        if(status==true){
+            instance = new User();
+            instance.initialize(userId, email, username, hashedPassword, DOB);
+        }
         this.status = status;
     }
+
+    public static void setIdCounter(int idCounter) {
+        User.idCounter = idCounter;
+    }
+    
 }

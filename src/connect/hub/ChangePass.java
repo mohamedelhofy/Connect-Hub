@@ -13,6 +13,7 @@ import javax.swing.JTextField;
 import java.security.NoSuchAlgorithmException;
 import java.util.logging.Level;
 import java.util.logging.Logger;
+import javax.swing.JPasswordField;
 
 /**
  *
@@ -38,7 +39,7 @@ public class ChangePass extends JFrame {
         JLabel passLabel = new JLabel("new password:");
         passLabel.setBounds(20, 30, 100, 20);
         add(passLabel);
-        JTextField passField = new JTextField();
+        JTextField passField = new JPasswordField();
         passField.setBounds(120, 30, 310, 20); 
         add(passField);
         JButton saveButton = new JButton("Save");

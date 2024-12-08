@@ -35,6 +35,9 @@ import java.awt.event.ActionListener;
 import javax.swing.*;
 import java.awt.*;
 import java.awt.event.*;
+import java.util.logging.Level;
+import java.util.logging.Logger;
+import org.json.JSONException;
 
 public class NewsfeedPage extends JFrame {
     private JPanel mainPanel;
@@ -69,7 +72,16 @@ public class NewsfeedPage extends JFrame {
             public void actionPerformed(ActionEvent e) {
                 // Log out functionality
                 JOptionPane.showMessageDialog(NewsfeedPage.this, "You have logged out.");
-                new LoginWindow().setVisible(true);  // Open the login window
+                try {
+                    User.setIdCounter(1);
+                    UserServices userServices = new UserServices();
+                    user.setStatus(false);
+                    userServices.logout(user);
+                    User.setIdCounter(1);
+                    new LoginWindow(userServices).setVisible(true);  // Open the login window
+                } catch (JSONException ex) {
+                    Logger.getLogger(NewsfeedPage.class.getName()).log(Level.SEVERE, null, ex);
+                }
                 dispose();  // Close the current NewsfeedPage
             }
         });
