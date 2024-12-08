@@ -32,18 +32,22 @@ import java.awt.event.ActionListener;
 
 
 
+import javax.swing.*;
+import java.awt.*;
+import java.awt.event.*;
+
 public class NewsfeedPage extends JFrame {
     private JPanel mainPanel;
     private CardLayout cardLayout;
     private User user = User.getInstance();
 
-         public NewsfeedPage() {
+    public NewsfeedPage() {
         // Frame settings
         setTitle("Newsfeed Page");
-        setSize(1000, 700);  // Larger window for better space
+        setSize(1000, 700);  
         setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         setLocationRelativeTo(null);
-        setLayout(new BorderLayout(10, 10)); // Margin for neatness
+        setLayout(new BorderLayout(10, 10)); 
 
         // Header Panel - Title and Log Out button
         JPanel headerPanel = new JPanel(new BorderLayout());
@@ -59,14 +63,18 @@ public class NewsfeedPage extends JFrame {
         logoutButton.setBackground(Color.RED);
         logoutButton.setForeground(Color.WHITE);
         logoutButton.setPreferredSize(new Dimension(100, 40));
-        
-        /////////////////to friend //////////////////
-//        logoutButton.addActionListener(new ActionListener() {
-//            @Override
-//          
-//        });
-        headerPanel.add(logoutButton, BorderLayout.EAST);
 
+        logoutButton.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                // Log out functionality
+                JOptionPane.showMessageDialog(NewsfeedPage.this, "You have logged out.");
+                new LoginWindow().setVisible(true);  // Open the login window
+                dispose();  // Close the current NewsfeedPage
+            }
+        });
+
+        headerPanel.add(logoutButton, BorderLayout.EAST);
         add(headerPanel, BorderLayout.NORTH);
 
         // Sidebar Panel for navigation
@@ -75,7 +83,7 @@ public class NewsfeedPage extends JFrame {
         sidebarPanel.setBackground(new Color(240, 240, 240)); 
         sidebarPanel.setBorder(BorderFactory.createEmptyBorder(10, 10, 10, 10));
 
-        //  Buttons to differnt windows
+        //  Buttons to different windows
         JButton postsButton = new JButton("Posts");
         postsButton.setPreferredSize(new Dimension(200, 50));
         postsButton.addActionListener(new ActionListener() {
@@ -111,7 +119,6 @@ public class NewsfeedPage extends JFrame {
             }
         });
         sidebarPanel.add(newPostsButton);
-
         JButton newStoryButton = new JButton("New Story");
         newStoryButton.setPreferredSize(new Dimension(200, 50));
         newStoryButton.addActionListener(new ActionListener() {
@@ -130,12 +137,28 @@ public class NewsfeedPage extends JFrame {
             @Override
             public void actionPerformed(ActionEvent e) {
                 dispose();
-                new profileGui().setVisible(true);
+                new profileGui().setVisible(true);  // Open Profile page
             }
         });
         sidebarPanel.add(profileButton);
 
-        sidebarPanel.add(logoutButton); // Add the logout button 
+        // Friends button functionality  temporarily opens profile page
+        JButton friendsButton = new JButton("Friends");
+        friendsButton.setBackground(new Color(36, 48, 69));  
+        friendsButton.setForeground(Color.WHITE);
+        friendsButton.setPreferredSize(new Dimension(200, 50));
+        friendsButton.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                dispose();
+                new profileGui().setVisible(true);  // Temporarily opening profile page
+            }
+        });
+        
+        sidebarPanel.add(friendsButton);  
+
+        sidebarPanel.add(logoutButton); 
+
         add(sidebarPanel, BorderLayout.WEST);
 
         // Main Area 
@@ -145,7 +168,7 @@ public class NewsfeedPage extends JFrame {
 
         JPanel newsfeedPanel = new JPanel();
         newsfeedPanel.setLayout(new BorderLayout());
-        JLabel newsfeedLabel = new JLabel("Welcome to connect HUB !", JLabel.CENTER);
+        JLabel newsfeedLabel = new JLabel("Welcome to Connect HUB!", JLabel.CENTER);
         newsfeedLabel.setFont(new Font("Arial", Font.PLAIN, 20));
         newsfeedPanel.add(newsfeedLabel, BorderLayout.CENTER);
         mainPanel.add(newsfeedPanel, "Newsfeed");
@@ -156,12 +179,10 @@ public class NewsfeedPage extends JFrame {
         cardLayout.show(mainPanel, "Newsfeed");
     }
 
-   // public static void main(String[] args) {
-// 
-////    SwingUtilities.invokeLater(() -> {
-//        NewsfeedPage newsfeedPage = new NewsfeedPage();
-//        newsfeedPage.setVisible(true);
-////        });
+//    public static void main(String[] args) {
+//        SwingUtilities.invokeLater(() -> {
+//            NewsfeedPage newsfeedPage = new NewsfeedPage();
+//            newsfeedPage.setVisible(true);
+//        });
 //    }
 }
-
