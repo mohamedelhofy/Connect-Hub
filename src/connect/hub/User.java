@@ -33,9 +33,9 @@ public class User {
     }
 
     public static User getInstance() {
-        if (instance == null) {
-            instance = new User();
-        }
+//        if (instance == null) {
+//            instance = new User();
+//        }
         return instance;
     }
 
@@ -46,6 +46,7 @@ public class User {
         this.username = username;
         this.DOB = DOB;
         this.hashedPassword = hashedPassword;
+
         this.status = false; // Default status to offline
     }
 
@@ -110,6 +111,8 @@ public class User {
     }
 
     public void setStatus(boolean status) {
+        instance = new User();
+        instance.initialize(userId, email, username, hashedPassword, DOB);
         this.status = status;
     }
 }

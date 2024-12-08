@@ -14,6 +14,7 @@ import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import java.util.Date;
 import java.util.HashMap;
+import java.util.LinkedHashMap;
 import java.util.Map;
 import java.util.logging.Level;
 import java.util.logging.Logger;
@@ -34,11 +35,12 @@ public class FileDataActions implements UserDataActions {
     public UserServices getUserService() {
         return userService;
     }
-    private Map<String, User> users = new HashMap<>();
+    private LinkedHashMap<String, User> users = new LinkedHashMap<>();
     private static final String FILE_PATH = "users.json";
-    private UserServices userService = new UserServices();
+    private UserServices userService ;
 
-    public FileDataActions() throws JSONException {
+    public FileDataActions(UserServices userService) throws JSONException {
+        this.userService=userService;
         loadUsers();
     }
 
@@ -112,7 +114,7 @@ public class FileDataActions implements UserDataActions {
         JSONArray jsonArray = new JSONArray();
         for (User user : users.values()) {
             JSONObject jsonObject = new JSONObject();
-             jsonObject.put("userId", user.getEmail() );
+             jsonObject.put("userId", user.getUserId() );
 
             jsonObject.put("email", user.getEmail() );
             

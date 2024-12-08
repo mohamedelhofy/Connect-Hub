@@ -130,7 +130,7 @@ public class NewsfeedPage extends JFrame {
             @Override
             public void actionPerformed(ActionEvent e) {
                 dispose();
-                new ProfileManagementPage().setVisible(true);
+                new profileGui().setVisible(true);
             }
         });
         sidebarPanel.add(profileButton);

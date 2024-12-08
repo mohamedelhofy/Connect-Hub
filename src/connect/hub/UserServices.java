@@ -8,6 +8,7 @@ import java.security.NoSuchAlgorithmException;
 import java.text.SimpleDateFormat;
 import java.util.logging.Level;
 import java.util.logging.Logger;
+import org.json.JSONException;
 import org.json.JSONObject;
 
 /**
@@ -16,16 +17,15 @@ import org.json.JSONObject;
  */
 
 public class UserServices implements Services {
-    private UserDataActions userDataActions;
+    private UserDataActions userDataActions;;
     private Hashing passwordHasher = new Hashing();
 
-    public UserServices(UserDataActions userDataActions, Hashing passwordHasher) {
-        this.userDataActions = userDataActions;
-        this.passwordHasher = passwordHasher;
+    public UserServices() throws JSONException {
+        this.userDataActions = new FileDataActions(this);
+
     }
 
-    public UserServices() {
-    }
+
 
     @Override
     public void signUp(User user) {
