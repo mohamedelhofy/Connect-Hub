@@ -50,7 +50,7 @@
     {
         "password": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
         "dateOfBirth": "2004-09-15\n",
-        "isOnline": false,
+        "isOnline": true,
         "userId": "User7",
         "email": "alhofymohamed2004@gmail.com",
         "username": "elhofy"
