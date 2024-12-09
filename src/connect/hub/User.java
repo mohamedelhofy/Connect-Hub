@@ -47,7 +47,7 @@ public class User {
         this.DOB = DOB;
         this.hashedPassword = hashedPassword;
 
-        this.status = false; // Default status to offline
+        this.status = false; // Default status to offline 
     }
 
     // Static method to generate unique IDs

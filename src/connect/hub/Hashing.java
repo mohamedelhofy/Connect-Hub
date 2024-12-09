@@ -12,34 +12,37 @@ import java.util.Locale;
  *
  * @author rawan
  */
-public  class  Hashing {
-    /// hashing the password using ("SHA-256")
-   public  String hash(String password) throws NoSuchAlgorithmException{
-       
-       try{
-       ///1-create instance of SHA-256 ////////////
-       MessageDigest messageDigest = MessageDigest.getInstance("SHA-256");
+import java.security.MessageDigest;
+import java.security.NoSuchAlgorithmException;
+import java.security.SecureRandom;
+import java.util.Base64;
+
+public class Hashing {
+    
+    // Hash the password using SHA-256
+    public String hash(String password) throws NoSuchAlgorithmException {
+        // Create an instance of SHA-256
+        MessageDigest messageDigest = MessageDigest.getInstance("SHA-256");
         
-       ///2-hash//array of digested bytes of password/////
-       byte [] hash = messageDigest.digest();
-       
-       // 3- convert the byte array into hexadeciaml String
-       StringBuilder hexaString = new StringBuilder();
-       
-       // looping on each byte in hash array to add it to hexastring
-       for (byte b : hash){
-           hexaString.append(String.format("%02x" , b));
-       }
-       
-       return hexaString.toString();
-       
-   }
-   catch( NoSuchAlgorithmException e){
-    throw new RuntimeException(e);
+        // Hash the password
+        byte[] hash = messageDigest.digest(password.getBytes());
+        
+        // Convert the byte array into hexadecimal String
+        StringBuilder hexaString = new StringBuilder();
+        for (byte b : hash) {
+            hexaString.append(String.format("%02x", b));
+        }
+        
+        return hexaString.toString();
+    }
+    
+    // Verify the password
+    public boolean verifyPassword(String password, String hashedPassword) throws NoSuchAlgorithmException {
+        // Hash the input password
+        String hashedInputPassword = hash(password);
+        
+        // Compare the hashed input password with the stored hashed password
+        return hashedInputPassword.equals(hashedPassword);
+    }
 }
-   }
-   
-   public boolean verifyPassword(String password , String hashedPasswors){
-       return password.equals(password);
-   }
-}
+
