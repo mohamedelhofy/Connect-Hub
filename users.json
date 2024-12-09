@@ -26,7 +26,7 @@
     {
         "password": "5994471abb01112afcc18159f6cc74b4f511b99806da59b3caf5a9c173cacfc5",
         "dateOfBirth": "2004-09-15\n",
-        "isOnline": true,
+        "isOnline": false,
         "userId": "User4",
         "email": "alhofymohamed@gmail.com",
         "username": "elhofy"
@@ -50,7 +50,7 @@
     {
         "password": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
         "dateOfBirth": "2004-09-15\n",
-        "isOnline": true,
+        "isOnline": false,
         "userId": "User7",
         "email": "alhofymohamed2004@gmail.com",
         "username": "elhofy"
@@ -86,5 +86,14 @@
         "userId": "User11",
         "email": "elhofy@gmail.com",
         "username": "mooo"
+    },
+    
+    {
+        "password": "9af15b336e6a9619928537df30b2e6a2376569fcf9d7e773eccede65606529a0",
+        "dateOfBirth": "0015-02-20\n",
+        "isOnline": true,
+        "userId": "User2",
+        "email": "rawansaleh@yahoo.com",
+        "username": "rooo"
     }
 ]

@@ -74,7 +74,6 @@ public class UserServices implements Services {
         // Log the hashed password and the input password for debugging
 //        System.out.println("Stored Hashed Password: " + user.getHashedPassword());
 //        System.out.println("Input Password: " + password);
-
         // Verify the password
         try {
             if (!passwordHasher.verifyPassword(password, user.getHashedPassword())) {
