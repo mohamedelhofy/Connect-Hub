@@ -1,23 +1,18 @@
 package connect.hub;
 
 
-import java.time.LocalDate;
-import java.util.Date;
+
 
 /*
  * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
  * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Class.java to edit this template
  */
 
-
-
-
 import java.util.Date;
 import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
 
-import java.util.Date;
 
 public class User {
     private static User instance;
@@ -39,15 +34,16 @@ public class User {
         return instance;
     }
 
-    // Constructor to create a new user and assign a unique ID
-    public User(String userId , String email, String username, String hashedPassword, Date DOB) {
+    // Constructor to create a new user and assign a unique ID    
+    public User( boolean status ,String userId , String email, String username, String hashedPassword, Date DOB) {
+        
         this.userId = generateUniqueId();
         this.email = email;
         this.username = username;
         this.DOB = DOB;
         this.hashedPassword = hashedPassword;
-
-        this.status = false; // Default status to offline 
+        this.status = status;  
+        
     }
 
     // Static method to generate unique IDs
@@ -117,7 +113,7 @@ public class User {
         }
         this.status = status;
     }
-
+    
     public static void setIdCounter(int idCounter) {
         User.idCounter = idCounter;
     }
