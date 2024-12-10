@@ -4,6 +4,7 @@
  */
 package connect.hub.BackEndFriendManagement;
 
+import connect.hub.User;
 import java.io.IOException;
 import java.nio.file.Files;
 import java.nio.file.Path;
@@ -30,18 +31,22 @@ public class FriendshipDatabase {
     private ArrayList<User> pendingList;
     
     public ArrayList<User> getFriendList() {
+        updateFriendshipLists();
         return this.friendsList;
     }
 
     public ArrayList<User> getBlockedList() {
+        updateFriendshipLists();
         return this.blockedList;
     }
 
     public ArrayList<User> getSuggestedList() {
+        updateFriendshipLists();
         return this.suggestedList;
     }
 
     public ArrayList<User> getPendingList() {
+        updateFriendshipLists();
         return this.pendingList;
     }
 
@@ -53,7 +58,7 @@ public class FriendshipDatabase {
         this.pendingList = new ArrayList<>();
     }
 
-    public void updateFriendshipLists() {
+    private void updateFriendshipLists() {
         Path filePath = Paths.get("users.Json");
 
         if (Files.exists(filePath)) {
@@ -70,13 +75,8 @@ public class FriendshipDatabase {
                         String password = jsonObject.getString("password");
                         boolean statusUser = jsonObject.getBoolean("isOnline");
                         Date dateOfBirth = Date.from(LocalDate.now().atStartOfDay(ZoneId.systemDefault()).toInstant());
-                        User user = new User();
-                        user.setUserId(jsonUserId);
-                        user.setEmail(email);
-                        user.setUsername(username);
-                        user.setHashedPassword(password);
+                        User user = new User(jsonUserId , email, username, password, dateOfBirth);
                         user.setStatus(statusUser);
-                        user.setDOB(dateOfBirth);
 
                         checkRequestStatus friendshipChecker = new checkRequestStatus();
                         String requestStatus = friendshipChecker.check(this.userId, jsonUserId);

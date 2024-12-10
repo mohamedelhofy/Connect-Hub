@@ -4,11 +4,13 @@
  */
 package connect.hub.FrontEndFriendManagement;
 
-import connect.hub.BackEndFriendManagement.User;
+import connect.hub.BackEndFriendManagement.FriendshipDatabase;
+import connect.hub.User;
 import java.util.ArrayList;
 import javax.swing.JFrame;
 import javax.swing.JScrollPane;
 import javax.swing.JTable;
+import javax.swing.border.TitledBorder;
 import javax.swing.table.DefaultTableModel;
 
 /**
@@ -30,32 +32,30 @@ public class FriendStatusWindow extends JFrame{
         this.setLocation(400, 20);
         this.setLayout(null);
         
-    this.tableModel = new DefaultTableModel(new Object[]{"Name", "Status"}, 0) {
-            @Override
-            public boolean isCellEditable(int row, int column) {
-                return false; // Make table cells non-editable
-            }
-        };
-
-
+        FriendshipDatabase friendShip = new FriendshipDatabase("User1"); ///////////////////////////////////////////////////////////
+        this.friendsList = friendShip.getFriendList();
         
-        
-//        FriendShipDatabase friendShip = new FriendShipDatabase(user1.getUserId());
-//        this.friendsList = friendShip.getFriendList();
-        for (User friend : friendsList) {
-            String status;
+        tableModel = new DefaultTableModel(new Object[]{"Username", "Status"}, 0);
+        String status;
+        System.out.println(friendsList);
+        for (User friend : this.friendsList) {
             if(friend.isOnline())
                 status = "Online";
             else
                 status = "Offline";
-            tableModel.addRow(new Object[]{friend.getUsername(), status});
+            String userName = friend.getUsername();
+            System.out.println("test");
+            tableModel.addRow(new Object[]{userName, status});
         }
+        JTable table = new JTable(tableModel);
 
         // Create table and set its model
-        JTable table = new JTable(tableModel);
+        
         JScrollPane scrollPane = new JScrollPane(table);
         scrollPane.setBounds(50, 50, 900, 900);
-
+        TitledBorder titledBorder = new TitledBorder("Friends");
+        scrollPane.setBorder(titledBorder);
         this.add(scrollPane);
+        this.setVisible(true);
     }
 }
