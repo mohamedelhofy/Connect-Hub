@@ -87,13 +87,20 @@
         "email": "elhofy@gmail.com",
         "username": "mooo"
     },
-    
     {
         "password": "9af15b336e6a9619928537df30b2e6a2376569fcf9d7e773eccede65606529a0",
         "dateOfBirth": "0015-02-20\n",
-        "isOnline": true,
-        "userId": "User2",
+        "isOnline": false,
+        "userId": "User12",
         "email": "rawansaleh@yahoo.com",
         "username": "rooo"
+    },
+    {
+        "password": "9552e277ebcc7fa191292c6e900d94dfe6e837d8abf76a2da927d4530d2c8f69",
+        "dateOfBirth": "0014-11-15\n",
+        "isOnline": true,
+        "userId": "User14",
+        "email": "roo@gmail",
+        "username": "roo"
     }
 ]

@@ -65,6 +65,7 @@ public class signupWindow extends JFrame {
     String username = usernameField.getText();
     String password = new String(passwordField.getPassword());
     String userId = User.generateUniqueId();
+    boolean status =  false ;
 
     Date dob;
 
@@ -72,7 +73,7 @@ public class signupWindow extends JFrame {
         SimpleDateFormat dateFormat = new SimpleDateFormat("yyyy-MM-dd");
         dob = dateFormat.parse(dobField.getText());
 
-        User user = new User(userId , email, username, password, dob);
+        User user = new User(status ,userId , email, username, password, dob);
 
         userServices.signUp(user);
 

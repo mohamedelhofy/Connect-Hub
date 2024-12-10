@@ -89,13 +89,15 @@ public class FileDataActions implements UserDataActions {
             for (int i = 0; i < jsonArray.length(); i++) {
                 JSONObject jsonObject = jsonArray.getJSONObject(i);
                 try {
+                    
                     String userId = jsonObject.getString("userId");
                     String email = jsonObject.getString("email");
                     String username = jsonObject.getString("username");
                     String password = jsonObject.getString("password");
-                    Date dateOfBirth = dateFormat.parse(jsonObject.getString("dateOfBirth"));
                     boolean status = jsonObject.getBoolean("isOnline");
-                    User user = new User( userId , email, username, password, dateOfBirth);
+
+                    Date dateOfBirth = dateFormat.parse(jsonObject.getString("dateOfBirth"));
+                    User user = new User( status ,userId , email, username, password, dateOfBirth);
                     
                     user.setStatus(status);
                     users.put(email, user);
@@ -112,10 +114,8 @@ public class FileDataActions implements UserDataActions {
         JSONArray jsonArray = new JSONArray();
         for (User user : users.values()) {
             JSONObject jsonObject = new JSONObject();
-             jsonObject.put("userId", user.getUserId() );
-
+            jsonObject.put("userId", user.getUserId() );
             jsonObject.put("email", user.getEmail() );
-            
             jsonObject.put("username", user.getUsername());
             jsonObject.put("password", user.getHashedPassword());
             jsonObject.put("dateOfBirth", new SimpleDateFormat("yyyy-MM-dd").format(user.getDOB())+ "\n");
@@ -128,5 +128,8 @@ public class FileDataActions implements UserDataActions {
         } catch (IOException e) {
             e.printStackTrace();
         }
+        
+        
+        
     }
 }
