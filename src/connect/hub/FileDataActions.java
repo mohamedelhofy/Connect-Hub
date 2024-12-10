@@ -97,7 +97,7 @@ public class FileDataActions implements UserDataActions {
                     boolean status = jsonObject.getBoolean("isOnline");
 
                     Date dateOfBirth = dateFormat.parse(jsonObject.getString("dateOfBirth"));
-                    User user = new User( status ,userId , email, username, password, dateOfBirth);
+                    User user = new User(userId , email, username, password, dateOfBirth, status);
                     
                     user.setStatus(status);
                     users.put(email, user);

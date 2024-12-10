@@ -73,7 +73,7 @@ public class signupWindow extends JFrame {
         SimpleDateFormat dateFormat = new SimpleDateFormat("yyyy-MM-dd");
         dob = dateFormat.parse(dobField.getText());
 
-        User user = new User(status ,userId , email, username, password, dob);
+        User user = new User(userId , email, username, password, dob, status);
 
         userServices.signUp(user);
 
