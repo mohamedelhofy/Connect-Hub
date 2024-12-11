@@ -14,10 +14,12 @@
             <file>file:/D:/OOP/Connect-Hub/src/connect/hub/FrontEndContentCreation/NewStoryGUI.java</file>
             <file>file:/D:/OOP/Connect-Hub/src/connect/hub/ReadProfile.java</file>
             <file>file:/D:/OOP/Connect-Hub/src/connect/hub/WriteFriendRequestsToJSON.java</file>
+            <file>file:/D:/OOP/Connect-Hub/src/connect/hub/BackEndContentCreation/RemoveFromJSON.java</file>
             <file>file:/D:/OOP/Connect-Hub/src/connect/hub/BackEndContentCreation/RefreshFriendsLists.java</file>
             <file>file:/D:/OOP/Connect-Hub/src/connect/hub/NewsfeedPage.java</file>
             <file>file:/D:/OOP/Connect-Hub/src/GroupClass/Group.java</file>
             <file>file:/D:/OOP/Connect-Hub/src/connect/hub/BackEndContentCreation/ReadFriendRequestsFromJSON.java</file>
+            <file>file:/D:/OOP/Connect-Hub/src/connect/hub/BackEndContentCreation/StoreIntoJSON.java</file>
             <file>file:/D:/OOP/Connect-Hub/src/connect/hub/ProfileManagementPage.java</file>
             <file>file:/D:/OOP/Connect-Hub/src/connect/hub/FileDataActions.java</file>
             <file>file:/D:/OOP/Connect-Hub/src/connect/hub/BackEndContentCreation/ContentManagment.java</file>
@@ -29,6 +31,7 @@
             <file>file:/D:/OOP/Connect-Hub/src/connect/hub/BackEndContentCreation/checkRequestStatus.java</file>
             <file>file:/D:/OOP/Connect-Hub/src/connect/hub/FrontEndContentCreation/FriendManagementInterface.java</file>
             <file>file:/D:/OOP/Connect-Hub/src/connect/hub/User.java</file>
+            <file>file:/D:/OOP/Connect-Hub/src/GroupClass/GroupPrimaryAdmin.java</file>
             <file>file:/D:/OOP/Connect-Hub/src/connect/hub/ChangePass.java</file>
             <file>file:/D:/OOP/Connect-Hub/src/connect/hub/UserDataActions.java</file>
             <file>file:/D:/OOP/Connect-Hub/src/GroupClass/GroupAdmin.java</file>
