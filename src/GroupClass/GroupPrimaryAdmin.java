@@ -67,4 +67,8 @@ public class GroupPrimaryAdmin extends GroupAdmin {
             System.err.println("Error accessing the file: " + e.getMessage());
         }
     }
+    
+    @Override
+    public void leaveGroup(){}
+      
 }

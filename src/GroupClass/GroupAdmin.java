@@ -41,4 +41,9 @@ public class GroupAdmin extends GroupMember {
         StoreIntoJSON jsonFile = new StoreIntoJSON(post);
         jsonFile.addPostsToJSON();      
     }
+    
+    @Override
+    public void leaveGroup(){
+        super.getAdmins().remove(user.getUserId());
+    } 
 }

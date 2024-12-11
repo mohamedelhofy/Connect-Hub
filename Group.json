@@ -19,7 +19,15 @@
             "admin6",
             "admin7"
         ],
-        "groupPhotoPath": "/images/book_club.jpg"
+        "groupPhotoPath": "/images/book_club.jpg",
+        "memberRequest": [
+            "user8",
+            "user9",
+            "user10",
+            "user11",
+            "admin6",
+            "admin7"
+        ]
     },
     {
         "postsId": [
@@ -40,7 +48,15 @@
             "admin8",
             "admin9"
         ],
-        "groupPhotoPath": "/images/gaming_hub.jpg"
+        "groupPhotoPath": "/images/gaming_hub.jpg",
+        "memberRequest": [
+            "user12",
+            "user13",
+            "user14",
+            "user15",
+            "admin8",
+            "admin9"
+        ]
     },
     {
         "postsId": [
@@ -59,7 +75,14 @@
             "admin10",
             "admin11"
         ],
-        "groupPhotoPath": "/images/fitness_freaks.jpg"
+        "groupPhotoPath": "/images/fitness_freaks.jpg",
+        "memberRequest": [
+            "user16",
+            "user17",
+            "user18",
+            "admin10",
+            "admin11"
+        ]
     },
     {
         "postsId": [
@@ -78,7 +101,14 @@
             "admin8",
             "admin9"
         ],
-        "groupPhotoPath": "/images/music_group.jpg"
+        "groupPhotoPath": "/images/music_group.jpg",
+        "memberRequest": [
+            "user12",
+            "user13",
+            "user14",
+            "admin8",
+            "admin9"
+        ]
     },
     {
         "postsId": [
@@ -97,7 +127,14 @@
             "admin8",
             "admin9"
         ],
-        "groupPhotoPath": "/images/music_group.jpg"
+        "groupPhotoPath": "/images/music_group.jpg",
+        "memberRequest": [
+            "user12",
+            "user13",
+            "user14",
+            "admin8",
+            "admin9"
+        ]
     },
     {
         "postsId": [
@@ -116,6 +153,13 @@
             "admin8",
             "admin9"
         ],
-        "groupPhotoPath": "/images/music_group.jpg"
+        "groupPhotoPath": "/images/music_group.jpg",
+        "memberRequest": [
+            "user12",
+            "user13",
+            "user14",
+            "admin8",
+            "admin9"
+        ]
     }
 ]

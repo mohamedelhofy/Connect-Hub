@@ -71,6 +71,16 @@ public class readGroupFromJSON {
                             }
                         }
                         dataMap.put("postsId", postsIdList);
+                        
+                        // Convert memberRequst JSONArray to List
+                        JSONArray memberRequestArray = jsonObject.optJSONArray("memberRequest");
+                        List<String> memberRequestList = new ArrayList<>();
+                        if (memberRequestArray != null) {
+                            for (int j = 0; j < memberRequestArray.length(); j++) {
+                                memberRequestList.add(postsIdArray.optString(j, ""));
+                            }
+                        }
+                        dataMap.put("memberRequest", memberRequestList);
 
                         dataList.add(dataMap);
 

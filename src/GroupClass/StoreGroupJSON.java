@@ -46,6 +46,7 @@ public class StoreGroupJSON {
             newEntry.put("admins", new JSONArray(group.getAdmins()));
             newEntry.put("members", new JSONArray(group.getMembers()));
             newEntry.put("postsId", new JSONArray(group.getPostsId()));
+            newEntry.put("memberRequest", new JSONArray(group.getMemberRequst()));
 
             jsonArray.put(newEntry);
             Files.writeString(filePath, jsonArray.toString(4), StandardOpenOption.TRUNCATE_EXISTING);
