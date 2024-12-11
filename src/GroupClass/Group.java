@@ -21,6 +21,7 @@ public class Group {
     private List<String> members;
     private String primaryAdmin;
     private List<String> admins;
+    private List<String> memberRequst;
 
 
     public Group(String groupName, String groupDescription, String groupPhotoPath) {
@@ -28,7 +29,7 @@ public class Group {
         this.groupDescription = groupDescription;
         this.groupPhotoPath = groupPhotoPath;
     }
-    
+    public Group(){}
 
     public String getGroupName() {
         return groupName;
@@ -88,6 +89,14 @@ public class Group {
 
     public void setAdmins(List<String> admins) {
         this.admins = admins;
+    }
+
+    public List<String> getMemberRequst() {
+        return memberRequst;
+    }
+
+    public void setMemberRequst(List<String> memberRequst) {
+        this.memberRequst = memberRequst;
     }
     
     

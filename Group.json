@@ -139,5 +139,24 @@
             "admin9"
         ],
         "groupPhotoPath": "/images/music_group.jpg"
+    },
+    {
+        "postsId": [
+            "post401",
+            "post402"
+        ],
+        "groupName": "Music Lovers",
+        "groupDescription": "A group for sharing and enjoying music",
+        "members": [
+            "user12",
+            "user13",
+            "user14"
+        ],
+        "PrimaryAdmin": "admin8",
+        "admins": [
+            "admin8",
+            "admin9"
+        ],
+        "groupPhotoPath": "/images/music_group.jpg"
     }
 ]
