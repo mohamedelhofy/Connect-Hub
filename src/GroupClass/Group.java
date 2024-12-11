@@ -77,6 +77,18 @@ public class Group {
     public List<String> getAdmins() {
         return admins;
     }
+
+    public void setMembers(List<String> members) {
+        this.members = members;
+    }
+
+    public void setPrimaryAdmin(String primaryAdmin) {
+        this.primaryAdmin = primaryAdmin;
+    }
+
+    public void setAdmins(List<String> admins) {
+        this.admins = admins;
+    }
     
     
 }

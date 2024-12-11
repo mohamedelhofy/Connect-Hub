@@ -17,6 +17,7 @@ import org.json.JSONObject;
  * @author رحمه صبرى
  */
 public class StoreGroupJSON {
+
     public void addToJSON(Group group) {
         Path filePath = Path.of("Group.json");
         JSONArray jsonArray;
@@ -42,9 +43,9 @@ public class StoreGroupJSON {
             newEntry.put("groupDescription", group.getGroupDescription());
             newEntry.put("groupPhotoPath", group.getGroupPhotoPath());
             newEntry.put("PrimaryAdmin", group.getPrimaryAdmin());
-            newEntry.put("postsId", group.getPostsId());
-            newEntry.put("admins", group.getAdmins());
-            newEntry.put("members", group.getMembers());
+            newEntry.put("admins", new JSONArray(group.getAdmins()));
+            newEntry.put("members", new JSONArray(group.getMembers()));
+            newEntry.put("postsId", new JSONArray(group.getPostsId()));
 
             jsonArray.put(newEntry);
             Files.writeString(filePath, jsonArray.toString(4), StandardOpenOption.TRUNCATE_EXISTING);
