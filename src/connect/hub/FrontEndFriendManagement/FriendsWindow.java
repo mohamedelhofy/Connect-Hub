@@ -37,17 +37,17 @@ public class FriendsWindow extends JFrame implements ActionListener{
     public void showFrame(){
         // FRAME
         this.setTitle("Friends");
-        this.setSize(1000, 1000);
+        this.setSize(600, 750);
         this.setVisible(true);
         this.setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
         this.setResizable(true);
         this.setLocation(400, 20);
         this.setLayout(null);
 
-        this.backButton.setBounds(600, 700, 230, 60);
+        this.backButton.setBounds(180, 600, 230, 60);
         this.add(this.backButton);
         this.backButton.addActionListener(this);
-        FriendshipDatabase friendShip = new FriendshipDatabase("User1"); ///////////////////////////////////////////////////////////
+        FriendshipDatabase friendShip = new FriendshipDatabase(userInstance.getUserId());
         this.friendsList = friendShip.getFriendList();
         String name;
         for(User user : this.friendsList){
@@ -58,13 +58,10 @@ public class FriendsWindow extends JFrame implements ActionListener{
         
         // Add a custom renderer and editor for the button columns
         friendsTable.getColumn("Remove").setCellRenderer(new ButtonRenderer2());
-        friendsTable.getColumn("Remove").setCellEditor(new RemoveButtonEditor(new JCheckBox(), "User1", friendsList, friendsTableModel));
+        friendsTable.getColumn("Remove").setCellEditor(new RemoveButtonEditor(new JCheckBox(), userInstance.getUserId(), friendsList, friendsTableModel));
         friendsTable.getColumn("Block").setCellRenderer(new ButtonRenderer3());
-        friendsTable.getColumn("Block").setCellEditor(new BlockButtonEditor(new JCheckBox(), "User1", friendsList, friendsTableModel));
-        
-        ////////// i used User1 !!!!!!!!!!!!!!!!!!
-        ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-        
+        friendsTable.getColumn("Block").setCellEditor(new BlockButtonEditor(new JCheckBox(), userInstance.getUserId(), friendsList, friendsTableModel));
+                
         // Add the table to a scroll pane
         JScrollPane scrollPane = new JScrollPane(friendsTable);
         scrollPane.setBounds(50, 50, 500, 500);

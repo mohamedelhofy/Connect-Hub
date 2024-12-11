@@ -37,18 +37,18 @@ public class SuggestedWindow extends JFrame implements ActionListener{
     public void showFrame(){
         // FRAME
         this.setTitle("Suggested Friendship");
-        this.setSize(1000, 1000);
+        this.setSize(600, 750);
         this.setVisible(true);
         this.setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
         this.setResizable(true);
         this.setLocation(400, 20);
         this.setLayout(null);
 
-        this.backButton.setBounds(600, 700, 230, 60);
+        this.backButton.setBounds(180, 600, 230, 60);
         this.add(this.backButton);
         this.backButton.addActionListener(this);
         
-        FriendshipDatabase friendShip = new FriendshipDatabase("User1"); ///////////////////////////////////////////////////////////
+        FriendshipDatabase friendShip = new FriendshipDatabase(userInstance.getUserId()); 
         this.suggestedList = friendShip.getSuggestedList();
         String name;
         for(User user : this.suggestedList){
@@ -59,15 +59,12 @@ public class SuggestedWindow extends JFrame implements ActionListener{
         
         // Add a custom renderer and editor for the button columns
         suggestedTable.getColumn("Add").setCellRenderer(new ButtonRenderer4());
-        suggestedTable.getColumn("Add").setCellEditor(new AddButtonEditor(new JCheckBox(), "User1", suggestedList, suggestedTableModel));
-        
-        ////////// i used User1 !!!!!!!!!!!!!!!!!!
-        ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-        
+        suggestedTable.getColumn("Add").setCellEditor(new AddButtonEditor(new JCheckBox(), userInstance.getUserId(), suggestedList, suggestedTableModel));
+                
         // Add the table to a scroll pane
         JScrollPane scrollPane = new JScrollPane(suggestedTable);
         scrollPane.setBounds(50, 50, 500, 500);
-        TitledBorder titledBorder = new TitledBorder("suggested friendship");
+        TitledBorder titledBorder = new TitledBorder("Suggested Friendship");
         scrollPane.setBorder(titledBorder);
         this.add(scrollPane);
         this.setVisible(true);       

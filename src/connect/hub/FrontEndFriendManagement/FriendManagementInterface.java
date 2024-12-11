@@ -40,25 +40,24 @@ public class FriendManagementInterface extends JFrame implements ActionListener{
         this.suggestedButton.setBounds(130, 300, 230, 60);
         this.add(this.suggestedButton);
         this.suggestedButton.addActionListener(this);
-
     }
 
     @Override
     public void actionPerformed(ActionEvent e) {
         if(e.getSource()==requestsButton){
+            dispose();
             FriendRequestsWindow frw = new FriendRequestsWindow();
             frw.showFrame();
-            dispose();
         }
         if(e.getSource()==friendsButton){
+            dispose();
             FriendsWindow frw = new FriendsWindow();
             frw.showFrame();
-            dispose();
         }
         if(e.getSource()==suggestedButton){
+            dispose();
             SuggestedWindow sw = new SuggestedWindow();
             sw.showFrame();
-            dispose();
         }
     }
 }

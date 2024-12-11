@@ -37,20 +37,19 @@ public class FriendRequestsWindow extends JFrame implements ActionListener{
     public void showFrame() {
         // FRAME
         this.setTitle("Friend Requests");
-        this.setSize(1000, 1000);
+        this.setSize(600, 750);
         this.setVisible(true);
         this.setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
         this.setResizable(true);
         this.setLocation(400, 20);
         this.setLayout(null);
 
-        
-        this.backButton.setBounds(600, 700, 230, 60);
+        this.backButton.setBounds(180, 600, 230, 60);
         this.add(this.backButton);
         this.backButton.addActionListener(this);
 
         // Reload the pending list
-        FriendshipDatabase friendShip = new FriendshipDatabase("User1");
+        FriendshipDatabase friendShip = new FriendshipDatabase(userInstance.getUserId());
         this.pendingList = friendShip.getReceivedPendingList();
 
         // Clear the existing table model and populate it again
@@ -64,18 +63,15 @@ public class FriendRequestsWindow extends JFrame implements ActionListener{
 
         // Add fresh button editors and renderers with the updated list
         pendingTable.getColumn("Accept").setCellRenderer(new ButtonRenderer());
-        pendingTable.getColumn("Accept").setCellEditor(new AcceptButtonEditor(new JCheckBox(), "User1", pendingList, pendingTableModel));
+        pendingTable.getColumn("Accept").setCellEditor(new AcceptButtonEditor(new JCheckBox(), userInstance.getUserId(), pendingList, pendingTableModel));
         pendingTable.getColumn("Decline").setCellRenderer(new ButtonRenderer1());
-        pendingTable.getColumn("Decline").setCellEditor(new DeclineButtonEditor(new JCheckBox(), "User1", pendingList, pendingTableModel));
+        pendingTable.getColumn("Decline").setCellEditor(new DeclineButtonEditor(new JCheckBox(), userInstance.getUserId(), pendingList, pendingTableModel));
 
         // Add the table to a scroll pane
         JScrollPane pendingScrollPane = new JScrollPane(pendingTable);
         pendingScrollPane.setBounds(50, 50, 500, 500);
         TitledBorder pendingTitledBorder = new TitledBorder("Friend Requests");
         pendingScrollPane.setBorder(pendingTitledBorder);
-
-        // Remove any existing components to avoid duplicates
-//        this.getContentPane().removeAll();
         this.add(pendingScrollPane);
 
         // Refresh the frame
