@@ -1,54 +1,63 @@
-/*
- * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
- * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Class.java to edit this template
- */
 package connect.hub.FrontEndFriendManagement;
 
+import connect.hub.BackEndFriendManagement.FriendManager;
+import connect.hub.User;
 import java.awt.Component;
 import java.awt.event.ActionEvent;
+import java.util.ArrayList;
 import javax.swing.DefaultCellEditor;
 import javax.swing.JButton;
 import javax.swing.JCheckBox;
-import javax.swing.JOptionPane;
 import javax.swing.JTable;
+import javax.swing.SwingUtilities;
+import javax.swing.table.DefaultTableModel;
 
-
-// Editor for the button
 class DeclineButtonEditor extends DefaultCellEditor {
     private JButton button;
-    private String label;
-    private boolean isClicked;
+    private String str;
 
-    public DeclineButtonEditor(JCheckBox checkBox) {
+    public DeclineButtonEditor(JCheckBox checkBox, String userId, ArrayList<User> pendingList, DefaultTableModel tableModel) {
         super(checkBox);
         button = new JButton();
         button.setOpaque(true);
         button.addActionListener((ActionEvent e) -> {
-            
-            fireEditingStopped();
+            JTable table = (JTable) SwingUtilities.getAncestorOfClass(JTable.class, button);
+            if (table != null) {
+                // Stop editing before making changes
+                if (table.isEditing()) {
+                    table.getCellEditor().stopCellEditing();
+                }
+                if (table != null){
+                    int selectedRow = table.getSelectedRow();
+                    if (selectedRow != -1) {
+                        // Process the friend request
+                        User friend = pendingList.get(selectedRow);
+                        FriendManager fm = FriendManager.getInstance();
+                        fm.respondToFriendRequest(friend.getUserId(), userId, "Declined");
+
+                        // Remove the row from the list and table model
+                        pendingList.remove(selectedRow);
+                        tableModel.removeRow(selectedRow);
+
+                        // Revalidate the table to avoid potential inconsistencies
+                        table.revalidate();
+                        table.repaint();
+                        fireEditingStopped();
+                    }
+                }
+            }
         });
     }
 
     @Override
     public Component getTableCellEditorComponent(JTable table, Object value, boolean isSelected, int row, int column) {
-        label = (value == null) ? "Click" : value.toString();
-        button.setText(label);
-        isClicked = true;
+        str = (value == null) ? "Decline" : value.toString();
+        button.setText(str);
         return button;
     }
 
     @Override
     public Object getCellEditorValue() {
-        if (isClicked) {
-            JOptionPane.showMessageDialog(button, "Button clicked in row " + (button.getClientProperty("row")));
-        }
-        isClicked = false;
-        return label;
-    }
-
-    @Override
-    public boolean stopCellEditing() {
-        isClicked = false;
-        return super.stopCellEditing();
+        return str;
     }
 }

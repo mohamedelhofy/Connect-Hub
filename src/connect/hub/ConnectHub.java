@@ -19,14 +19,14 @@ public class ConnectHub {
      * @param args the command line arguments
      */
     public static void main(String[] args){
-//        FriendManagementInterface fmi = new FriendManagementInterface();
-//        fmi.showFrame();
+        FriendManagementInterface fmi = new FriendManagementInterface();
+        fmi.showFrame();
 //        FriendStatusWindow friendStatusWindow = new FriendStatusWindow();
 //        friendStatusWindow.showFrame();
     
-//        FriendManager fm = FriendManager.getInstance();
+        FriendManager fm = FriendManager.getInstance();
 //        fm.sendFriendRequest("ahmed", "rahma");
-//        fm.respondToFriendRequest("ahmed", "rahma", "Accepted");
+//        fm.respondToFriendRequest("rahma", "ahmed", "Accepted");
 //        fm.removeFriend("rahma", "ahmed");
     }
 }

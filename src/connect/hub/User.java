@@ -33,9 +33,9 @@ public class User {
 //        }
         return instance;
     }
-
+    //
     // Constructor to create a new user and assign a unique ID    
-    public User( boolean status ,String userId , String email, String username, String hashedPassword, Date DOB) {
+    public User(String userId , String email, String username, String hashedPassword, Date DOB, boolean status) {
         
         this.userId = generateUniqueId();
         this.email = email;

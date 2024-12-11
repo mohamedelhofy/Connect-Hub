@@ -2,12 +2,12 @@
     {
         "receiver": "User1",
         "sender": "User2",
-        "requestStatus": "Accepted"
+        "requestStatus": "Blocked"
     },
     {
-        "receiver": "User3",
-        "sender": "User1",
-        "requestStatus": "Pending"
+        "receiver": "User1",
+        "sender": "User3",
+        "requestStatus": "Blocked"
     },
     {
         "receiver": "User4",
@@ -15,14 +15,9 @@
         "requestStatus": "Blocked"
     },
     {
-        "receiver": "User6",
-        "sender": "User1",
-        "requestStatus": "Accepted"
-    },
-    {
-        "receiver": "User9",
-        "sender": "User1",
-        "requestStatus": "Accepted"
+        "receiver": "User1",
+        "sender": "User6",
+        "requestStatus": "Blocked"
     },
     {
         "receiver": "User7",
@@ -31,6 +26,26 @@
     },
     {
         "receiver": "User8",
+        "sender": "User1",
+        "requestStatus": "Pending"
+    },
+    {
+        "receiver": "User5",
+        "sender": "User1",
+        "requestStatus": "Pending"
+    },
+    {
+        "receiver": "User9",
+        "sender": "User1",
+        "requestStatus": "Pending"
+    },
+    {
+        "receiver": "User10",
+        "sender": "User1",
+        "requestStatus": "Pending"
+    },
+    {
+        "receiver": "User11",
         "sender": "User1",
         "requestStatus": "Pending"
     }

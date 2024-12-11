@@ -37,14 +37,12 @@ public class FriendStatusWindow extends JFrame{
         
         tableModel = new DefaultTableModel(new Object[]{"Username", "Status"}, 0);
         String status;
-        System.out.println(friendsList);
         for (User friend : this.friendsList) {
             if(friend.isOnline())
                 status = "Online";
             else
                 status = "Offline";
             String userName = friend.getUsername();
-            System.out.println("test");
             tableModel.addRow(new Object[]{userName, status});
         }
         JTable table = new JTable(tableModel);

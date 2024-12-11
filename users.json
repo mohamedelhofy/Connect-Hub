@@ -5,7 +5,7 @@
         "isOnline": false,
         "userId": "User1",
         "email": "rawan@gamil.com",
-        "username": "rawan"
+        "username": "user1name"
     },
     {
         "password": "12345\n\n",
@@ -13,7 +13,7 @@
         "isOnline": false,
         "userId": "User2",
         "email": "user1@example.com\n\n",
-        "username": "rahma testing\n\n"
+        "username": "user2name\n\n"
     },
     {
         "password": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855\n\n",
@@ -21,7 +21,7 @@
         "isOnline": false,
         "userId": "User3",
         "email": "user4@example.com\n\n",
-        "username": "user4\n\n"
+        "username": "user3name\n\n"
     },
     {
         "password": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
@@ -29,7 +29,7 @@
         "isOnline": true,
         "userId": "User4",
         "email": "alhofymohamed@gmail.com",
-        "username": "elhofy"
+        "username": "user4name"
     },
     {
         "password": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
@@ -37,7 +37,7 @@
         "isOnline": false,
         "userId": "User5",
         "email": "user7@example.com",
-        "username": "user7"
+        "username": "user5name"
     },
     {
         "password": "6b3a55e0261b0304143f805a249d8c9d4b9c8f5b4c8a5f5b4c8a5f5b4c8a5f5b\n\n",
@@ -45,7 +45,7 @@
         "isOnline": false,
         "userId": "User6",
         "email": "user2@example.com\n\n",
-        "username": "user2\n\n"
+        "username": "user6name\n\n"
     },
     {
         "password": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
@@ -53,7 +53,7 @@
         "isOnline": false,
         "userId": "User7",
         "email": "alhofymohamed2004@gmail.com",
-        "username": "elhofy"
+        "username": "user7name"
     },
     {
         "password": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855\n\n",
@@ -61,7 +61,7 @@
         "isOnline": false,
         "userId": "User8",
         "email": "user5@example.com\n\n",
-        "username": "user5\n\n"
+        "username": "user8name\n\n"
     },
     {
         "password": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855\n\n",
@@ -69,7 +69,7 @@
         "isOnline": false,
         "userId": "User9",
         "email": "user3@example.com\n\n",
-        "username": "user3\n\n"
+        "username": "user9name\n\n"
     },
     {
         "password": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855\n",
@@ -77,7 +77,7 @@
         "isOnline": false,
         "userId": "User10",
         "email": "user6@example.com\n",
-        "username": "user6\n"
+        "username": "user10name\n"
     },
     {
         "password": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
@@ -85,6 +85,6 @@
         "isOnline": false,
         "userId": "User11",
         "email": "elhofy@gmail.com",
-        "username": "mooo"
+        "username": "user11name"
     }
 ]
