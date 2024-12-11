@@ -6,6 +6,10 @@ package connect.hub;
 
 import java.awt.BorderLayout;
 import java.awt.Color;
+import java.awt.Component;
+import java.awt.Dimension;
+import java.awt.FlowLayout;
+import java.awt.Font;
 import java.awt.Graphics;
 import java.awt.List;
 import java.awt.Point;
@@ -18,6 +22,7 @@ import java.io.IOException;
 import java.io.PrintWriter;
 import java.util.Map;
 import java.util.UUID;
+import javax.swing.Box;
 import javax.swing.BoxLayout;
 import javax.swing.JButton;
 import javax.swing.JColorChooser;
@@ -40,27 +45,44 @@ public class LoginWindow extends JFrame {
     private JTextField emailField;
     private JPasswordField passwordField;
     private JButton loginButton;
-///// empty constructor for login in newsfeed
-    public LoginWindow() {
-    }
     private JButton signUpButton;
     private UserServices userServices;
     private User currentUser;
 
+    // Empty constructor for login in newsfeed
+    public LoginWindow() {
+    }
+
     public LoginWindow(UserServices userServices) {
         this.userServices = userServices;
         setTitle("Login");
-        setSize(300, 200);
+        setSize(350, 250);  
         setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+        setLocationRelativeTo(null);  
+        getContentPane().setBackground(new Color(60, 63, 65));
+
         initComponents();
     }
 
     private void initComponents() {
-        emailField = new JTextField();
-        passwordField = new JPasswordField();
+        emailField = new JTextField(20);
+        passwordField = new JPasswordField(20);
         loginButton = new JButton("Login");
         signUpButton = new JButton("Sign Up");
-        this.setLocationRelativeTo(null);
+
+        //  Login Button
+        loginButton.setBackground(new Color(0, 123, 255));
+        loginButton.setForeground(Color.WHITE);
+        loginButton.setFont(new Font("Arial", Font.BOLD, 14));
+        loginButton.setFocusPainted(false);
+
+        //  SignUp Button
+        signUpButton.setBackground(new Color(40, 167, 69)); 
+        signUpButton.setForeground(Color.WHITE);
+        signUpButton.setFont(new Font("Arial", Font.BOLD, 14));
+        signUpButton.setFocusPainted(false);
+
+        // listeners
         loginButton.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
@@ -74,7 +96,6 @@ public class LoginWindow extends JFrame {
                 } catch (IllegalArgumentException ex) {
                     JOptionPane.showMessageDialog(LoginWindow.this, ex.getMessage(), "Login Failed", JOptionPane.ERROR_MESSAGE);
                 }
-                //////////// here the newsfeed will start 
             }
         });
 
@@ -85,20 +106,56 @@ public class LoginWindow extends JFrame {
             }
         });
 
+        // 
         setLayout(new BoxLayout(getContentPane(), BoxLayout.Y_AXIS));
-        add(new JLabel("Email:"));
+        getContentPane().setBackground(new Color(240, 240, 240));  
+
+       
+        add(Box.createVerticalStrut(20)); 
+
+        JLabel emailLabel = new JLabel("Email:");
+        emailLabel.setFont(new Font("Arial", Font.PLAIN, 14));
+        emailLabel.setAlignmentX(Component.CENTER_ALIGNMENT);
+        add(emailLabel);
+
+        emailField.setFont(new Font("Arial", Font.PLAIN, 14));
+        emailField.setBackground(Color.WHITE);
+        emailField.setForeground(Color.BLACK);
+        emailField.setPreferredSize(new Dimension(250, 30)); 
         add(emailField);
-        add(new JLabel("Password:"));
+
+        add(Box.createVerticalStrut(10));  
+
+        JLabel passwordLabel = new JLabel("Password:");
+        passwordLabel.setFont(new Font("Arial", Font.PLAIN, 14));
+        passwordLabel.setAlignmentX(Component.CENTER_ALIGNMENT);
+        add(passwordLabel);
+
+        passwordField.setFont(new Font("Arial", Font.PLAIN, 14));
+        passwordField.setBackground(Color.WHITE);
+        passwordField.setForeground(Color.BLACK);
+        passwordField.setPreferredSize(new Dimension(250, 30));
         add(passwordField);
-        add(loginButton);
-        add(signUpButton);
+
+        add(Box.createVerticalStrut(20));  
+
+        // Add  buttons///
+        JPanel buttonPanel = new JPanel();
+        buttonPanel.setLayout(new FlowLayout(FlowLayout.CENTER, 20, 10)); 
+        buttonPanel.setBackground(new Color(240, 240, 240));
+
+        buttonPanel.add(loginButton);
+        buttonPanel.add(signUpButton);
+        add(buttonPanel);
+
+        add(Box.createVerticalStrut(20));  
     }
 
     private void openSignUpWindow() {
         signupWindow signUpWindow = new signupWindow(userServices);
         this.dispose();
         signUpWindow.setVisible(true);
-    }
+}
 
 
 }

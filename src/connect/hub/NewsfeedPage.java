@@ -47,14 +47,15 @@ public class NewsfeedPage extends JFrame {
     public NewsfeedPage() {
         // Frame settings
         setTitle("Newsfeed Page");
-        setSize(1000, 700);  
+        setSize(1000, 700);
         setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         setLocationRelativeTo(null);
-        setLayout(new BorderLayout(10, 10)); 
+        setLayout(new BorderLayout(10, 10));
 
         // Header Panel - Title and Log Out button
         JPanel headerPanel = new JPanel(new BorderLayout());
         headerPanel.setBackground(new Color(36, 48, 69)); // Dark Blue Header
+        headerPanel.setBorder(BorderFactory.createEmptyBorder(10, 10, 10, 10));
 
         JLabel titleLabel = new JLabel("Newsfeed", JLabel.CENTER);
         titleLabel.setForeground(Color.WHITE);
@@ -62,139 +63,94 @@ public class NewsfeedPage extends JFrame {
         headerPanel.add(titleLabel, BorderLayout.CENTER);
 
         // Log Out Button
-        JButton logoutButton = new JButton("Log Out");
-        logoutButton.setBackground(Color.RED);
-        logoutButton.setForeground(Color.WHITE);
-        logoutButton.setPreferredSize(new Dimension(100, 40));
-
-        logoutButton.addActionListener(new ActionListener() {
-            @Override
-            public void actionPerformed(ActionEvent e) {
-                // Log out functionality
-                JOptionPane.showMessageDialog(NewsfeedPage.this, "You have logged out.");
-                try {
-                    User.setIdCounter(1);
-                    UserServices userServices = new UserServices();
-                    user.setStatus(false);
-                    userServices.logout(user);
-                    User.setIdCounter(1);
-                    new LoginWindow(userServices).setVisible(true);  // Open the login window
-                } catch (JSONException ex) {
-                    Logger.getLogger(NewsfeedPage.class.getName()).log(Level.SEVERE, null, ex);
-                }
-                dispose();  // Close the current NewsfeedPage
-            }
+        JButton logoutButton = createStyledButton("Log Out", Color.RED, Color.WHITE);
+        logoutButton.addActionListener(e -> {
+            JOptionPane.showMessageDialog(this, "You have logged out.");
+            dispose();
+            // Add logout logic here
         });
-
         headerPanel.add(logoutButton, BorderLayout.EAST);
         add(headerPanel, BorderLayout.NORTH);
 
-        // Sidebar Panel for navigation
+        // Sidebar Panel
         JPanel sidebarPanel = new JPanel();
-        sidebarPanel.setLayout(new GridLayout(6, 1, 10, 10));  
-        sidebarPanel.setBackground(new Color(240, 240, 240)); 
-        sidebarPanel.setBorder(BorderFactory.createEmptyBorder(10, 10, 10, 10));
+        sidebarPanel.setLayout(new GridLayout(6, 6, 20, 20));
+        sidebarPanel.setBackground(new Color(240, 240, 240));
+        sidebarPanel.setBorder(BorderFactory.createTitledBorder("Navigation"));
 
-        //  Buttons to different windows
-        JButton postsButton = new JButton("Posts");
-        postsButton.setPreferredSize(new Dimension(200, 50));
-        postsButton.addActionListener(new ActionListener() {
-            @Override
-            public void actionPerformed(ActionEvent e) {
-                dispose();
-                PostScrollingPage postScrollingPage = new PostScrollingPage();
-                postScrollingPage.createAndShowGUI();
-            }
-        });
-        sidebarPanel.add(postsButton);
-
-        JButton storiesButton = new JButton("Stories");
-        storiesButton.setPreferredSize(new Dimension(200, 50));
-        storiesButton.addActionListener(new ActionListener() {
-            @Override
-            public void actionPerformed(ActionEvent e) {
-                dispose();
-                StoryScrollingPage storyScrollingPage = new StoryScrollingPage();
-                storyScrollingPage.createAndShowGUI();
-            }
-        });
-        sidebarPanel.add(storiesButton);
-
-        JButton newPostsButton = new JButton("New Post");
-        newPostsButton.setPreferredSize(new Dimension(200, 50));
-        newPostsButton.addActionListener(new ActionListener() {
-            @Override
-            public void actionPerformed(ActionEvent e) {
-                dispose();
-                NewPostGUI newPostFrame = new NewPostGUI(user.getUserId());
-                newPostFrame.newPostFrame();
-            }
-        });
-        sidebarPanel.add(newPostsButton);
-        JButton newStoryButton = new JButton("New Story");
-        newStoryButton.setPreferredSize(new Dimension(200, 50));
-        newStoryButton.addActionListener(new ActionListener() {
-            @Override
-            public void actionPerformed(ActionEvent e) {
-                dispose();
-                NewStoryGUI newStoryFrame = new NewStoryGUI(user.getUserId());
-                newStoryFrame.newStoryFrame();
-            }
-        });
-        sidebarPanel.add(newStoryButton);
-
-        JButton profileButton = new JButton("Profile");
-        profileButton.setPreferredSize(new Dimension(200, 50));
-        profileButton.addActionListener(new ActionListener() {
-            @Override
-            public void actionPerformed(ActionEvent e) {
-                dispose();
-                new profileGui().setVisible(true);  // Open Profile page
-            }
-        });
-        sidebarPanel.add(profileButton);
-
-        // Friends button functionality  temporarily opens profile page
-        JButton friendsButton = new JButton("Friends");
-        friendsButton.setBackground(new Color(36, 48, 69));  
-        friendsButton.setForeground(Color.WHITE);
-        friendsButton.setPreferredSize(new Dimension(200, 50));
-        friendsButton.addActionListener(new ActionListener() {
-            @Override
-            public void actionPerformed(ActionEvent e) {
-                dispose();
-                new profileGui().setVisible(true);  // Temporarily opening profile page
-            }
-        });
-        
-        sidebarPanel.add(friendsButton);  
-
-        sidebarPanel.add(logoutButton); 
-
+        // Add buttons to the sidebar
+        sidebarPanel.add(createSidebarButton("Posts", e -> navigateToPosts()));
+        sidebarPanel.add(createSidebarButton("Stories", e -> navigateToStories()));
+        sidebarPanel.add(createSidebarButton("New Post", e -> navigateToNewPost()));
+        sidebarPanel.add(createSidebarButton("New Story", e -> navigateToNewStory()));
+        sidebarPanel.add(createSidebarButton("Profile", e -> navigateToProfile()));
+        sidebarPanel.add(createSidebarButton("Friends", e -> navigateToFriends()));
+        ///rgb(217, 234, 253)
         add(sidebarPanel, BorderLayout.WEST);
-
-        // Main Area 
+sidebarPanel.setBackground(new Color (217, 234, 253));
+        // Main Panel
         mainPanel = new JPanel();
         cardLayout = new CardLayout();
         mainPanel.setLayout(cardLayout);
 
-        JPanel newsfeedPanel = new JPanel();
-        newsfeedPanel.setLayout(new BorderLayout());
+        JPanel newsfeedPanel = new JPanel(new BorderLayout());
+        newsfeedPanel.setBackground(new Color(245, 245, 245));
+        newsfeedPanel.setBorder(BorderFactory.createEmptyBorder(20, 20, 20, 20));
+
         JLabel newsfeedLabel = new JLabel("Welcome to Connect HUB!", JLabel.CENTER);
         newsfeedLabel.setFont(new Font("Arial", Font.PLAIN, 20));
         newsfeedPanel.add(newsfeedLabel, BorderLayout.CENTER);
-        mainPanel.add(newsfeedPanel, "Newsfeed");
 
+        mainPanel.add(newsfeedPanel, "Newsfeed");
         add(mainPanel, BorderLayout.CENTER);
 
         // Set the default panel to Newsfeed
         cardLayout.show(mainPanel, "Newsfeed");
     }
 
-//    public static void main(String[] args) {
-//        SwingUtilities.invokeLater(() -> {
-//            NewsfeedPage newsfeedPage = new NewsfeedPage();
-//            newsfeedPage.setVisible(true);
-//        });
-//    }
+    private JButton createSidebarButton(String text, ActionListener action) {
+        JButton button = createStyledButton(text, new Color(36, 48, 69), Color.WHITE);
+        button.addActionListener(action);
+        return button;
+    }
+
+    private JButton createStyledButton(String text, Color background, Color foreground) {
+        JButton button = new JButton(text);
+        button.setBackground(background);
+        button.setForeground(foreground);
+        button.setFont(new Font("Arial", Font.BOLD, 14));
+        button.setFocusPainted(false);
+        button.setPreferredSize(new Dimension(200, 40));
+        return button;
+    }
+
+    private void navigateToPosts() {
+        dispose();
+        new PostScrollingPage().createAndShowGUI();
+    }
+
+    private void navigateToStories() {
+        dispose();
+        new StoryScrollingPage().createAndShowGUI();
+    }
+
+    private void navigateToNewPost() {
+        dispose();
+        new NewPostGUI(user.getUserId()).newPostFrame();
+    }
+
+    private void navigateToNewStory() {
+        dispose();
+        new NewStoryGUI(user.getUserId()).newStoryFrame();
+    }
+
+    private void navigateToProfile() {
+        dispose();
+        new profileGui().setVisible(true);
+    }
+
+    private void navigateToFriends() {
+        dispose();
+        new profileGui().setVisible(true);
+}
 }

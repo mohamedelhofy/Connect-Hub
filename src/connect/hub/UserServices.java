@@ -97,13 +97,13 @@ public class UserServices implements Services {
 //        System.out.println("User  " + user.getUsername() + " has logged out.");
     }
 
-    private boolean isValidEmail(String email) {
-        String emailRegex = "^[A-Za-z0-9+_.-]+@(.+)$";
-        return email != null && email.matches(emailRegex);
-    }
+private boolean isValidEmail(String email) {
+    String emailRegex = "^[A-Za-z0-9+_.-]+@(.+\\..+)$";
+    return email != null && email.matches(emailRegex);
+}
     
     
-    public boolean checkPassword(String plainTextPassword, String hashedPassword) {
+public boolean checkPassword(String plainTextPassword, String hashedPassword) {
     try {
         return passwordHasher.verifyPassword(plainTextPassword, hashedPassword);
     } catch (NoSuchAlgorithmException e) {
@@ -112,6 +112,3 @@ public class UserServices implements Services {
     }
 }
 }
-
-
-

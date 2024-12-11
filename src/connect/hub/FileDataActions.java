@@ -95,10 +95,8 @@ public class FileDataActions implements UserDataActions {
                     String username = jsonObject.getString("username");
                     String password = jsonObject.getString("password");
                     boolean status = jsonObject.getBoolean("isOnline");
-
                     Date dateOfBirth = dateFormat.parse(jsonObject.getString("dateOfBirth"));
-                    User user = new User(userId , email, username, password, dateOfBirth, status);
-                    
+                    User user = new User(  userId , email, username, password, dateOfBirth , status);  
                     user.setStatus(status);
                     users.put(email, user);
                 } catch (Exception e) {
@@ -127,9 +125,20 @@ public class FileDataActions implements UserDataActions {
             writer.write(jsonArray.toString(4)); 
         } catch (IOException e) {
             e.printStackTrace();
-        }
-        
-        
-        
+        }   
     }
+   
+   public void refresh() 
+   {
+           users.clear();
+           try {
+               loadUsers();
+               System.out.println("User data has been refreshed Successfully");
+           }
+           catch(JSONException e){
+                       Logger.getLogger(FileDataActions.class.getName()).log(Level.SEVERE, "Failed to refresh user data", e);
+
+           }
+ 
+}
 }

@@ -69,7 +69,7 @@ public class FriendshipDatabase {
                     boolean statusUser = jsonObject.getBoolean("isOnline");
                     Date dateOfBirth = Date.from(LocalDate.now().atStartOfDay(ZoneId.systemDefault()).toInstant());
                     
-                    User user = new User(userIdRecieved , email, username, password, dateOfBirth);
+                    User user = new User(userIdRecieved , email, username, password, dateOfBirth , statusUser);
 //                    user.setUserId(userIdRecieved);
                     user.setStatus(statusUser);
                     

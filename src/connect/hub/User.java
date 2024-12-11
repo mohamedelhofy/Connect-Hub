@@ -24,7 +24,7 @@ public class User {
     private boolean status;
     private String hashedPassword;
 
-    private User() {
+    private User(boolean status1, String userId1, String email1, String username1, String password, Date dateOfBirth) {
     }
 
     public static User getInstance() {
@@ -108,7 +108,7 @@ public class User {
 
     public void setStatus(boolean status) {
         if(status==true){
-            instance = new User();
+            instance = new User(status, userId, email, username, hashedPassword, DOB);
             instance.initialize(userId, email, username, hashedPassword, DOB);
         }
         this.status = status;

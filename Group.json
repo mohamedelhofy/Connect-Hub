@@ -1,0 +1,47 @@
+[
+    {
+        "groupName": "Tech Enthusiasts",
+        "groupDescription": "A group for technology lovers to share and discuss innovations.",
+        "groupPhotoPath": "/images/tech_group.jpg",
+        "PrimaryAdmin": "admin1",
+        "admins": [ "admin1", "admin2", "admin3" ],
+        "members": [ "user1", "user2", "user3", "user4" ],
+        "postsId": [ "post101", "post102", "post103" ]
+    },
+    {
+        "groupName": "Nature Explorers",
+        "groupDescription": "For those who love to explore the great outdoors.",
+        "groupPhotoPath": "/images/nature_group.jpg",
+        "PrimaryAdmin": "admin4",
+        "admins": [ "admin4", "admin5" ],
+        "members": [ "user5", "user6", "user7" ],
+        "postsId": [ "post201", "post202" ]
+    },
+    {
+        "groupName": "Book Club",
+        "groupDescription": "A community for book lovers to share reviews and recommendations.",
+        "groupPhotoPath": "/images/book_club.jpg",
+        "PrimaryAdmin": "admin6",
+        "admins": [ "admin6", "admin7" ],
+        "members": [ "user8", "user9", "user10", "user11" ],
+        "postsId": [ "post301", "post302", "post303", "post304" ]
+    },
+    {
+        "groupName": "Gaming Hub",
+        "groupDescription": "A place for gamers to connect, compete, and share gaming news.",
+        "groupPhotoPath": "/images/gaming_hub.jpg",
+        "PrimaryAdmin": "admin8",
+        "admins": [ "admin8", "admin9" ],
+        "members": [ "user12", "user13", "user14", "user15" ],
+        "postsId": [ "post401", "post402", "post403" ]
+    },
+    {
+        "groupName": "Fitness Freaks",
+        "groupDescription": "A group dedicated to fitness enthusiasts to share tips and progress.",
+        "groupPhotoPath": "/images/fitness_freaks.jpg",
+        "PrimaryAdmin": "admin10",
+        "admins": [ "admin10", "admin11" ],
+        "members": [ "user16", "user17", "user18" ],
+        "postsId": [ "post501", "post502" ]
+    }
+]
