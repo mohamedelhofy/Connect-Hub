@@ -40,6 +40,8 @@ class AcceptButtonEditor extends DefaultCellEditor {
                     // Process the friend request
                     User friend = pendingList.get(selectedRow);
                     FriendManager fm = FriendManager.getInstance();
+                    System.out.println(friend.getUserId());
+                    System.out.println(userId);
                     fm.respondToFriendRequest(friend.getUserId(), userId, "Accepted");
 
                     // Remove the row from the list and table model
