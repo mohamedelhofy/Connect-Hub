@@ -26,7 +26,7 @@
     {
         "password": "5994471abb01112afcc18159f6cc74b4f511b99806da59b3caf5a9c173cacfc5",
         "dateOfBirth": "2004-09-15\n",
-        "isOnline": false,
+        "isOnline": true,
         "userId": "User4",
         "email": "alhofymohamed@gmail.com",
         "username": "elhofy"
@@ -107,8 +107,16 @@
         "password": "5994471abb01112afcc18159f6cc74b4f511b99806da59b3caf5a9c173cacfc5",
         "dateOfBirth": "2004-06-10\n",
         "isOnline": true,
-        "userId": "User15",
+        "userId": "User14",
         "email": "ahmed@gmail.com",
         "username": "ahmedTamer"
+    },
+    {
+        "password": "91d95f436356bc3df44d44406a139351debd062823258c8cdc67e8dadb9df256",
+        "dateOfBirth": "0005-02-11\n",
+        "isOnline": false,
+        "userId": "User15",
+        "email": "rrrsss@gmail.com ",
+        "username": "roosss"
     }
 ]

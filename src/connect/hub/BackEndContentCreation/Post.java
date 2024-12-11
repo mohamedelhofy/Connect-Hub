@@ -31,6 +31,15 @@ public class Post implements SocialContent{
         int counter=storyInctanceCount++;
         contentId = "P0"+counter;
     }
+
+    public void setContentText(String contentText) {
+        this.contentText = contentText;
+    }
+
+    public void setImage(Image image) {
+        this.image = image;
+    }
+    
     @Override
     public String getContentText() {
         

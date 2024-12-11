@@ -4,6 +4,7 @@
  */
 package connect.hub;
 
+import connect.hub.FrontEndContentCreation.FriendManagementInterface;
 import connect.hub.FrontEndContentCreation.NewPostGUI;
 import connect.hub.FrontEndContentCreation.NewStoryGUI;
 import connect.hub.FrontEndContentCreation.PostScrollingPage;
@@ -44,6 +45,7 @@ public class NewsfeedPage extends JFrame {
     private CardLayout cardLayout;
     private User user = User.getInstance();
 
+    
     public NewsfeedPage() {
         // Frame settings
         setTitle("Newsfeed Page");
@@ -87,7 +89,7 @@ public class NewsfeedPage extends JFrame {
         sidebarPanel.add(createSidebarButton("Friends", e -> navigateToFriends()));
         ///rgb(217, 234, 253)
         add(sidebarPanel, BorderLayout.WEST);
-sidebarPanel.setBackground(new Color (217, 234, 253));
+        sidebarPanel.setBackground(new Color (217, 234, 253));
         // Main Panel
         mainPanel = new JPanel();
         cardLayout = new CardLayout();
@@ -151,6 +153,7 @@ sidebarPanel.setBackground(new Color (217, 234, 253));
 
     private void navigateToFriends() {
         dispose();
-        new profileGui().setVisible(true);
+        FriendManagementInterface friendGui = new FriendManagementInterface();
+         friendGui.showFrame();
 }
 }
