@@ -1,47 +1,6 @@
 [
     {
         "postsId": [
-            "post101",
-            "post102",
-            "post103"
-        ],
-        "groupName": "Tech Enthusiasts",
-        "groupDescription": "A group for technology lovers to share and discuss innovations.",
-        "members": [
-            "user1",
-            "user2",
-            "user3",
-            "user4"
-        ],
-        "PrimaryAdmin": "admin1",
-        "admins": [
-            "admin1",
-            "admin2",
-            "admin3"
-        ],
-        "groupPhotoPath": "/images/tech_group.jpg"
-    },
-    {
-        "postsId": [
-            "post201",
-            "post202"
-        ],
-        "groupName": "Nature Explorers",
-        "groupDescription": "For those who love to explore the great outdoors.",
-        "members": [
-            "user5",
-            "user6",
-            "user7"
-        ],
-        "PrimaryAdmin": "admin4",
-        "admins": [
-            "admin4",
-            "admin5"
-        ],
-        "groupPhotoPath": "/images/nature_group.jpg"
-    },
-    {
-        "postsId": [
             "post301",
             "post302",
             "post303",

@@ -92,33 +92,33 @@ public class readGroupFromJSON {
 
     return dataList;
 }
-    public static void main(String[] args) {
-        // Initialize StoreGroupJSON and readGroupFromJSON objects
-        StoreGroupJSON storeGroupJSON = new StoreGroupJSON();
-        readGroupFromJSON readGroupJSON = new readGroupFromJSON();
-
-        // Create a new group object
-        Group newGroup = new Group(
-            "Music Lovers",
-            "A group for sharing and enjoying music",
-            "/images/music_group.jpg"
-        );
-
-        // Set additional details for the new group
-        newGroup.setPostsId(List.of("post401", "post402"));
-        newGroup.setAdmins(List.of("admin8", "admin9"));
-        newGroup.setMembers(List.of("user12", "user13", "user14"));
-        newGroup.setPrimaryAdmin("admin8");
-
-        // Add the group to the JSON file
-        storeGroupJSON.addToJSON(newGroup);
-        System.out.println("New group added to JSON successfully.");
-
-        // Read all groups from the JSON file
-        List<Map<String, Object>> groupList = readGroupJSON.getGroupListDB();
-        System.out.println("Groups retrieved from JSON:");
-        for (Map<String, Object> groupData : groupList) {
-            System.out.println(groupData);
-        }
-    }
+//    public static void main(String[] args) {
+//        // Initialize StoreGroupJSON and readGroupFromJSON objects
+//        StoreGroupJSON storeGroupJSON = new StoreGroupJSON();
+//        readGroupFromJSON readGroupJSON = new readGroupFromJSON();
+//
+//        // Create a new group object
+//        Group newGroup = new Group(
+//            "Music Lovers",
+//            "A group for sharing and enjoying music",
+//            "/images/music_group.jpg"
+//        );
+//
+//        // Set additional details for the new group
+//        newGroup.setPostsId(List.of("post401", "post402"));
+//        newGroup.setAdmins(List.of("admin8", "admin9"));
+//        newGroup.setMembers(List.of("user12", "user13", "user14"));
+//        newGroup.setPrimaryAdmin("admin8");
+//
+//        // Add the group to the JSON file
+//        storeGroupJSON.addToJSON(newGroup);
+//        System.out.println("New group added to JSON successfully.");
+//
+//        // Read all groups from the JSON file
+//        List<Map<String, Object>> groupList = readGroupJSON.getGroupListDB();
+//        System.out.println("Groups retrieved from JSON:");
+//        for (Map<String, Object> groupData : groupList) {
+//            System.out.println(groupData);
+//        }
+//    }
 }
