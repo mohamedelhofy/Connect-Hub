@@ -16,5 +16,11 @@
         "profile photo": "https://example.com/photos/user3/profile.jpg",
         "userId": "user3",
         "cover photo": "https://example.com/photos/user3/cover.jpg"
+    },
+    {
+        "bio": "just a DINO.",
+        "profile photo": "D:\\UserData\\Desktop\\كارنيه.jpg",
+        "userId": "User1",
+        "cover photo": "D:\\UserData\\Desktop\\eyeliner.jpg"
     }
 ]

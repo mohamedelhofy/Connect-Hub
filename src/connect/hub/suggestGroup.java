@@ -2,8 +2,10 @@
  * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
  * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Class.java to edit this template
  */
-package GroupClass;
+package connect.hub;
 
+import GroupClass.Group;
+import GroupClass.Group;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.HashSet;
@@ -18,21 +20,24 @@ import java.util.Set;
 public class suggestGroup {
       String filePath = "Group.json";
       List<Group> groups = new ArrayList<>();
-    //  Group group = new Group;
-          public static List<Group> convertToGroupList(List<Map<String, Object>> dataList) {
-              
-        List<Group> groups = new ArrayList<>();
-        for (Map<String, Object> dataMap : dataList) {
-            String groupName = (String) dataMap.get("groupName");
-            String groupDescription = (String) dataMap.get("groupDescription");
-            String groupPhotoPath = (String) dataMap.get("groupPhotoPath");
-            List<String> members = (List<String>) dataMap.get("members");
-            
-            //// put members in list 
-            groups.add(new Group(groupName, groupDescription, groupPhotoPath));
+       //  Group group = new Group;
+      public static List<Group> convertToGroupList(List<Map<String, Object>> dataList) {
+    List<Group> groups = new ArrayList<>();
+    for (Map<String, Object> dataMap : dataList) {
+        String groupName = (String) dataMap.get("groupName");
+        String groupDescription = (String) dataMap.get("groupDescription");
+        String groupPhotoPath = (String) dataMap.get("groupPhotoPath");
+        List<String> members = (List<String>) dataMap.get("members");
+        
+        // Ensure members is non-null
+        if (members == null) {
+            members = new ArrayList<>();
         }
-        return groups;
+
+        groups.add(new Group(groupName, groupDescription, groupPhotoPath, members));
     }
+    return groups;
+}
    //// start suggesting 
     
           

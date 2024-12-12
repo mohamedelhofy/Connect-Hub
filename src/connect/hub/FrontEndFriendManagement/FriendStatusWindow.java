@@ -3,9 +3,11 @@
  * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Class.java to edit this template
  */
 package connect.hub.FrontEndFriendManagement;
-
 import connect.hub.BackEndFriendManagement.FriendshipDatabase;
+import connect.hub.NewsfeedPage;
 import connect.hub.User;
+import java.awt.event.WindowAdapter;
+import java.awt.event.WindowEvent;
 import java.util.ArrayList;
 import javax.swing.JFrame;
 import javax.swing.JScrollPane;
@@ -21,7 +23,6 @@ public class FriendStatusWindow extends JFrame{
     private ArrayList<User> friendsList;
     private DefaultTableModel tableModel;
     
-    
     public void showFrame(){
         // FRAME
         this.setTitle("Friends Status");
@@ -31,7 +32,13 @@ public class FriendStatusWindow extends JFrame{
         this.setResizable(true);
         this.setLocation(400, 20);
         this.setLayout(null);
-        
+        addWindowListener(new WindowAdapter() {
+            @Override
+            public void windowClosing(WindowEvent e) {
+                new NewsfeedPage().setVisible(true);
+                dispose();
+            }
+        });
         FriendshipDatabase friendShip = new FriendshipDatabase("User1"); ///////////////////////////////////////////////////////////
         this.friendsList = friendShip.getFriendList();
         

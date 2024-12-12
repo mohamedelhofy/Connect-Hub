@@ -4,9 +4,9 @@
  */
 package GroupFront;
 
+import connect.hub.suggestGroup;
 import GroupClass.Group;
 import GroupClass.readGroupFromJSON;
-import GroupClass.suggestGroup;
 import java.awt.BorderLayout;
 import java.util.List;
 import java.util.Map;
@@ -20,7 +20,7 @@ import javax.swing.JTextArea;
  * @author rawan
  */
 
-    public class suggestGui extends JFrame {
+ public class suggestGui extends JFrame {
 
     private JTextArea textArea;
 
@@ -48,7 +48,7 @@ import javax.swing.JTextArea;
         setVisible(true);
     }
 
-    private void generateSuggestions() {
+    public void generateSuggestions() {
         // Read the group data from the JSON file
         readGroupFromJSON readGroupJSON = new readGroupFromJSON();
         List<Map<String, Object>> groupListDB = readGroupJSON.getGroupListDB();
@@ -58,7 +58,7 @@ import javax.swing.JTextArea;
 
         // Generate group suggestions for users
         Map<String, List<String>> suggestions = suggestGroup.suggestGroups(groups);
-
+        
         // Display the suggestions in the text area
         StringBuilder sb = new StringBuilder();
         for (Map.Entry<String, List<String>> entry : suggestions.entrySet()) {

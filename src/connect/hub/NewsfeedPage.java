@@ -4,11 +4,16 @@
  */
 package connect.hub;
 
-import connect.hub.FrontEndContentCreation.FriendManagementInterface;
+//import connect.hub.FrontEndContentCreation.FriendManagementInterface;
+import GroupClass.Group;
+import GroupClass.readGroupFromJSON;
+import static com.sun.java.accessibility.util.AWTEventMonitor.addActionListener;
 import connect.hub.FrontEndContentCreation.NewPostGUI;
 import connect.hub.FrontEndContentCreation.NewStoryGUI;
 import connect.hub.FrontEndContentCreation.PostScrollingPage;
 import connect.hub.FrontEndContentCreation.StoryScrollingPage;
+import connect.hub.FrontEndFriendManagement.FriendManagementInterface;
+import connect.hub.FrontEndFriendManagement.FriendStatusWindow;
 import java.awt.BorderLayout;
 import java.awt.CardLayout;
 import java.awt.Color;
@@ -26,26 +31,26 @@ import javax.swing.JPanel;
  *
  * @author rawan
  */
-import javax.swing.*;
-import java.awt.*;
+
 import java.awt.event.ActionEvent;
-import java.awt.event.ActionListener;
-
-
-
 import javax.swing.*;
 import java.awt.*;
-import java.awt.event.*;
-import java.util.logging.Level;
-import java.util.logging.Logger;
-import org.json.JSONException;
+import java.awt.event.ActionListener;
+import java.util.List;
+import java.util.Map;
+import javax.swing.*;
+import java.awt.*;
+import java.awt.event.ActionListener;
+import java.util.ArrayList;
+import java.util.List;
+import java.util.Map;
 
 public class NewsfeedPage extends JFrame {
     private JPanel mainPanel;
     private CardLayout cardLayout;
+    private JTextArea suggestionsTextArea;
     private User user = User.getInstance();
 
-    
     public NewsfeedPage() {
         // Frame settings
         setTitle("Newsfeed Page");
@@ -76,20 +81,45 @@ public class NewsfeedPage extends JFrame {
 
         // Sidebar Panel
         JPanel sidebarPanel = new JPanel();
-        sidebarPanel.setLayout(new GridLayout(6, 6, 20, 20));
+        sidebarPanel.setLayout(new GridLayout(7, 1, 10, 10));
         sidebarPanel.setBackground(new Color(240, 240, 240));
         sidebarPanel.setBorder(BorderFactory.createTitledBorder("Navigation"));
 
         // Add buttons to the sidebar
+        sidebarPanel.add(createSidebarButton("Online Friends", e -> showOnline()));
         sidebarPanel.add(createSidebarButton("Posts", e -> navigateToPosts()));
         sidebarPanel.add(createSidebarButton("Stories", e -> navigateToStories()));
         sidebarPanel.add(createSidebarButton("New Post", e -> navigateToNewPost()));
         sidebarPanel.add(createSidebarButton("New Story", e -> navigateToNewStory()));
         sidebarPanel.add(createSidebarButton("Profile", e -> navigateToProfile()));
         sidebarPanel.add(createSidebarButton("Friends", e -> navigateToFriends()));
-        ///rgb(217, 234, 253)
+        sidebarPanel.setBackground(new Color(217, 234, 253));
         add(sidebarPanel, BorderLayout.WEST);
-        sidebarPanel.setBackground(new Color (217, 234, 253));
+        
+        // Group Suggestion Panel
+        JPanel suggestionPanel = new JPanel();
+        suggestionPanel.setLayout(new BorderLayout());
+        suggestionPanel.setBackground(new Color(240, 240, 240));
+        suggestionPanel.setBorder(BorderFactory.createTitledBorder("Group Suggestions"));
+
+        // Add a button to suggest groups for the user
+        JButton suggestGroupsButton = createStyledButton("Suggest Groups", new Color(0, 123, 255), Color.WHITE);
+        suggestGroupsButton.addActionListener(e -> suggestGroupsForUser(user.getUserId()));
+        suggestionPanel.add(suggestGroupsButton, BorderLayout.NORTH);
+
+        // Button to show groups the user is in
+        JButton userGroupsButton = createStyledButton("Groups you are in", new Color(0, 123, 255), Color.WHITE);
+        userGroupsButton.addActionListener(e -> displayGroupsForUser(user.getUserId()));
+        suggestionPanel.add(userGroupsButton, BorderLayout.SOUTH);
+
+        // Add a text area to display the suggestions
+        suggestionsTextArea = new JTextArea();
+        suggestionsTextArea.setEditable(false);
+        JScrollPane scrollPane = new JScrollPane(suggestionsTextArea);
+        suggestionPanel.add(scrollPane, BorderLayout.CENTER);
+
+        add(suggestionPanel, BorderLayout.EAST);
+
         // Main Panel
         mainPanel = new JPanel();
         cardLayout = new CardLayout();
@@ -154,6 +184,80 @@ public class NewsfeedPage extends JFrame {
     private void navigateToFriends() {
         dispose();
         FriendManagementInterface friendGui = new FriendManagementInterface();
-         friendGui.showFrame();
+        friendGui.showFrame();
+    }
+
+    private void suggestGroupsForUser(String userId) {
+        // Read the group data from the JSON file
+        readGroupFromJSON readGroupJSON = new readGroupFromJSON();
+        List<Map<String, Object>> groupListDB = readGroupJSON.getGroupListDB();
+
+        // Convert the data into a list of Group objects
+        List<Group> groups = suggestGroup.convertToGroupList(groupListDB);
+        
+        // Generate group suggestions for the user
+        Map<String, List<String>> suggestions = suggestGroup.suggestGroups(groups);
+
+        // Normalize userId to lowercase for case-insensitive comparison
+        String normalizedUserId = userId.toLowerCase();
+
+        // Display the suggestions in the text area
+        StringBuilder sb = new StringBuilder();
+        if (suggestions.containsKey(normalizedUserId)) {
+            for (String groupName : suggestions.get(normalizedUserId)) {
+                sb.append("You are not in group: ").append(groupName).append("\n");
+            }
+        } else {
+            for(Group group: groups){
+                sb.append("You are not in group: ").append(group.getGroupName()).append("\n");                
+            }
+        }
+
+        suggestionsTextArea.setText(sb.toString());
+    }
+
+    private void displayGroupsForUser(String userId) {
+        // Read the group data from the JSON file
+        readGroupFromJSON readGroupJSON = new readGroupFromJSON();
+        List<Map<String, Object>> groupListDB = readGroupJSON.getGroupListDB();
+
+        // Convert the data into a list of Group objects
+        List<Group> groups = suggestGroup.convertToGroupList(groupListDB);
+
+        // Get the list of groups the user is already a member of
+        List<String> userGroups = getGroupsForUser(userId, groups);
+
+        // Display the groups in the text area
+        StringBuilder sb = new StringBuilder();
+        if (!userGroups.isEmpty()) {
+            for (String groupName : userGroups) {
+                sb.append("You are in group: ").append(groupName).append("\n");
+            }
+        } else {
+            sb.append("You are not in any groups.");
+        }
+
+        suggestionsTextArea.setText(sb.toString());
+    }
+
+    public List<String> getGroupsForUser(String userId, List<Group> groups) {
+        List<String> userGroups = new ArrayList<>();
+
+        // Iterate over each group to check if the user is a member
+        for (Group group : groups) {
+            if (group.getMembers().contains(userId.toLowerCase())) {
+                userGroups.add(group.getGroupName());
+            }
+        }
+
+        return userGroups;
+    }
+
+    private void showOnline() {
+        dispose();
+        new FriendStatusWindow().showFrame();
+    }
 }
-}
+
+
+

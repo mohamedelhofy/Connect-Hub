@@ -1,8 +1,8 @@
 [
     {
-        "password": "5ad0e75a5119ff6de36d3fab783202c0224e685aa48461aed16aa72aa3960d21",
+        "password": "5994471abb01112afcc18159f6cc74b4f511b99806da59b3caf5a9c173cacfc5",
         "dateOfBirth": "2003-01-16\n",
-        "isOnline": false,
+        "isOnline": true,
         "userId": "User1",
         "email": "rawan@gamil.com",
         "username": "rawan"
@@ -118,5 +118,13 @@
         "userId": "User15",
         "email": "rrrsss@gmail.com ",
         "username": "roosss"
+    },
+    {
+        "password": "35a9e381b1a27567549b5f8a6f783c167ebf809f1c4d6a9e367240484d8ce281",
+        "dateOfBirth": "0015-03-02\n",
+        "isOnline": true,
+        "userId": "User100",
+        "email": "yoyo@o.com",
+        "username": "yoyo"
     }
 ]

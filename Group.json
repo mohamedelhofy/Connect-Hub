@@ -52,7 +52,7 @@
         "memberRequest": [
             "user12",
             "user13",
-            "user14",
+            "user4",
             "user15",
             "admin8",
             "admin9"
@@ -78,7 +78,7 @@
         "groupPhotoPath": "/images/fitness_freaks.jpg",
         "memberRequest": [
             "user16",
-            "user17",
+            "user4",
             "user18",
             "admin10",
             "admin11"
@@ -118,7 +118,7 @@
         "groupName": "Music Lovers",
         "groupDescription": "A group for sharing and enjoying music",
         "members": [
-            "user12",
+            "user4",
             "user13",
             "user14"
         ],

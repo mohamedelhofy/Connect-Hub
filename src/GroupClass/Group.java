@@ -6,6 +6,7 @@ package GroupClass;
 
 import connect.hub.BackEndContentCreation.*;
 import connect.hub.User;
+import java.util.ArrayList;
 import java.util.List;
 
 /**
@@ -24,10 +25,12 @@ public class Group {
     private List<String> memberRequst;
 
 
-    public Group(String groupName, String groupDescription, String groupPhotoPath) {
+    public Group(String groupName, String groupDescription, String groupPhotoPath ,List<String> members ) {
         this.groupName = groupName;
         this.groupDescription = groupDescription;
         this.groupPhotoPath = groupPhotoPath;
+       this.members = members != null ? members : new ArrayList<>();
+
     }
     public Group(){}
 

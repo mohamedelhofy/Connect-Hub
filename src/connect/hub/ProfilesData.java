@@ -4,6 +4,7 @@
  */
 package connect.hub;
 
+import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
@@ -14,7 +15,7 @@ import java.util.Map;
 public class ProfilesData {
     private ReadProfile profiles =new ReadProfile("profile.json");
     private List<Map<String, Object>> datalist = profiles.getDataAsListOfMaps() ;
-    private Map<String, Object> userData;
+    private Map<String, Object> userData=new HashMap();
     public ProfilesData(String userId ) {
         for(Map<String, Object> data:  datalist){
             if(userId.equals(data.get("userId")))

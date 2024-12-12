@@ -4,8 +4,11 @@
  */
 package connect.hub.FrontEndFriendManagement;
 
+import connect.hub.NewsfeedPage;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.awt.event.WindowAdapter;
+import java.awt.event.WindowEvent;
 import javax.swing.JButton;
 import javax.swing.JFrame;
 
@@ -27,7 +30,13 @@ public class FriendManagementInterface extends JFrame implements ActionListener{
         this.setResizable(true);
         this.setLocation(400, 20);
         this.setLayout(null);
-
+        addWindowListener(new WindowAdapter() {
+            @Override
+            public void windowClosing(WindowEvent e) {
+                new NewsfeedPage().setVisible(true);
+                dispose();
+            }
+        });
         // buttons
         this.requestsButton.setBounds(130, 100, 230, 60);
         this.add(this.requestsButton);

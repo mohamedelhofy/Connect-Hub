@@ -1,0 +1,32 @@
+[
+    {
+        "receiver": "User5",
+        "sender": "User14",
+        "requestStatus": "Pending"
+    },
+    {
+        "receiver": "User14",
+        "sender": "User8",
+        "requestStatus": "Accepted"
+    },
+    {
+        "receiver": "User15",
+        "sender": "User14",
+        "requestStatus": "Pending"
+    },
+    {
+        "receiver": "User11",
+        "sender": "User14",
+        "requestStatus": "Pending"
+    },
+    {
+        "receiver": "User1",
+        "sender": "User14",
+        "requestStatus": "Pending"
+    },
+    {
+        "receiver": "User7",
+        "sender": "User14",
+        "requestStatus": "Pending"
+    }
+]
