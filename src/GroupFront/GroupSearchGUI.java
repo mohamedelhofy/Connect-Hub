@@ -5,12 +5,15 @@
 package GroupFront;
 
 import GroupClass.*;
+import connect.hub.User;
 import java.awt.BorderLayout;
 import java.awt.Dimension;
 import java.awt.FlowLayout;
 import java.awt.Font;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.time.LocalDate;
+import java.util.Date;
 import java.util.List;
 import java.util.Map;
 import javax.swing.BorderFactory;
@@ -27,6 +30,9 @@ import javax.swing.JTextField;
 public class GroupSearchGUI {
 
     public static void main(String[] args) {
+//        User currentUser = User.getInstance();    //<<<The class User have a problem>>>>\\
+        Date DOB = new Date(2000, 1, 1);
+        User currentUser=new User( "12345","user@example.com","user123","hashedPassword123",DOB);
         readGroupFromJSON readGroup = new readGroupFromJSON();
         List<Map<String, Object>> groupList = readGroup.getGroupListDB();
         JFrame frame = new JFrame("Group Search");
@@ -60,15 +66,36 @@ public class GroupSearchGUI {
             @Override
             public void actionPerformed(ActionEvent e) {
                 String searchText = searchField.getText();
+                String currentUser = "admin8";         // <<<<<<<<I need to delete it and access the User instannce>>>>>>>>\\
                 boolean found = false;
 
                 for (Map<String, Object> group : groupList) {
                     String groupName = ((String) group.get("groupName"));
-                    if (groupName.contains(searchText)) {
-                        
-                        found = true;
-                        break;
-                    }
+                    if (searchText.isEmpty()) {
+                    JOptionPane.showMessageDialog(frame, "Please enter a group name to search.");
+                    return;
+                }
+
+                    if (groupName != null && groupName.contains(searchText)) {
+                                String primaryAdmin = (String) group.get("PrimaryAdmin");
+                                List<String> admins = (List<String>) group.get("admins");
+                                List<String> members = (List<String>) group.get("members");
+
+                                if (primaryAdmin.equals(currentUser)) {
+                                    JOptionPane.showMessageDialog(frame, "You are the primary admin of this group.");
+                                } else if (admins.contains(currentUser)) {
+                                    JOptionPane.showMessageDialog(frame, "You are already an admin of this group.");
+                                } else if (members.contains(currentUser)) {
+                                    JOptionPane.showMessageDialog(frame, "You are already a member of this group.");
+                                } else {
+                                    JoinGUI joinFrame = new JoinGUI();
+                                    joinFrame.joinFrame(currentUser);
+                                }
+                    JOptionPane.showMessageDialog(frame, "group found with the name: " + searchText);
+
+                                found = true;
+                                break;
+                            }
                 }
 
                 if (!found) {
