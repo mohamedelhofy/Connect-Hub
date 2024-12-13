@@ -95,8 +95,8 @@ public class GroupSearchGUI {
                         break;
                     }
                 }
-              //  System.out.print("mhjd");
-//                StoreGroupJSON.updateJson(groupList);
+
+              
                 if (!found) {
                     JOptionPane.showMessageDialog(frame, "No group found with the name: " + searchText);
                 }

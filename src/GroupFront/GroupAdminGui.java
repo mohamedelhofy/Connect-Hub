@@ -45,7 +45,7 @@ public class GroupAdminGui extends JFrame  {
 
     public GroupAdminGui(GroupPrimaryAdmin group) {
         setTitle(group.getGroupName());
-        setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+//        setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         setSize(400, 500);
         setLayout(new BorderLayout());
         setLocationRelativeTo(null);
@@ -106,13 +106,27 @@ public class GroupAdminGui extends JFrame  {
         removeMember.setFont(new Font("Arial", Font.PLAIN, 18));
         removeMember.addActionListener(e -> {
             dispose();
-            new DeletePost((GroupPrimaryAdmin) group,true);
+            new RemoveMember((GroupPrimaryAdmin) group,true);
+        });
+        JButton approveMember = new JButton("Approve Member");
+        approveMember.setFont(new Font("Arial", Font.PLAIN, 18));
+        approveMember.addActionListener(e -> {
+            dispose();
+            new ApproveMember((GroupPrimaryAdmin) group,true);
+        });
+        JButton declineMember = new JButton("Decline Member");
+        declineMember.setFont(new Font("Arial", Font.PLAIN, 18));
+        declineMember.addActionListener(e -> {
+            dispose();
+            new DeclineMember((GroupPrimaryAdmin) group,true);
         });
         buttonPanel.add(addPost);
         buttonPanel.add(posts);
         buttonPanel.add(editPost);
         buttonPanel.add(deletePost);
         buttonPanel.add(removeMember);
+        buttonPanel.add(approveMember);
+        buttonPanel.add(declineMember);
         add(descriptionScrollPane, BorderLayout.BEFORE_FIRST_LINE);
         add(photoLabel, BorderLayout.CENTER);
         add(buttonPanel, BorderLayout.SOUTH);
@@ -124,10 +138,10 @@ public class GroupAdminGui extends JFrame  {
                 dispose();
             }
         });
-        
     }
     public static void main(String[] args) {
         GroupPrimaryAdmin group =new GroupPrimaryAdmin("ff","fff","D:\\\\OOP\\\\Connect-Hub\\\\my_photo\\\\WhatsApp Image 2023-12-14 at 13.43.35_7256691a.jpg");
         new GroupAdminGui(group).setVisible(true);
     }
 }
+
