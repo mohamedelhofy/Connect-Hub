@@ -18,8 +18,11 @@ import org.json.JSONObject;
  */
 public class GroupPrimaryAdmin extends GroupAdmin {
 
-    public GroupPrimaryAdmin() {
+    public GroupPrimaryAdmin(String groupName, String groupDescription, String groupPhotoPath) {
+        super(groupName, groupDescription, groupPhotoPath);
     }
+
+    public GroupPrimaryAdmin(){}
     
     @Override
     public void removeMember(String userId){
@@ -68,7 +71,6 @@ public class GroupPrimaryAdmin extends GroupAdmin {
         }
     }
     
-    @Override
-    public void leaveGroup(){}
+
       
 }

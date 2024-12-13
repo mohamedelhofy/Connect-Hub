@@ -15,6 +15,10 @@ import java.awt.Image;
  */
 public class GroupMember extends Group{
     User user=User.getInstance();
+
+    public GroupMember(String groupName, String groupDescription, String groupPhotoPath) {
+        super(groupName, groupDescription, groupPhotoPath);
+    }
     public GroupMember(){}
     public void addPost(String contentText, Image image){
         Post newPost = new Post(this.user.getUserId(), contentText,image);
@@ -22,7 +26,7 @@ public class GroupMember extends Group{
         jsonFile.addPostsToJSON();
         super.getPostsId().add(newPost.getContentId());
     }
-    public void leaveGroup(){
-        super.getMembers().remove(user.getUserId());
-    }
+
+
+
 }

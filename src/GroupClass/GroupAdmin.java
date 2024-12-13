@@ -15,8 +15,11 @@ import java.awt.Image;
  */
 public class GroupAdmin extends GroupMember {
 
-    public GroupAdmin() {
+    public GroupAdmin(String groupName, String groupDescription, String groupPhotoPath) {
+        super(groupName, groupDescription, groupPhotoPath);
     }
+    public GroupAdmin(){}
+
     public void removeMember(String userId){
         super.getMembers().remove(userId);
     }
@@ -42,8 +45,5 @@ public class GroupAdmin extends GroupMember {
         jsonFile.addPostsToJSON();      
     }
     
-    @Override
-    public void leaveGroup(){
-        super.getAdmins().remove(user.getUserId());
-    } 
+
 }

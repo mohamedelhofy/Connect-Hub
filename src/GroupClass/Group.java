@@ -29,7 +29,9 @@ public class Group {
         this.groupDescription = groupDescription;
         this.groupPhotoPath = groupPhotoPath;
     }
-    public Group(){}
+
+    public Group() {
+    }
 
     public String getGroupName() {
         return groupName;

@@ -34,11 +34,12 @@ import javax.swing.filechooser.FileNameExtensionFilter;
  */
 public class NewPostGUI {
     private String autherId;
+    Post newPost;
     public NewPostGUI(String autherId) {
         this.autherId = autherId;
     }
     
-    public void newPostFrame(){
+    public Post newPostFrame(){
         JFrame frame = new JFrame("Create New Post");
 //        frame.setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
         frame.setSize(900, 600); 
@@ -113,7 +114,7 @@ public class NewPostGUI {
         submitButton.addActionListener(e -> {
             String contentText = postContentArea.getText().trim();
             // Create the post object
-            Post newPost = new Post(this.autherId, contentText, selectedImage[0]);
+            newPost = new Post(this.autherId, contentText, selectedImage[0]);
             StoreIntoJSON jsonFile = new StoreIntoJSON(newPost);
             jsonFile.addPostsToJSON();
             JOptionPane.showMessageDialog(frame, "Post created successfully!");
@@ -140,5 +141,6 @@ public class NewPostGUI {
         frame.add(imagePanel, BorderLayout.WEST);
         frame.add(buttonPanel, BorderLayout.SOUTH);
         frame.setVisible(true);
+        return newPost;
     }
 }
