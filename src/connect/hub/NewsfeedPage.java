@@ -61,7 +61,7 @@ public class NewsfeedPage extends JFrame {
 
         // Header Panel - Title and Log Out button
         JPanel headerPanel = new JPanel(new BorderLayout());
-        headerPanel.setBackground(new Color(36, 48, 69)); // Dark Blue Header
+        headerPanel.setBackground(new Color(36, 48, 69)); // Dark Blue Header for all buttons//////////////
         headerPanel.setBorder(BorderFactory.createEmptyBorder(10, 10, 10, 10));
 
         JLabel titleLabel = new JLabel("Newsfeed", JLabel.CENTER);
@@ -74,12 +74,76 @@ public class NewsfeedPage extends JFrame {
         logoutButton.addActionListener(e -> {
             JOptionPane.showMessageDialog(this, "You have logged out.");
             dispose();
-            // Add logout logic here
+            ///////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+            new LoginWindow().setVisible(true);
+            
         });
-        headerPanel.add(logoutButton, BorderLayout.EAST);
-        add(headerPanel, BorderLayout.NORTH);
+        
+        JButton notificationsButton = createStyledButton("notifications", new Color(217, 234, 253),new Color(36, 48, 69) );
+        notificationsButton.addActionListener(e -> {
+            
+            //// place the notification window here ya A7med
+            ///////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+            new LoginWindow().setVisible(true);
+            
+        });
+        
+        
+        JButton refreshButton = createStyledButton("Refresh", new Color(217, 234, 253),new Color(36, 48, 69) );
+        refreshButton.addActionListener(e -> {
+            
+            //// place the notification window here ya A7med
+            ///////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+            new FileDataActions().refresh();
+            JOptionPane.showMessageDialog(this, "Your data has been refreshed");
 
-        // Sidebar Panel
+            
+        });
+        
+   headerPanel.setLayout(new FlowLayout(FlowLayout.RIGHT)); //  buttons to the right
+   headerPanel.add(notificationsButton);
+     headerPanel.add(refreshButton);
+     headerPanel.add(logoutButton);
+ 
+        logoutButton.setPreferredSize(new Dimension(120, 40)); // Width: 120, Height: 40
+        notificationsButton.setPreferredSize(new Dimension(120, 40));
+        refreshButton.setPreferredSize(new Dimension(110, 40));
+        add(headerPanel, BorderLayout.NORTH);
+/////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+JTextField searchBar = new JTextField("Search...");
+searchBar.setForeground(Color.GRAY);
+
+// Add focus listener to manage placeholder text
+searchBar.addFocusListener(new java.awt.event.FocusAdapter() {
+    public void focusGained(java.awt.event.FocusEvent e) {
+        if (searchBar.getText().equals("Search...")) {
+            searchBar.setText("");
+            searchBar.setForeground(Color.BLACK);
+        }
+    }
+
+    public void focusLost(java.awt.event.FocusEvent e) {
+        if (searchBar.getText().isEmpty()) {
+            searchBar.setForeground(Color.GRAY);
+            searchBar.setText("Search...");
+        }
+    }
+});
+     ////headerPanel.add(searchBar);
+        searchBar.setPreferredSize(new Dimension(200, 30));
+        searchBar.setPreferredSize(new Dimension(80, 30));
+        headerPanel.add(searchBar, BorderLayout.WEST);
+
+
+ searchBar.addActionListener(e -> {
+            
+            //// place the Search  here ya A7med
+            ///////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+            new FileDataActions().refresh();
+            JOptionPane.showMessageDialog(this, "Your data has been refreshed");  
+        });
+ 
+ 
         JPanel sidebarPanel = new JPanel();
         sidebarPanel.setLayout(new GridLayout(7, 1, 10, 10));
         sidebarPanel.setBackground(new Color(240, 240, 240));
@@ -101,14 +165,14 @@ public class NewsfeedPage extends JFrame {
         suggestionPanel.setLayout(new BorderLayout());
         suggestionPanel.setBackground(new Color(240, 240, 240));
         suggestionPanel.setBorder(BorderFactory.createTitledBorder("Group Suggestions"));
-
+         suggestionPanel.setBackground(new Color(217, 234, 253));
         // Add a button to suggest groups for the user
-        JButton suggestGroupsButton = createStyledButton("Suggest Groups", new Color(0, 123, 255), Color.WHITE);
+        JButton suggestGroupsButton = createStyledButton("Suggest Groups", new Color(36, 48, 69), Color.WHITE);
         suggestGroupsButton.addActionListener(e -> suggestGroupsForUser(user.getUserId()));
         suggestionPanel.add(suggestGroupsButton, BorderLayout.NORTH);
 
         // Button to show groups the user is in
-        JButton userGroupsButton = createStyledButton("Groups you are in", new Color(0, 123, 255), Color.WHITE);
+        JButton userGroupsButton = createStyledButton("Groups you are in", new Color(36, 48, 69), Color.WHITE);
         userGroupsButton.addActionListener(e -> displayGroupsForUser(user.getUserId()));
         suggestionPanel.add(userGroupsButton, BorderLayout.SOUTH);
 
