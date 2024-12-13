@@ -4,6 +4,7 @@
  */
 package connect.hub;
 
+import NotificationsBackEnd.NotificationsDatabase;
 import java.io.BufferedWriter;
 import java.io.FileWriter;
 import java.io.IOException;

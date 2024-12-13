@@ -28,17 +28,19 @@ public class NotificationsDatabase {
     private ArrayList<Map<String, String>> allFriendRequestsNotificationsList;
     private ArrayList<User> usersFriendRequestsNotificationsList;
     private ArrayList<Map<String, String>> emptyList = new ArrayList<>();
-    
+
     public NotificationsDatabase(String userId) {
         this.userId = userId;
         this.usersFriendRequestsNotificationsList = new ArrayList<>();
     }
-    
+
+    public String getUserId() {
+        return userId;
+    }
+        
     public ArrayList<User> getUsersFriendRequestsNotificationsList(){
 //        this.usersFriendRequestsNotificationsList.clear();
 //        updateUsersFriendRequestsNotificationsList();
-        WriteReceivedFriendRequestsNotificationsToJSON writer = new WriteReceivedFriendRequestsNotificationsToJSON();
-        writer.writeFromListOfMaps(emptyList);
         return this.usersFriendRequestsNotificationsList;
     }
     
@@ -89,8 +91,10 @@ public class NotificationsDatabase {
         }
         else
             JOptionPane.showMessageDialog(null, "File does not exist: " + filePath, "MESSAGE", JOptionPane.WARNING_MESSAGE);
+        WriteReceivedFriendRequestsNotificationsToJSON writer = new WriteReceivedFriendRequestsNotificationsToJSON();
+        writer.writeFromListOfMaps(emptyList);
+
     }
-            
 }
 
 
