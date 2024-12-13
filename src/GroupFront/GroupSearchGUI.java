@@ -66,7 +66,7 @@ public class GroupSearchGUI {
             @Override
             public void actionPerformed(ActionEvent e) {
                 String searchText = searchField.getText();
-                String currentUser = "admin8";         // <<<<<<<<I need to delete it and access the User instannce>>>>>>>>\\
+                String currentUser = "Rahma";         // <<<<<<<<I need to delete it and access the User instannce>>>>>>>>\\
                 boolean found = false;
 
                 for (Map<String, Object> group : groupList) {
@@ -91,7 +91,6 @@ public class GroupSearchGUI {
                                     JoinGUI joinFrame = new JoinGUI();
                                     joinFrame.joinFrame(currentUser);
                                 }
-                    JOptionPane.showMessageDialog(frame, "group found with the name: " + searchText);
 
                                 found = true;
                                 break;
