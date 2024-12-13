@@ -139,9 +139,6 @@ public class GroupAdminGui extends JFrame  {
             }
         });
     }
-    public static void main(String[] args) {
-        GroupPrimaryAdmin group =new GroupPrimaryAdmin("ff","fff","D:\\\\OOP\\\\Connect-Hub\\\\my_photo\\\\WhatsApp Image 2023-12-14 at 13.43.35_7256691a.jpg");
-        new GroupAdminGui(group).setVisible(true);
-    }
+
 }
 
