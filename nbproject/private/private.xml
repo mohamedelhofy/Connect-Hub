@@ -3,6 +3,7 @@
     <editor-bookmarks xmlns="http://www.netbeans.org/ns/editor-bookmarks/2" lastBookmarkId="0"/>
     <open-files xmlns="http://www.netbeans.org/ns/projectui-open-files/2">
         <group>
+<<<<<<< HEAD
             <file>file:/D:/OOP/Connect-Hub/src/connect/hub/Hashing.java</file>
             <file>file:/D:/OOP/Connect-Hub/src/connect/hub/SaveProfile.java</file>
             <file>file:/D:/OOP/Connect-Hub/src/connect/hub/profileGui.java</file>
@@ -41,6 +42,14 @@
             <file>file:/D:/OOP/Connect-Hub/src/connect/hub/BackEndContentCreation/FriendshipDatabase.java</file>
             <file>file:/D:/OOP/Connect-Hub/src/connect/hub/ProfilesData.java</file>
             <file>file:/D:/OOP/Connect-Hub/src/connect/hub/BackEndContentCreation/Post.java</file>
+=======
+            <file>file:/C:/Users/رحمه%20صبرى/OneDrive/سطح%20المكتب/T5/Programming2/NetBeansProjects/Connect-Hub/Connect-Hub/src/GroupFront/JoinGUI.java</file>
+            <file>file:/C:/Users/رحمه%20صبرى/OneDrive/سطح%20المكتب/T5/Programming2/NetBeansProjects/Connect-Hub/Connect-Hub/src/GroupFront/GroupSearchGUI.java</file>
+            <file>file:/C:/Users/رحمه%20صبرى/OneDrive/سطح%20المكتب/T5/Programming2/NetBeansProjects/Connect-Hub/Connect-Hub/src/GroupClass/readGroupFromJSON.java</file>
+            <file>file:/C:/Users/رحمه%20صبرى/OneDrive/سطح%20المكتب/T5/Programming2/NetBeansProjects/Connect-Hub/Connect-Hub/src/GroupClass/Group.java</file>
+            <file>file:/C:/Users/رحمه%20صبرى/OneDrive/سطح%20المكتب/T5/Programming2/NetBeansProjects/Connect-Hub/Connect-Hub/src/connect/hub/User.java</file>
+            <file>file:/C:/Users/رحمه%20صبرى/OneDrive/سطح%20المكتب/T5/Programming2/NetBeansProjects/Connect-Hub/Connect-Hub/src/GroupClass/ConvertGroupsIntoList.java</file>
+>>>>>>> 06ff8a2dfee5761c14678a807e58d54f353bcbdd
         </group>
     </open-files>
 </project-private>

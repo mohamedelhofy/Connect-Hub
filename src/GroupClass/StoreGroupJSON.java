@@ -7,7 +7,9 @@ package GroupClass;
 import java.io.IOException;
 import java.nio.file.Files;
 import java.nio.file.Path;
+import java.nio.file.Paths;
 import java.nio.file.StandardOpenOption;
+import java.util.List;
 import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
@@ -18,7 +20,7 @@ import org.json.JSONObject;
  */
 public class StoreGroupJSON {
 
-    public void addToJSON(Group group) {
+    public static void addToJSON(Group group) {
         Path filePath = Path.of("Group.json");
         JSONArray jsonArray;
 
@@ -59,4 +61,5 @@ public class StoreGroupJSON {
             System.err.println("An unexpected error occurred: " + e.getMessage());
         }
     }
+
 }

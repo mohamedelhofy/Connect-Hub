@@ -143,4 +143,6 @@ public class NewPostGUI {
         frame.setVisible(true);
         return newPost;
     }
+    
+    
 }

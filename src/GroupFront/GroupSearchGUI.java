@@ -30,11 +30,13 @@ import javax.swing.JTextField;
 public class GroupSearchGUI {
 
     public static void main(String[] args) {
-//        User currentUser = User.getInstance();    //<<<The class User have a problem>>>>\\
+        //User currentUser = User.getInstance();    //<<<The class User have a problem>>>>\\
         Date DOB = new Date(2000, 1, 1);
-        User currentUser=new User( "12345","user@example.com","user123","hashedPassword123",DOB);
+        User currentUser = new User("admin8", "user@example.com", "user123", "hashedPassword123", DOB);
+        currentUser.setUserId("admin11");
         readGroupFromJSON readGroup = new readGroupFromJSON();
-        List<Map<String, Object>> groupList = readGroup.getGroupListDB();
+        List<Group> groupList = readGroup.convertToGroupList();
+        //System.out.println(groupList);
         JFrame frame = new JFrame("Group Search");
         frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         frame.setSize(400, 100);
@@ -65,39 +67,36 @@ public class GroupSearchGUI {
         searchButton.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
-                String searchText = searchField.getText();
-                String currentUser = "admin8";         // <<<<<<<<I need to delete it and access the User instannce>>>>>>>>\\
+                String searchText = searchField.getText().trim();
                 boolean found = false;
 
-                for (Map<String, Object> group : groupList) {
-                    String groupName = ((String) group.get("groupName"));
+                for (Group group : groupList) {
+                   // System.out.println(group.getGroupName());
                     if (searchText.isEmpty()) {
-                    JOptionPane.showMessageDialog(frame, "Please enter a group name to search.");
-                    return;
+                        JOptionPane.showMessageDialog(frame, "Please enter a group name to search.");
+                        return;
+                    }
+
+                    if (group.getGroupName().equals(searchText)) {
+                        //System.out.println(searchText);  
+                        System.out.println(currentUser.getUserId());
+                        if (currentUser.getUserId().equals(group.getPrimaryAdmin())) {
+                            PrimaryAdminGUI.PrimaryFrame(currentUser, group);
+                        } else if ( group.getAdmins().contains(currentUser.getUserId())) {
+                            AdminGUI.AdminFrame(currentUser, group);
+                        } else if ( group.getMembers().contains(currentUser.getUserId())) {
+                            MemberGUI.memberFrame(currentUser, group);
+                        } else {
+                            JoinGUI joinFrame = new JoinGUI();
+                            joinFrame.joinFrame(currentUser, group);
+                        }
+
+                        found = true;
+                        break;
+                    }
                 }
-
-                    if (groupName != null && groupName.contains(searchText)) {
-                                String primaryAdmin = (String) group.get("PrimaryAdmin");
-                                List<String> admins = (List<String>) group.get("admins");
-                                List<String> members = (List<String>) group.get("members");
-
-                                if (primaryAdmin.equals(currentUser)) {
-                                    JOptionPane.showMessageDialog(frame, "You are the primary admin of this group.");
-                                } else if (admins.contains(currentUser)) {
-                                    JOptionPane.showMessageDialog(frame, "You are already an admin of this group.");
-                                } else if (members.contains(currentUser)) {
-                                    JOptionPane.showMessageDialog(frame, "You are already a member of this group.");
-                                } else {
-                                    JoinGUI joinFrame = new JoinGUI();
-                                    joinFrame.joinFrame(currentUser);
-                                }
-                    JOptionPane.showMessageDialog(frame, "group found with the name: " + searchText);
-
-                                found = true;
-                                break;
-                            }
-                }
-
+              //  System.out.print("mhjd");
+//                StoreGroupJSON.updateJson(groupList);
                 if (!found) {
                     JOptionPane.showMessageDialog(frame, "No group found with the name: " + searchText);
                 }

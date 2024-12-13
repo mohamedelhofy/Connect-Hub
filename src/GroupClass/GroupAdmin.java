@@ -7,6 +7,7 @@ package GroupClass;
 import connect.hub.BackEndContentCreation.Post;
 import connect.hub.BackEndContentCreation.RemoveFromJSON;
 import connect.hub.BackEndContentCreation.StoreIntoJSON;
+import connect.hub.User;
 import java.awt.Image;
 
 /**
@@ -45,5 +46,7 @@ public class GroupAdmin extends GroupMember {
         jsonFile.addPostsToJSON();      
     }
     
-
+    public void leaveGroup(Group group, User uer){
+        group.getAdmins().remove(uer.getUserId());
+    } 
 }

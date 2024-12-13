@@ -29,4 +29,7 @@ public class GroupMember extends Group{
 
 
 
+    public void leaveGroup(Group group, User usr){
+        group.getMembers().remove(usr.getUserId());
+    }
 }
