@@ -82,7 +82,17 @@ public class PrimaryAdminGUI {
 
         // Add a click listener for View Group button
         viewGroupButton.addActionListener(e -> {
-            //I need to connect hofy page here
+            GroupPrimaryAdmin adminGroup = new GroupPrimaryAdmin();
+            adminGroup.setGroupName(group.getGroupName());
+            adminGroup.setGroupPhotoPath(group.getGroupPhotoPath());
+            adminGroup.setGroupDescription(group.getGroupDescription());
+            adminGroup.setAdmins(group.getAdmins());
+            adminGroup.setMemberRequst(group.getMemberRequst());
+            adminGroup.setMembers(group.getMembers());
+            adminGroup.setPostsId(group.getPostsId());
+            adminGroup.setPrimaryAdmin(group.getPrimaryAdmin());
+            
+            new GroupPrimaryAdminGui(adminGroup).setVisible(true);
         });
 
         // Add the buttons to the panel (arranged horizontally in a row)

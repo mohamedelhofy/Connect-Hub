@@ -7,6 +7,7 @@ package GroupFront;
 import GroupClass.Group;
 import GroupClass.GroupAdmin;
 import GroupClass.GroupMember;
+import GroupClass.GroupPrimaryAdmin;
 import connect.hub.User;
 import java.awt.BorderLayout;
 import java.awt.Color;
@@ -82,7 +83,9 @@ public class MemberGUI {
 
         // Add a click listener for View Group button
         viewGroupButton.addActionListener(e -> {
-            //I need to connect hofy page here
+            new GroupMemberGui(group).setVisible(true);
+            
+            
         });
 
         // Add the buttons to the panel (arranged horizontally in a row)
