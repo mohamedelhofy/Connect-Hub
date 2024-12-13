@@ -3,6 +3,7 @@
     <editor-bookmarks xmlns="http://www.netbeans.org/ns/editor-bookmarks/2" lastBookmarkId="0"/>
     <open-files xmlns="http://www.netbeans.org/ns/projectui-open-files/2">
         <group>
+<<<<<<< HEAD
             <file>file:/D:/UserData/Desktop/Connect-Hub/src/connect/hub/SaveProfile.java</file>
             <file>file:/D:/UserData/Desktop/Connect-Hub/src/connect/hub/signupWindow.java</file>
             <file>file:/D:/UserData/Desktop/Connect-Hub/src/connect/hub/WriteFriendRequestsToJSON.java</file>
@@ -17,6 +18,59 @@
             <file>file:/D:/UserData/Desktop/Connect-Hub/src/connect/hub/profileGui.java</file>
             <file>file:/D:/UserData/Desktop/Connect-Hub/src/connect/hub/FileDataActions.java</file>
             <file>file:/D:/UserData/Desktop/Connect-Hub/src/GroupFront/suggestGui.java</file>
+=======
+            <file>file:/D:/OOP/Connect-Hub/src/connect/hub/Hashing.java</file>
+            <file>file:/D:/OOP/Connect-Hub/src/connect/hub/SaveProfile.java</file>
+            <file>file:/D:/OOP/Connect-Hub/src/connect/hub/profileGui.java</file>
+            <file>file:/D:/OOP/Connect-Hub/src/GroupFront/GroupGui.java</file>
+            <file>file:/D:/OOP/Connect-Hub/src/connect/hub/ConnectHub.java</file>
+            <file>file:/D:/OOP/Connect-Hub/src/connect/hub/FrontEndContentCreation/NewPostGUI.java</file>
+            <file>file:/D:/OOP/Connect-Hub/src/connect/hub/BackEndContentCreation/ManageRequest.java</file>
+            <file>file:/D:/OOP/Connect-Hub/src/connect/hub/Services.java</file>
+            <file>file:/D:/OOP/Connect-Hub/src/connect/hub/FrontEndContentCreation/NewStoryGUI.java</file>
+            <file>file:/D:/OOP/Connect-Hub/src/connect/hub/ReadProfile.java</file>
+            <file>file:/D:/OOP/Connect-Hub/src/connect/hub/WriteFriendRequestsToJSON.java</file>
+            <file>file:/D:/OOP/Connect-Hub/src/connect/hub/BackEndContentCreation/ReadFromJSON.java</file>
+            <file>file:/D:/OOP/Connect-Hub/src/connect/hub/NewsfeedPage.java</file>
+            <file>file:/D:/OOP/Connect-Hub/src/GroupClass/Group.java</file>
+            <file>file:/D:/OOP/Connect-Hub/src/connect/hub/BackEndContentCreation/ReadFriendRequestsFromJSON.java</file>
+            <file>file:/D:/OOP/Connect-Hub/src/connect/hub/ProfileManagementPage.java</file>
+            <file>file:/D:/OOP/Connect-Hub/src/GroupFront/EditPost.java</file>
+            <file>file:/D:/OOP/Connect-Hub/src/connect/hub/BackEndContentCreation/FriendManager.java</file>
+            <file>file:/D:/OOP/Connect-Hub/src/GroupClass/readGroupFromJSON.java</file>
+            <file>file:/D:/OOP/Connect-Hub/src/GroupClass/GroupMember.java</file>
+            <file>file:/D:/OOP/Connect-Hub/src/connect/hub/BackEndContentCreation/checkRequestStatus.java</file>
+            <file>file:/D:/OOP/Connect-Hub/src/connect/hub/FrontEndContentCreation/FriendManagementInterface.java</file>
+            <file>file:/D:/OOP/Connect-Hub/src/GroupFront/GroupPrimaryAdminGui.java</file>
+            <file>file:/D:/OOP/Connect-Hub/src/GroupFront/DemoteMember.java</file>
+            <file>file:/D:/OOP/Connect-Hub/src/GroupClass/GroupPrimaryAdmin.java</file>
+            <file>file:/D:/OOP/Connect-Hub/src/connect/hub/ChangePass.java</file>
+            <file>file:/D:/OOP/Connect-Hub/src/GroupFront/ApproveMember.java</file>
+            <file>file:/D:/OOP/Connect-Hub/src/connect/hub/UserServices.java</file>
+            <file>file:/D:/OOP/Connect-Hub/src/GroupClass/StoreGroupJSON.java</file>
+            <file>file:/D:/OOP/Connect-Hub/src/connect/hub/ProfilesData.java</file>
+            <file>file:/D:/OOP/Connect-Hub/src/GroupFront/GroupMemberGui.java</file>
+            <file>file:/D:/OOP/Connect-Hub/src/GroupFront/GroupSearchGUI.java</file>
+            <file>file:/D:/OOP/Connect-Hub/src/connect/hub/FrontEndContentCreation/PostScrollingPage.java</file>
+            <file>file:/D:/OOP/Connect-Hub/src/connect/hub/BackEndContentCreation/RemoveFromJSON.java</file>
+            <file>file:/D:/OOP/Connect-Hub/src/connect/hub/BackEndContentCreation/RefreshFriendsLists.java</file>
+            <file>file:/D:/OOP/Connect-Hub/src/connect/hub/BackEndContentCreation/StoreIntoJSON.java</file>
+            <file>file:/D:/OOP/Connect-Hub/src/connect/hub/FileDataActions.java</file>
+            <file>file:/D:/OOP/Connect-Hub/src/GroupFront/DeletePost.java</file>
+            <file>file:/D:/OOP/Connect-Hub/src/connect/hub/BackEndContentCreation/ContentManagment.java</file>
+            <file>file:/D:/OOP/Connect-Hub/src/connect/hub/LoginWindow.java</file>
+            <file>file:/D:/OOP/Connect-Hub/src/GroupFront/GroupAdminGui.java</file>
+            <file>file:/D:/OOP/Connect-Hub/src/connect/hub/signupWindow.java</file>
+            <file>file:/D:/OOP/Connect-Hub/src/GroupFront/PromoteMember.java</file>
+            <file>file:/D:/OOP/Connect-Hub/src/GroupFront/RemoveMember.java</file>
+            <file>file:/D:/OOP/Connect-Hub/src/GroupFront/DeclineMember.java</file>
+            <file>file:/D:/OOP/Connect-Hub/src/connect/hub/User.java</file>
+            <file>file:/D:/OOP/Connect-Hub/src/connect/hub/UserDataActions.java</file>
+            <file>file:/D:/OOP/Connect-Hub/src/GroupClass/GroupAdmin.java</file>
+            <file>file:/D:/OOP/Connect-Hub/src/connect/hub/FrontEndContentCreation/FriendStatusWindow.java</file>
+            <file>file:/D:/OOP/Connect-Hub/src/connect/hub/BackEndContentCreation/FriendshipDatabase.java</file>
+            <file>file:/D:/OOP/Connect-Hub/src/connect/hub/BackEndContentCreation/Post.java</file>
+>>>>>>> GroupClass
         </group>
     </open-files>
 </project-private>

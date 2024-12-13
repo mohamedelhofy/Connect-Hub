@@ -18,8 +18,11 @@ import org.json.JSONObject;
  */
 public class GroupPrimaryAdmin extends GroupAdmin {
 
-    public GroupPrimaryAdmin() {
+    public GroupPrimaryAdmin(String groupName, String groupDescription, String groupPhotoPath) {
+        super(groupName, groupDescription, groupPhotoPath);
     }
+
+    public GroupPrimaryAdmin(){}
     
     @Override
     public void removeMember(String userId){
@@ -28,16 +31,20 @@ public class GroupPrimaryAdmin extends GroupAdmin {
     }
     
     public void promoteAdmin(String userId){
+        if(super.getMembers().contains(userId)){
         super.getMembers().remove(userId);
         super.getAdmins().add(userId);
+        }
     }
     
     public void demoteAdmin(String userId){
-        super.getAdmins().remove(userId);
-        super.getMembers().add(userId);
+        if(super.getAdmins().contains(userId)){
+            super.getAdmins().remove(userId);
+            super.getMembers().add(userId);
+        }
     }
     
-    public void deleteGroup(){
+    public static void deleteGroup(Group group){
         Path path = Path.of("Group.json");
         JSONArray jsonArray;
         try {
@@ -49,7 +56,7 @@ public class GroupPrimaryAdmin extends GroupAdmin {
                     for (int i = 0; i < jsonArray.length(); i++) {
                         JSONObject jsonObject = jsonArray.getJSONObject(i);
 
-                        if (super.getGroupName().equals(jsonObject.getString("groupName"))) {
+                        if (group.getGroupName().equals(jsonObject.getString("groupName"))) {
                             jsonArray.remove(i); 
                             break; 
                         }
@@ -68,7 +75,8 @@ public class GroupPrimaryAdmin extends GroupAdmin {
         }
     }
     
-    @Override
+
+    
     public void leaveGroup(){}
       
 }
