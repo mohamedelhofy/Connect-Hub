@@ -22,10 +22,10 @@ import javax.swing.JTextField;
  *
  * @author Compu City
  */
-public class DeclineMember {
-    public DeclineMember(GroupPrimaryAdmin group,boolean flag) {
+public class DemoteMember {
+        public DemoteMember(GroupPrimaryAdmin group,boolean flag) {
 
-        JFrame frame = new JFrame("Decline Member GUI");
+        JFrame frame = new JFrame("Demote Member GUI");
 //        frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         frame.setSize(300, 150);
         frame.setLocationRelativeTo(null);
@@ -57,7 +57,7 @@ public class DeclineMember {
         savePost.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
-                group.declineMember(textField1.getText()) ;
+                group.demoteAdmin(textField1.getText()) ;
                 if(flag==true)
                     new GroupAdminGui(group).setVisible(true);
                 else 
@@ -76,5 +76,6 @@ public class DeclineMember {
             }
         });
 
-    }    
+    }
+    
 }

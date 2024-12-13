@@ -88,6 +88,8 @@ public class DeletePost  {
                 }
                 if(flag==true)
                     new GroupAdminGui(group).setVisible(true);
+                else 
+                    new GroupPrimaryAdminGui(group).setVisible(true);
                 frame.dispose();
             }
         }); 
@@ -96,6 +98,8 @@ public class DeletePost  {
             public void windowClosing(WindowEvent e) {
                 if(flag==true)
                     new GroupAdminGui(group).setVisible(true);
+                else 
+                    new GroupPrimaryAdminGui(group).setVisible(true);
                 frame.dispose();
             }
         });

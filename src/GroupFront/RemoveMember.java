@@ -69,6 +69,8 @@ public class RemoveMember {
                 group.removeMember(textField1.getText());
                 if(flag==true)
                     new GroupAdminGui(group).setVisible(true);
+                else 
+                    new GroupPrimaryAdminGui(group).setVisible(true);
                 frame.dispose();
             }
         }); 
@@ -77,6 +79,8 @@ public class RemoveMember {
             public void windowClosing(WindowEvent e) {
                 if(flag==true)
                     new GroupAdminGui(group).setVisible(true);
+                else 
+                    new GroupPrimaryAdminGui(group).setVisible(true);
                 frame.dispose();
             }
         });

@@ -60,6 +60,8 @@ public class ApproveMember {
                 group.approveMember(textField1.getText()) ;
                 if(flag==true)
                     new GroupAdminGui(group).setVisible(true);
+                else 
+                    new GroupPrimaryAdminGui(group).setVisible(true);
                 frame.dispose();
             }
         }); 
@@ -68,6 +70,8 @@ public class ApproveMember {
             public void windowClosing(WindowEvent e) {
                 if(flag==true)
                     new GroupAdminGui(group).setVisible(true);
+                else 
+                    new GroupPrimaryAdminGui(group).setVisible(true);
                 frame.dispose();
             }
         });
