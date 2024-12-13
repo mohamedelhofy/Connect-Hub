@@ -32,7 +32,7 @@ public class FriendshipDatabase {
     private ArrayList<User> blockedList = new ArrayList<>();
     private ArrayList<User> suggestedList = new ArrayList<>();
     private ArrayList<User> receivedPendingList = new ArrayList<>();
-    private ArrayList<User> sentPendingList = new ArrayList<>();;
+    private ArrayList<User> sentPendingList = new ArrayList<>();
     
     public FriendshipDatabase(String userId) {
         this.userId = userId;
@@ -112,6 +112,7 @@ public class FriendshipDatabase {
                         boolean statusUser = jsonObject.getBoolean("isOnline");
                         Date dateOfBirth = Date.from(LocalDate.now().atStartOfDay(ZoneId.systemDefault()).toInstant());
                         User user = new User(jsonUserId , email, username, password, dateOfBirth, statusUser);
+                        user.setUserId(jsonUserId);
                         String requestStatus = friendshipChecker.check(this.userId, jsonUserId);
                         if (!this.userId.equals(jsonUserId)){
                             if(requestStatus == null)

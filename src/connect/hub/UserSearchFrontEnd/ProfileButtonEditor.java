@@ -1,7 +1,12 @@
-package connect.hub.FrontEndFriendManagement;
+/*
+ * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
+ * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Class.java to edit this template
+ */
+package connect.hub.UserSearchFrontEnd;
 
 import connect.hub.BackEndFriendManagement.FriendManager;
 import connect.hub.User;
+import connect.hub.profileGui;
 import java.awt.Component;
 import java.awt.event.ActionEvent;
 import java.util.ArrayList;
@@ -10,13 +15,16 @@ import javax.swing.JButton;
 import javax.swing.JCheckBox;
 import javax.swing.JTable;
 import javax.swing.SwingUtilities;
-import javax.swing.table.DefaultTableModel;
 
-public class AddButtonEditor extends DefaultCellEditor {
+/**
+ *
+ * @author Lenovo
+ */
+public class ProfileButtonEditor extends DefaultCellEditor {
     private JButton button;
     private String str;
 
-    public AddButtonEditor(JCheckBox checkBox, String userId, ArrayList<User> pendingList, DefaultTableModel tableModel) {
+    public ProfileButtonEditor(JCheckBox checkBox, ArrayList<User> pendingList) {
         super(checkBox);
 
         button = new JButton();
@@ -28,17 +36,13 @@ public class AddButtonEditor extends DefaultCellEditor {
                 if (table.isEditing()) {
                     table.getCellEditor().stopCellEditing();
                 }
+
                 int selectedRow = table.getSelectedRow();
                 if (selectedRow != -1) {
                     // Process the friend request
-                    User friend = pendingList.get(selectedRow);
-                    FriendManager fm = FriendManager.getInstance();
-                    fm.sendFriendRequest(userId, friend.getUserId());
-
-                    // Remove the row from the list and table model
-                    pendingList.remove(selectedRow);
-                    tableModel.removeRow(selectedRow);
-
+                    User user = pendingList.get(selectedRow);
+                    profileGui p = new profileGui(user.getUserId());
+                            
                     // Revalidate the table to avoid potential inconsistencies
                     table.revalidate();
                     table.repaint();
@@ -49,7 +53,7 @@ public class AddButtonEditor extends DefaultCellEditor {
 
     @Override
     public Component getTableCellEditorComponent(JTable table, Object value, boolean isSelected, int row, int column) {
-        str = (value == null) ? "Add" : value.toString();
+        str = (value == null) ? "Accept" : value.toString();
         button.setText(str);
         return button;
     }

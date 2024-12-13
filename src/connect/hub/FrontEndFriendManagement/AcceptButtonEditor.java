@@ -12,7 +12,7 @@ import javax.swing.JTable;
 import javax.swing.SwingUtilities;
 import javax.swing.table.DefaultTableModel;
 
-class AcceptButtonEditor extends DefaultCellEditor {
+public class AcceptButtonEditor extends DefaultCellEditor {
     private JButton button;
     private String str;
     private String userId;
