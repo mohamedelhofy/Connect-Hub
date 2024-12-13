@@ -121,5 +121,9 @@ public class User {
     public static void setIdCounter(int idCounter) {
         User.idCounter = idCounter;
     }
+
+    public void setUserId(String userId) {
+        this.userId = userId;
+    }
     
 }

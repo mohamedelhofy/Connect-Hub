@@ -22,7 +22,7 @@ public class GroupMember extends Group{
         jsonFile.addPostsToJSON();
         super.getPostsId().add(newPost.getContentId());
     }
-    public void leaveGroup(){
-        super.getMembers().remove(user.getUserId());
+    public void leaveGroup(Group group, User usr){
+        group.getMembers().remove(usr.getUserId());
     }
 }

@@ -141,4 +141,6 @@ public class NewPostGUI {
         frame.add(buttonPanel, BorderLayout.SOUTH);
         frame.setVisible(true);
     }
+    
+    
 }

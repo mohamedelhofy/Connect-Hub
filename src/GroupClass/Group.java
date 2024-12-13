@@ -24,10 +24,12 @@ public class Group {
     private List<String> memberRequst;
 
 
-    public Group(String groupName, String groupDescription, String groupPhotoPath) {
+    public Group(String groupName, String groupDescription, String groupPhotoPath,List<String> admins,List<String> members) {
         this.groupName = groupName;
         this.groupDescription = groupDescription;
         this.groupPhotoPath = groupPhotoPath;
+        this.admins = admins;
+        this.members = members;
     }
     public Group(){}
 
@@ -99,5 +101,7 @@ public class Group {
         this.memberRequst = memberRequst;
     }
     
-    
+    public void addToMembers(String userId){
+        members.add( userId);
+    }
 }

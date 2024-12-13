@@ -37,7 +37,7 @@ public class GroupPrimaryAdmin extends GroupAdmin {
         super.getMembers().add(userId);
     }
     
-    public void deleteGroup(){
+    public static void deleteGroup(Group group){
         Path path = Path.of("Group.json");
         JSONArray jsonArray;
         try {
@@ -49,7 +49,7 @@ public class GroupPrimaryAdmin extends GroupAdmin {
                     for (int i = 0; i < jsonArray.length(); i++) {
                         JSONObject jsonObject = jsonArray.getJSONObject(i);
 
-                        if (super.getGroupName().equals(jsonObject.getString("groupName"))) {
+                        if (group.getGroupName().equals(jsonObject.getString("groupName"))) {
                             jsonArray.remove(i); 
                             break; 
                         }
@@ -68,7 +68,7 @@ public class GroupPrimaryAdmin extends GroupAdmin {
         }
     }
     
-    @Override
+    
     public void leaveGroup(){}
       
 }
