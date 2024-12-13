@@ -31,13 +31,17 @@ public class GroupPrimaryAdmin extends GroupAdmin {
     }
     
     public void promoteAdmin(String userId){
+        if(super.getMembers().contains(userId)){
         super.getMembers().remove(userId);
         super.getAdmins().add(userId);
+        }
     }
     
     public void demoteAdmin(String userId){
-        super.getAdmins().remove(userId);
-        super.getMembers().add(userId);
+        if(super.getAdmins().contains(userId)){
+            super.getAdmins().remove(userId);
+            super.getMembers().add(userId);
+        }
     }
     
     public static void deleteGroup(Group group){
