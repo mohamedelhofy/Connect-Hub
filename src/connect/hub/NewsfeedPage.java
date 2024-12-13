@@ -15,6 +15,8 @@ import connect.hub.FrontEndContentCreation.PostScrollingPage;
 import connect.hub.FrontEndContentCreation.StoryScrollingPage;
 import connect.hub.FrontEndFriendManagement.FriendManagementInterface;
 import connect.hub.FrontEndFriendManagement.FriendStatusWindow;
+import connect.hub.UserSearchFrontEnd.SearchWindow;
+import connect.hub.UserSearchFrontEnd.UserSearchResultsWindow;
 import java.awt.BorderLayout;
 import java.awt.CardLayout;
 import java.awt.Color;
@@ -93,8 +95,6 @@ public class NewsfeedPage extends JFrame {
         JButton refreshButton = createStyledButton("Refresh", new Color(217, 234, 253),new Color(36, 48, 69) );
         refreshButton.addActionListener(e -> {
             
-            //// place the notification window here ya A7med
-            ///////////////////////////////////////////////////////////////////////////////////////////////////////////////////
             new FileDataActions().refresh();
             JOptionPane.showMessageDialog(this, "Your data has been refreshed");
 
@@ -137,11 +137,14 @@ searchBar.addFocusListener(new java.awt.event.FocusAdapter() {
 
 
  searchBar.addActionListener(e -> {
-            
-            //// place the Search  here ya A7med
-            ///////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-            new FileDataActions().refresh();
-            JOptionPane.showMessageDialog(this, "Your data has been refreshed");  
+            String keyWord = searchBar.getText().toString();
+            if(keyWord.equals("")){
+                JOptionPane.showMessageDialog(null, "Search bar is empty", "Message", JOptionPane.ERROR_MESSAGE);
+            }
+            else{
+                UserSearchResultsWindow resultsWindow = new UserSearchResultsWindow();
+                resultsWindow.showFrame(keyWord);
+            }
         });
  
  

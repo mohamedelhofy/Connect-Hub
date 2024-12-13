@@ -5,6 +5,8 @@
 package connect.hub;
 
 //import connect.hub.FrontEndContentCreation.FriendManagementInterface;
+import NotificationsFrontEnd.NotificationsWindow;
+import connect.hub.BackEndFriendManagement.FriendManager;
 import connect.hub.FrontEndContentCreation.NewPostGUI;
 import connect.hub.FrontEndContentCreation.NewStoryGUI;
 import connect.hub.FrontEndContentCreation.PostScrollingPage;
@@ -31,6 +33,10 @@ public class ConnectHub {
          //   new profileGui().setVisible(true);
 //         FriendManagementInterface friendGUI = new FriendManagementInterface();
 //         friendGUI.showFrame();
+//        FriendManager f = FriendManager.getInstance();
+//        f.sendFriendRequest("User18", "User1");
+//        NotificationsWindow notificationsWindow = new NotificationsWindow();
+//        notificationsWindow.showFrame();
     }
     
 }

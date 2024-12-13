@@ -41,6 +41,7 @@ public class FriendRequestsNotificationWindow extends JFrame{
 
         // Reload the pending list
         NotificationsDatabase database = new NotificationsDatabase(userInstance.getUserId());
+        database.updateUsersFriendRequestsNotificationsList();
         this.list = database.getUsersFriendRequestsNotificationsList();
 
         // Clear the existing table model and populate it again
