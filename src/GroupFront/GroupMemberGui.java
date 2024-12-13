@@ -5,6 +5,7 @@
 package GroupFront;
 
 import GroupClass.Group;
+import GroupClass.GroupPrimaryAdmin;
 import connect.hub.BackEndContentCreation.Post;
 import connect.hub.FrontEndContentCreation.NewPostGUI;
 import connect.hub.FrontEndContentCreation.PostScrollingPage;
@@ -25,7 +26,7 @@ import javax.swing.*;
 public class GroupMemberGui extends JFrame {
     User user = User.getInstance(); 
 
-    public GroupMemberGui(Group group) {
+    public GroupMemberGui(GroupPrimaryAdmin group) {
         setTitle(group.getGroupName());
         setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         setSize(400, 500);
