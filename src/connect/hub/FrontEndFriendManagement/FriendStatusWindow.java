@@ -20,6 +20,7 @@ import javax.swing.table.DefaultTableModel;
  * @author Lenovo
  */
 public class FriendStatusWindow extends JFrame{
+    User userInstance = User.getInstance();
     private ArrayList<User> friendsList;
     private DefaultTableModel tableModel;
     
@@ -39,7 +40,7 @@ public class FriendStatusWindow extends JFrame{
                 dispose();
             }
         });
-        FriendshipDatabase friendShip = new FriendshipDatabase("User1"); ///////////////////////////////////////////////////////////
+        FriendshipDatabase friendShip = new FriendshipDatabase(userInstance.getUserId()); 
         this.friendsList = friendShip.getFriendList();
         
         tableModel = new DefaultTableModel(new Object[]{"Username", "Status"}, 0);

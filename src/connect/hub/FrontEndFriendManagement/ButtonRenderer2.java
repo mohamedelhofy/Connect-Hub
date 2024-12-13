@@ -10,7 +10,7 @@ import javax.swing.JTable;
 import javax.swing.table.TableCellRenderer;
 
 // Renderer for the button
-class ButtonRenderer2 extends JButton implements TableCellRenderer {
+public class ButtonRenderer2 extends JButton implements TableCellRenderer {
     public ButtonRenderer2() {
         setOpaque(true);
     }

@@ -4,6 +4,7 @@
  */
 package connect.hub.BackEndFriendManagement;
 
+import NotificationsBackEnd.NotificationsManager;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.Iterator;
@@ -57,6 +58,8 @@ public class FriendManager { // handles friend requests
             this.friendRequestsList.add(newRequest);
             WriteFriendRequestsToJSON writer = new WriteFriendRequestsToJSON();
             writer.writeFromListOfMaps(this.friendRequestsList);
+            NotificationsManager n = NotificationsManager.getInstance();
+            n.addFriendRequestNotification(senderId, receiverId);
     }
 
     public void respondToFriendRequest(String senderId, String receiverId, String response){
@@ -76,6 +79,9 @@ public class FriendManager { // handles friend requests
                     else{
                         request.put("requestStatus", response);
                     }
+                    NotificationsManager manager = NotificationsManager.getInstance();
+                    manager.removeFriendRequestNotification(senderId, receiverId);
+                    manager.removeFriendRequestNotification(receiverId, senderId);
                 }
             WriteFriendRequestsToJSON writer = new WriteFriendRequestsToJSON();
             writer.writeFromListOfMaps(this.friendRequestsList);
@@ -100,6 +106,21 @@ public class FriendManager { // handles friend requests
         }
     }
 
+    public void blockNonFriend(String userId, String nonFriendId){
+        ReadFriendRequestsFromJSON reader = new ReadFriendRequestsFromJSON();
+        this.friendRequestsList = reader.readToListOfMaps();
+        Map<String, String> blockMap = new HashMap<>();
+        blockMap.put("sender", userId);
+        blockMap.put("receiver", nonFriendId);
+        blockMap.put("requestStatus", "Blocked");
+        this.friendRequestsList.add(blockMap);
+        WriteFriendRequestsToJSON writer = new WriteFriendRequestsToJSON();
+        writer.writeFromListOfMaps(this.friendRequestsList);
+        NotificationsManager manager = NotificationsManager.getInstance();
+        manager.removeFriendRequestNotification(userId, nonFriendId);
+        manager.removeFriendRequestNotification(nonFriendId, userId);
+    }
+
     public void removeFriend(String userId, String friendId){
         ReadFriendRequestsFromJSON reader = new ReadFriendRequestsFromJSON();
         this.friendRequestsList = reader.readToListOfMaps();
@@ -111,7 +132,7 @@ public class FriendManager { // handles friend requests
             String requestStatusList = request.get("requestStatus");
             if(senderList != null && receiverList != null && (userId.equals(senderList) && friendId.equals(receiverList)) || (userId.equals(receiverList) && friendId.equals(senderList))){
                 if(requestStatusList.equals("Accepted")){
-                        iterator.remove();
+                    iterator.remove();
                 }
                 WriteFriendRequestsToJSON writer = new WriteFriendRequestsToJSON();
                 writer.writeFromListOfMaps(this.friendRequestsList);

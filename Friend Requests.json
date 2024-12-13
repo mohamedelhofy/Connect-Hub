@@ -1,32 +1,52 @@
 [
     {
-        "receiver": "User5",
-        "sender": "User14",
-        "requestStatus": "Pending"
-    },
-    {
-        "receiver": "User14",
+        "receiver": "User1",
         "sender": "User8",
-        "requestStatus": "Accepted"
-    },
-    {
-        "receiver": "User15",
-        "sender": "User14",
         "requestStatus": "Pending"
     },
     {
-        "receiver": "User11",
-        "sender": "User14",
+        "receiver": "User9",
+        "sender": "User1",
         "requestStatus": "Pending"
     },
     {
         "receiver": "User1",
-        "sender": "User14",
+        "sender": "User10",
+        "requestStatus": "Pending"
+    },
+    {
+        "receiver": "User11",
+        "sender": "User1",
+        "requestStatus": "Pending"
+    },
+    {
+        "receiver": "User6",
+        "sender": "User1",
         "requestStatus": "Pending"
     },
     {
         "receiver": "User7",
-        "sender": "User14",
+        "sender": "User1",
+        "requestStatus": "Pending"
+    },
+    {
+        "receiver": "User1",
+        "sender": "User2",
+        "requestStatus": "Pending"
+    },
+    {
+        "receiver": "User1",
+        "sender": "User3",
+        "requestStatus": "Pending"
+    },
+    {
+        "receiver": "User1",
+        "sender": "User4",
+        "requestStatus": "Pending"
+    },
+    {
+        "receiver": "User1",
+        "sender": "User5",
         "requestStatus": "Pending"
     }
 ]

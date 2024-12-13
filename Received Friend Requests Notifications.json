@@ -1,0 +1,18 @@
+[
+    {
+        "receiver": "User1",
+        "sender": "User2"
+    },
+    {
+        "receiver": "User1",
+        "sender": "User3"
+    },
+    {
+        "receiver": "User1",
+        "sender": "User4"
+    },
+    {
+        "receiver": "User1",
+        "sender": "User5"
+    }
+]

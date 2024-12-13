@@ -12,7 +12,7 @@ import javax.swing.JTable;
 import javax.swing.SwingUtilities;
 import javax.swing.table.DefaultTableModel;
 
-class DeclineButtonEditor extends DefaultCellEditor {
+public class DeclineButtonEditor extends DefaultCellEditor {
     private JButton button;
     private String str;
 
