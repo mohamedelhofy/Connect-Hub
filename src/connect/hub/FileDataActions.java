@@ -24,6 +24,9 @@ import org.json.JSONObject;
 
 public class FileDataActions implements UserDataActions {
 
+    public FileDataActions() {
+    }
+
     public Map<String, User> getUsers() {
         return users;
     }
@@ -133,7 +136,6 @@ public class FileDataActions implements UserDataActions {
            users.clear();
            try {
                loadUsers();
-               System.out.println("User data has been refreshed Successfully");
            }
            catch(JSONException e){
                        Logger.getLogger(FileDataActions.class.getName()).log(Level.SEVERE, "Failed to refresh user data", e);

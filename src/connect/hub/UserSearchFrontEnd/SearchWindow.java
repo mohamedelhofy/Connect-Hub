@@ -30,7 +30,7 @@ public class SearchWindow extends JFrame implements ActionListener{
         this.setTitle("Search");
         this.setSize(600, 250);
         this.setVisible(true);
-        this.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+        this.setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
         this.setResizable(false);
         this.setLocation(350, 150);
         this.setLayout(null);

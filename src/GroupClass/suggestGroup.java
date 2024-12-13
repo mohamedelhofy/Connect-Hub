@@ -19,7 +19,7 @@ import java.util.Set;
  */
 public class suggestGroup {
       String filePath = "Group.json";
-      List<Group> groups = new ArrayList<>();
+    //  List<Group> groups = new ArrayList<>();
        //  Group group = new Group;
       public static List<Group> convertToGroupList(List<Map<String, Object>> dataList) {
     List<Group> groups = new ArrayList<>();
@@ -38,7 +38,7 @@ public class suggestGroup {
     }
     return groups;
 }
-   //// start suggesting 
+   //// start suggesting ////////
     
           
           

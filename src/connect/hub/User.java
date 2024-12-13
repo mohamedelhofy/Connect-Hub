@@ -7,12 +7,10 @@ package connect.hub;
  * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
  * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Class.java to edit this template
  */
-
 import java.util.Date;
 import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
-
 
 public class User {
     private static User instance;
@@ -23,8 +21,7 @@ public class User {
     private Date DOB;
     private boolean status;
     private String hashedPassword;
-
-    private User(boolean status1, String userId1, String email1, String username1, String password, Date dateOfBirth) {
+    private User(boolean status, String userId, String email1, String username1, String password, Date dateOfBirth) {
     }
 
     public static User getInstance() {
@@ -35,15 +32,14 @@ public class User {
     }
     //
     // Constructor to create a new user and assign a unique ID    
-    public User(String userId , String email, String username, String hashedPassword, Date DOB, boolean status) {
+    public User( String userId ,  String email, String username, String hashedPassword, Date DOB, boolean status) {
         
-        this.userId = userId;
+        this.userId = generateUniqueId();
         this.email = email;
         this.username = username;
         this.DOB = DOB;
         this.hashedPassword = hashedPassword;
-        this.status = status;  
-        
+        this.status = status;        
     }
 
     // Static method to generate unique IDs
@@ -65,12 +61,13 @@ public class User {
         this.username = username;
     }
 
+    public void setUserId(String userId) {
+        this.userId = userId;
+    }
+
     // Getters and setters
     public String getUserId() {
         return userId;
-    }
-    public void setUserId(String userId) {
-        this.userId = userId;
     }
 
     public String getEmail() {
