@@ -42,7 +42,7 @@
     {
         "receiver": "User1",
         "sender": "User4",
-        "requestStatus": "Pending"
+        "requestStatus": "Accepted"
     },
     {
         "receiver": "User1",

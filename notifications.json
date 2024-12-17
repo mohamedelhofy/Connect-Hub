@@ -1,0 +1,47 @@
+[
+    {
+        "type": "new Member",
+        "addedMemberId": "User17",
+        "groupName": "Book Club"
+    },
+    {
+        "type": "new Post",
+        "postId": "post301",
+        "groupName": "Book Club"
+    },
+    {
+        "type": "status change",
+        "userID": "User17",
+        "groupName": "Book Club"
+    },
+    {
+        "type": "new Member",
+        "addedMemberId": "User2",
+        "groupName": "Book Club"
+    },
+    {
+        "type": "new Post",
+        "postId": "post302",
+        "groupName": "Book Club"
+    },
+    {
+        "type": "status change",
+        "userID": "User2",
+        "groupName": "Book Club"
+    },
+    {
+        "type": "new Member",
+        "addedMemberId": "User1",
+        "groupName": "Book Club"
+    },
+    {
+        "type": "new Post",
+        "postId": "post303",
+        "groupName": "Book Club"
+    },
+    {
+        "type": "status change",
+        "userID": "User1",
+        "groupName": "Book Club"
+    }
+]

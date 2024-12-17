@@ -7,7 +7,7 @@ package connect.hub;
 //import connect.hub.FrontEndContentCreation.FriendManagementInterface;
 import GroupClass.Group;
 import GroupClass.readGroupFromJSON;
-import NotificationsFrontEnd.NotificationsWindow;
+import NotificationsFrontEnd.NotificationWindow;
 import static com.sun.java.accessibility.util.AWTEventMonitor.addActionListener;
 import connect.hub.FrontEndContentCreation.NewPostGUI;
 import connect.hub.FrontEndContentCreation.NewStoryGUI;
@@ -85,8 +85,8 @@ public class NewsfeedPage extends JFrame {
         JButton notificationsButton = createStyledButton("notifications", new Color(217, 234, 253),new Color(36, 48, 69) );
         notificationsButton.addActionListener(e -> {
             
-            NotificationsWindow notificationsWindow = new NotificationsWindow();
-            notificationsWindow.showFrame();
+        NotificationWindow frw = new NotificationWindow();
+        frw.showFrame();
             new LoginWindow().setVisible(true);
             
         });
