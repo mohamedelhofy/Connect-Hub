@@ -31,22 +31,12 @@
     },
     {
         "receiver": "User1",
-        "sender": "User2",
+        "sender": "User18",
         "requestStatus": "Pending"
     },
     {
         "receiver": "User1",
-        "sender": "User3",
-        "requestStatus": "Pending"
-    },
-    {
-        "receiver": "User1",
-        "sender": "User4",
-        "requestStatus": "Accepted"
-    },
-    {
-        "receiver": "User1",
-        "sender": "User5",
+        "sender": "User17",
         "requestStatus": "Pending"
     }
 ]
