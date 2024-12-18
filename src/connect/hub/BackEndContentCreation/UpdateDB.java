@@ -12,6 +12,7 @@ import java.nio.file.Paths;
 import java.time.Duration;
 import java.time.LocalDateTime;
 import org.json.JSONArray;
+import org.json.JSONException;
 import org.json.JSONObject;
 
 /**
@@ -25,6 +26,7 @@ public class UpdateDB extends Thread{
         this.filePath = filePath;
     }
     
+    @Override
     public void run() {
         try {
             while (!Thread.currentThread().isInterrupted()) {
@@ -60,8 +62,7 @@ public class UpdateDB extends Thread{
                 Files.write(selectedfilePath, filteredArray.toString(4).getBytes());
             }
         } catch (IOException e) {
-            e.printStackTrace();
-        } catch (Exception e) {
+        } catch (JSONException e) {
             System.out.println("Error parsing JSON: " + e.getMessage());
         }
     }

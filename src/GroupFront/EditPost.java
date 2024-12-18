@@ -96,14 +96,8 @@ public class EditPost {
             public void actionPerformed(ActionEvent e) {
                 ReadFromJSON readFromJSON=new ReadFromJSON("PostDB.json");
                 List<Map<String, Object>> dataList=null ;
-                try {
                     dataList =readFromJSON.getDataAsListOfMaps();
-                } catch (IOException ex) {
-                    Logger.getLogger(GroupAdminGui.class.getName()).log(Level.SEVERE, null, ex);
-                } catch (JSONException ex) {
-                    Logger.getLogger(GroupAdminGui.class.getName()).log(Level.SEVERE, null, ex);
 
-                }
                 for(Map<String, Object> data :  dataList){
                     if(data.get("contentId")==textField1.getText()){ 
                         Post post=new Post((String)data.get("authorId"),(String)textField1.getText(),(Image)data.get("image"));

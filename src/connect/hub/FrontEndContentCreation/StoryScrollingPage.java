@@ -30,6 +30,7 @@ import javax.swing.JScrollPane;
 import javax.swing.JTextArea;
 import javax.swing.SwingConstants;
 import org.json.JSONArray;
+import org.json.JSONException;
 import org.json.JSONObject;
 
 /**
@@ -39,7 +40,6 @@ import org.json.JSONObject;
 public class StoryScrollingPage {
     public static void createAndShowGUI() {
         JFrame frame = new JFrame("Stories");
-        //frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         frame.setSize(600, 500);
         frame.setLocationRelativeTo(null);
         frame.setLayout(new BorderLayout());
@@ -132,7 +132,7 @@ public class StoryScrollingPage {
 
         } catch (IOException e) {
             JOptionPane.showMessageDialog(postPanel, "Error loading stories: " + e.getMessage(), "Error", JOptionPane.ERROR_MESSAGE);
-        } catch (Exception e) {
+        } catch (JSONException e) {
             JOptionPane.showMessageDialog(postPanel, "Invalid JSON format in StoriesDB.json", "Error", JOptionPane.ERROR_MESSAGE);
         }
     }
