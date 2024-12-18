@@ -16,7 +16,7 @@ import java.util.Map;
 public class NotificationsManager{ // handles Notifications
     private static NotificationsManager instance = null;
     private ArrayList<Map<String, String>> allFriendRequestsNotificationsList;
-    
+    private ArrayList<Map<String, String>> allGroupNotifications;
     private NotificationsManager(){
          // singelton (private constructor)
     }
@@ -53,4 +53,41 @@ public class NotificationsManager{ // handles Notifications
         writer.writeFromListOfMaps(this.allFriendRequestsNotificationsList);
         }
     }
+    
+    public void addNewGroupMemberNotification(String addedMemberId, String groupName){
+        String type = "new Member";
+        NotificationReadWriteManager readWriteManager = new NotificationReadWriteManager();
+        allGroupNotifications = readWriteManager.readToListOfMaps();
+        Map<String, String> newNotification = new HashMap<>();
+        newNotification.put("type", type);
+        newNotification.put("addedMemberId", addedMemberId);
+        newNotification.put("groupName", groupName);
+        allGroupNotifications.add(newNotification);
+        readWriteManager.writeFromListOfMaps(allGroupNotifications);
+    }
+
+    public void addNewPostNotification(String postId, String groupName){
+        String type = "new Post";
+        NotificationReadWriteManager readWriteManager = new NotificationReadWriteManager();
+        allGroupNotifications = readWriteManager.readToListOfMaps();
+        Map<String, String> newNotification = new HashMap<>();
+        newNotification.put("type", type);
+        newNotification.put("postId", postId);
+        newNotification.put("groupName", groupName);
+        allGroupNotifications.add(newNotification);
+        readWriteManager.writeFromListOfMaps(allGroupNotifications);
+    }
+
+    public void addStatusChangeNotification(String userID, String groupName){
+        String type = "status change";
+        NotificationReadWriteManager readWriteManager = new NotificationReadWriteManager();
+        allGroupNotifications = readWriteManager.readToListOfMaps();
+        Map<String, String> newNotification = new HashMap<>();
+        newNotification.put("type", type);
+        newNotification.put("userID", userID);
+        newNotification.put("groupName", groupName);
+        allGroupNotifications.add(newNotification);
+        readWriteManager.writeFromListOfMaps(allGroupNotifications);
+    }
+
 }

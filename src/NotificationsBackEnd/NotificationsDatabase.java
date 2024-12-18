@@ -55,6 +55,7 @@ public class NotificationsDatabase {
     public void updateUsersFriendRequestsNotificationsList(){
         ReadReceivedFriendRequestsNotificationsFromJSON reader = new ReadReceivedFriendRequestsNotificationsFromJSON();
         allFriendRequestsNotificationsList = reader.readToListOfMaps();
+//        System.out.println(allFriendRequestsNotificationsList);
         ArrayList<String> ids = new ArrayList<>();
         for(Map map : allFriendRequestsNotificationsList){
             if(userId.equals(map.get("receiver"))){
@@ -105,7 +106,7 @@ public class NotificationsDatabase {
         allGroupNotifications = reader.readToListOfMaps();
         readGroupFromJSON groupReader = new readGroupFromJSON();
         allGroups = (ArrayList <Group>) groupReader.convertToGroupList();
-        
+
         // Get groups the user is in
         for(Group group : allGroups){
             for(String userId : group.getMembers()){
