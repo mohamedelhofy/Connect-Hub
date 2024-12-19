@@ -127,19 +127,23 @@ public class NotificationsDatabase {
                 String name2 = "";
                 String name3 = "";
                 for(User user : allUsers){
-                    if(user.getUserId().equals(map.get("addedMemberId"))){
-                        name = user.getUsername();
-                        break;
-                    }
-                    if(user.getUserId().equals(map.get("commenterId"))){
-                        name2 = user.getUsername();
-                        break;
-                    }
-                    if(user.getUserId().equals(map.get("senderId"))){
-                        name3 = user.getUsername();
-                        break;
-                    }
+                    if(map.get("addedMemberId") != null)
+                        if(user.getUserId().toLowerCase().equals(((String)map.get("addedMemberId")).toLowerCase())){
+                            name = user.getUsername();
+                            break;
+                        }
+                    if(map.get("commenterId") != null)
+                        if(user.getUserId().toLowerCase().equals(((String)map.get("commenterId")).toLowerCase())){
+                            name2 = user.getUsername();
+                            break;
+                        }
+                    if(map.get("senderId") != null)
+                        if(user.getUserId().toLowerCase().equals(((String)map.get("senderId")).toLowerCase())){
+                            name3 = user.getUsername();
+                            break;
+                        }
                 }
+//                System.out.println(name);
                 if(map.containsKey("groupName"))
                     if(map.get("groupName").equals(group.getGroupName())){
                         if(map.get("type").equals("new Member") && !map.get("addedMemberId").equals(userId)){

@@ -2,5 +2,9 @@
     {
         "receiver": "User1",
         "sender": "User17"
+    },
+    {
+        "receiver": "User1",
+        "sender": "User12"
     }
 ]

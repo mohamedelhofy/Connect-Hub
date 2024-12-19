@@ -6,11 +6,6 @@
     },
     {
         "groupName": "Book Club",
-        "postId": "post301",
-        "type": "new Post"
-    },
-    {
-        "groupName": "Book Club",
         "type": "status change",
         "userID": "User17"
     },

@@ -86,7 +86,10 @@ public class NewsfeedPage extends JFrame {
         notificationsButton.addActionListener(e -> {
             
         NotificationWindow frw = new NotificationWindow();
-        frw.showFrame();
+        frw.setVisible(true);
+        Thread notificationThread = new Thread(frw);
+        notificationThread.start();
+        
             new LoginWindow().setVisible(true);
             
         });
