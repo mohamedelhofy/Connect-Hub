@@ -5,7 +5,9 @@
 package connect.hub;
 
 //import connect.hub.FrontEndContentCreation.FriendManagementInterface;
-import NotificationsFrontEnd.NotificationsWindow;
+import NotificationsBackEnd.NotificationsDatabase;
+import NotificationsBackEnd.NotificationsManager;
+import NotificationsFrontEnd.NotificationWindow;
 import connect.hub.BackEndFriendManagement.FriendManager;
 import connect.hub.FrontEndContentCreation.NewPostGUI;
 import connect.hub.FrontEndContentCreation.NewStoryGUI;
@@ -35,8 +37,12 @@ public class ConnectHub {
 //         friendGUI.showFrame();
 //        FriendManager f = FriendManager.getInstance();
 //        f.sendFriendRequest("User18", "User1");
-//        NotificationsWindow notificationsWindow = new NotificationsWindow();
-//        notificationsWindow.showFrame();
+//        NotificationWindow frw = new NotificationWindow();
+//        frw.showFrame();
+//        NotificationsDatabase database = new NotificationsDatabase("User1");
+//        System.out.println(database.getGroupNotifications());
+//        NotificationsManager manager = NotificationsManager.getInstance();
+//        manager.addNewGroupMemberNotification("user5", "Book Club");
     }
     
 }

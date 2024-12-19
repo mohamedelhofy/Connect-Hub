@@ -4,6 +4,8 @@
  */
 package NotificationsBackEnd;
 
+import GroupClass.Group;
+import GroupClass.readGroupFromJSON;
 import connect.hub.User;
 import java.io.IOException;
 import java.nio.file.Files;
@@ -27,21 +29,27 @@ public class NotificationsDatabase {
     private String userId;
     private ArrayList<Map<String, String>> allFriendRequestsNotificationsList;
     private ArrayList<User> usersFriendRequestsNotificationsList;
-    private ArrayList<Map<String, String>> emptyList = new ArrayList<>();
+    private ArrayList<Group> userGroups;
+    private ArrayList<Group> allGroups;
+    private ArrayList<String> groupNotifications;
+    private ArrayList<User> allUsers;
 
+    private ArrayList<Map<String, String>> allGroupNotifications;
+        
     public NotificationsDatabase(String userId) {
         this.userId = userId;
-        this.usersFriendRequestsNotificationsList = new ArrayList<>();
-    }
-
-    public String getUserId() {
-        return userId;
+        groupNotifications = new ArrayList<>();
+        usersFriendRequestsNotificationsList = new ArrayList<>();
+        userGroups = new ArrayList<>();
     }
         
     public ArrayList<User> getUsersFriendRequestsNotificationsList(){
-//        this.usersFriendRequestsNotificationsList.clear();
-//        updateUsersFriendRequestsNotificationsList();
+        updateUsersFriendRequestsNotificationsList();
         return this.usersFriendRequestsNotificationsList;
+    }
+    public ArrayList<String> getGroupNotifications(){
+        updateGroupLists();
+        return this.groupNotifications;
     }
     
     public void updateUsersFriendRequestsNotificationsList(){
@@ -75,10 +83,6 @@ public class NotificationsDatabase {
                                 usersFriendRequestsNotificationsList.add(user);
                             }
                         }
-                        System.out.println("");
-                        for(User user : usersFriendRequestsNotificationsList){
-                            System.out.println(user.getUsername());
-                        }
                     }
                 }
             }
@@ -91,9 +95,75 @@ public class NotificationsDatabase {
         }
         else
             JOptionPane.showMessageDialog(null, "File does not exist: " + filePath, "MESSAGE", JOptionPane.WARNING_MESSAGE);
-        WriteReceivedFriendRequestsNotificationsToJSON writer = new WriteReceivedFriendRequestsNotificationsToJSON();
-        writer.writeFromListOfMaps(emptyList);
+//        WriteReceivedFriendRequestsNotificationsToJSON writer = new WriteReceivedFriendRequestsNotificationsToJSON();
+//        writer.writeFromListOfMaps(emptyList);
 
+    }
+
+    public void updateGroupLists(){
+        NotificationReadWriteManager reader = new NotificationReadWriteManager();
+        allGroupNotifications = reader.readToListOfMaps();
+        readGroupFromJSON groupReader = new readGroupFromJSON();
+        allGroups = (ArrayList <Group>) groupReader.convertToGroupList();
+        
+        // Get groups the user is in
+        for(Group group : allGroups){
+            for(String userId : group.getMembers()){
+                if(this.userId.toLowerCase().equals(userId))
+                    userGroups.add(group);
+            }
+            for(String userId : group.getAdmins()){
+                if(this.userId.toLowerCase().equals(userId))
+                    userGroups.add(group);
+            }
+            if(this.userId.toLowerCase().equals(group.getPrimaryAdmin()))
+                userGroups.add(group);
+        }
+        UsersReadWriteManager userFileManager = new UsersReadWriteManager();
+        allUsers = userFileManager.getUsersList();
+        for(Group group : userGroups){
+            for(Map map : allGroupNotifications){
+                String name = "";
+                String name2 = "";
+                String name3 = "";
+                for(User user : allUsers){
+                    if(map.get("addedMemberId") != null)
+                        if(user.getUserId().toLowerCase().equals(((String)map.get("addedMemberId")).toLowerCase())){
+                            name = user.getUsername();
+                            break;
+                        }
+                    if(map.get("commenterId") != null)
+                        if(user.getUserId().toLowerCase().equals(((String)map.get("commenterId")).toLowerCase())){
+                            name2 = user.getUsername();
+                            break;
+                        }
+                    if(map.get("senderId") != null)
+                        if(user.getUserId().toLowerCase().equals(((String)map.get("senderId")).toLowerCase())){
+                            name3 = user.getUsername();
+                            break;
+                        }
+                }
+//                System.out.println(name);
+                if(map.containsKey("groupName"))
+                    if(map.get("groupName").equals(group.getGroupName())){
+                        if(map.get("type").equals("new Member") && !map.get("addedMemberId").equals(userId)){
+                            groupNotifications.add("New Group Member!!! Welcome \"" + name + "\" to \"" + map.get("groupName") + "\"");
+                        }
+                        if(map.get("type").equals("new Post")){
+                            groupNotifications.add("New post added in \"" + map.get("groupName") + "\"!!!");
+                        }
+                        if(map.get("type").equals("status change") && map.get("userID").equals(userId)){
+                            groupNotifications.add("You got promoted in " + map.get("groupName") + "!!!");
+                        }
+                        if(map.get("type").equals("newComment") && !map.get("commenterId").equals(userId)){
+                            groupNotifications.add(name2 + " commented on your post in " + map.get("groupName"));
+                        }
+                    }
+                if(map.get("type").equals("newChat") && map.get("receiverId").equals(userId)){
+                    groupNotifications.add(name3 + " sent you a chat");
+                }
+            }
+        }
     }
 }
 
