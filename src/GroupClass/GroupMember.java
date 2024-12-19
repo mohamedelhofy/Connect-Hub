@@ -4,6 +4,7 @@
  */
 package GroupClass;
 
+import NotificationsBackEnd.NotificationsManager;
 import connect.hub.BackEndContentCreation.Post;
 import connect.hub.BackEndContentCreation.StoreIntoJSON;
 import connect.hub.User;
@@ -25,6 +26,7 @@ public class GroupMember extends Group{
         StoreIntoJSON jsonFile = new StoreIntoJSON(newPost);
         jsonFile.addPostsToJSON();
         super.getPostsId().add(newPost.getContentId());
+        NotificationsManager.getInstance().addNewPostNotification(newPost.getContentId(), super.getGroupName());
     }
 
 

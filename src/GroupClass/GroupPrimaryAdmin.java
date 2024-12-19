@@ -4,6 +4,7 @@
  */
 package GroupClass;
 
+import NotificationsBackEnd.NotificationsManager;
 import java.io.IOException;
 import java.nio.file.Files;
 import java.nio.file.Path;
@@ -29,11 +30,11 @@ public class GroupPrimaryAdmin extends GroupAdmin {
         super.getMembers().remove(userId);
         super.getAdmins().remove(userId);
     }
-    
     public void promoteAdmin(String userId){
         if(super.getMembers().contains(userId)){
         super.getMembers().remove(userId);
         super.getAdmins().add(userId);
+        NotificationsManager.getInstance().addStatusChangeNotification(userId, super.getGroupName());
         }
     }
     
