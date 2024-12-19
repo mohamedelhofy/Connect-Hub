@@ -26,7 +26,7 @@ public class GroupMember extends Group{
         StoreIntoJSON jsonFile = new StoreIntoJSON(newPost);
         jsonFile.addPostsToJSON();
         super.getPostsId().add(newPost.getContentId());
-        NotificationsManager.getInstance().addNewPostNotification(newPost.getContentId(), super.getGroupName());
+        NotificationsManager.getInstance().addNewPostNotification(this.user.getUserId(), super.getGroupName());
     }
 
 

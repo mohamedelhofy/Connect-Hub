@@ -6,7 +6,7 @@
     },
     {
         "groupName": "Book Club",
-        "type": "status change",
+        "type": "promotion",
         "userID": "User17"
     },
     {
@@ -16,13 +16,13 @@
     },
     {
         "groupName": "Book Club",
-        "postId": "post302",
+        "authorId": "user17",
         "type": "new Post"
     },
     {
         "groupName": "Book Club",
-        "type": "status change",
-        "userID": "User2"
+        "type": "demotion",
+        "userID": "User1"
     },
     {
         "groupName": "Book Club",
@@ -31,18 +31,28 @@
     },
     {
         "groupName": "Book Club",
-        "postId": "post303",
+        "authorId": "User17",
         "type": "new Post"
     },
     {
         "groupName": "Book Club",
-        "type": "status change",
+        "type": "promotion",
         "userID": "User1"
     },
     {
-        "groupName": "Book Club",
+        "authorId": "user1",
         "type": "newComment",
         "commenterId": "User17"
+    },
+    {
+        "authorId": "user1",
+        "type": "newComment",
+        "commenterId": "User2"
+    },
+    {
+        "senderId": "User17",
+        "type": "newChat",
+        "receiverId": "User1"
     },
     {
         "senderId": "User17",

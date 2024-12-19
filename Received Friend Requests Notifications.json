@@ -6,5 +6,9 @@
     {
         "receiver": "User1",
         "sender": "User12"
+    },
+    {
+        "receiver": "User1",
+        "sender": "User2"
     }
 ]

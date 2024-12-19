@@ -38,5 +38,10 @@
         "receiver": "User1",
         "sender": "User17",
         "requestStatus": "Pending"
+    },
+    {
+        "receiver": "User1",
+        "sender": "User12",
+        "requestStatus": "Pending"
     }
 ]

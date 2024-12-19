@@ -126,22 +126,31 @@ public class NotificationsDatabase {
                 String name = "";
                 String name2 = "";
                 String name3 = "";
+                String name4 = "";
                 for(User user : allUsers){
                     if(map.get("addedMemberId") != null)
                         if(user.getUserId().toLowerCase().equals(((String)map.get("addedMemberId")).toLowerCase())){
                             name = user.getUsername();
                             break;
                         }
-                    if(map.get("commenterId") != null)
+                    if(map.get("commenterId") != null){
                         if(user.getUserId().toLowerCase().equals(((String)map.get("commenterId")).toLowerCase())){
                             name2 = user.getUsername();
                             break;
                         }
-                    if(map.get("senderId") != null)
+                    }
+                    else if(map.get("senderId") != null){
                         if(user.getUserId().toLowerCase().equals(((String)map.get("senderId")).toLowerCase())){
                             name3 = user.getUsername();
                             break;
                         }
+                    }
+                    else if(map.get("authorId") != null){
+                        if(user.getUserId().toLowerCase().equals(((String)map.get("authorId")).toLowerCase())){
+                            name4 = user.getUsername();
+                            break;
+                        }
+                    }
                 }
 //                System.out.println(name);
                 if(map.containsKey("groupName"))
@@ -150,21 +159,23 @@ public class NotificationsDatabase {
                             groupNotifications.add("New Group Member!!! Welcome \"" + name + "\" to \"" + map.get("groupName") + "\"");
                         }
                         if(map.get("type").equals("new Post")){
-                            groupNotifications.add("New post added in \"" + map.get("groupName") + "\"!!!");
+                            groupNotifications.add("\"" + name4 + "\" added a new post in \"" + map.get("groupName") + "\"!!!");
                         }
-                        if(map.get("type").equals("status change") && map.get("userID").equals(userId)){
+                        if(map.get("type").equals("promotion") && ((String)map.get("userID")).toLowerCase().equals(userId.toLowerCase())){
                             groupNotifications.add("You got promoted in " + map.get("groupName") + "!!!");
                         }
-                        if(map.get("type").equals("newComment") && !map.get("commenterId").equals(userId)){
-                            groupNotifications.add(name2 + " commented on your post in " + map.get("groupName"));
+                        if(map.get("type").equals("demotion") && ((String)map.get("userID")).toLowerCase().equals(userId.toLowerCase())){
+                            groupNotifications.add("You got demoted in \"" + map.get("groupName") + "\"!!!");
                         }
                     }
+                if(map.get("type").equals("newComment") && ((String)map.get("authorId")).toLowerCase().equals(userId.toLowerCase())){
+                    groupNotifications.add("\"" + name2 + "\" commented on a post you shared");
+
+                }
                 if(map.get("type").equals("newChat") && map.get("receiverId").equals(userId)){
-                    groupNotifications.add(name3 + " sent you a chat");
+                    groupNotifications.add("\"" + name3 + "\" sent you a chat");
                 }
             }
         }
     }
 }
-
-

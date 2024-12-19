@@ -34,7 +34,7 @@ public class GroupPrimaryAdmin extends GroupAdmin {
         if(super.getMembers().contains(userId)){
         super.getMembers().remove(userId);
         super.getAdmins().add(userId);
-        NotificationsManager.getInstance().addStatusChangeNotification(userId, super.getGroupName());
+        NotificationsManager.getInstance().addPromotionNotification(userId, super.getGroupName());
         }
     }
     
@@ -42,6 +42,7 @@ public class GroupPrimaryAdmin extends GroupAdmin {
         if(super.getAdmins().contains(userId)){
             super.getAdmins().remove(userId);
             super.getMembers().add(userId);
+        NotificationsManager.getInstance().addDemotionNotification(userId, super.getGroupName());
         }
     }
     

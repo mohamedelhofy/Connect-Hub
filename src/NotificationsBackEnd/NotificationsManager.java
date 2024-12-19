@@ -66,20 +66,32 @@ public class NotificationsManager{ // handles Notifications
         readWriteManager.writeFromListOfMaps(allGroupNotifications);
     }
 
-    public void addNewPostNotification(String postId, String groupName){
+    public void addNewPostNotification(String authorId, String groupName){
         String type = "new Post";
         NotificationReadWriteManager readWriteManager = new NotificationReadWriteManager();
         allGroupNotifications = readWriteManager.readToListOfMaps();
         Map<String, String> newNotification = new HashMap<>();
         newNotification.put("type", type);
-        newNotification.put("postId", postId);
+        newNotification.put("authorId", authorId);
         newNotification.put("groupName", groupName);
         allGroupNotifications.add(newNotification);
         readWriteManager.writeFromListOfMaps(allGroupNotifications);
     }
 
-    public void addStatusChangeNotification(String userID, String groupName){
-        String type = "status change";
+    public void addPromotionNotification(String userID, String groupName){
+        String type = "promotion";
+        NotificationReadWriteManager readWriteManager = new NotificationReadWriteManager();
+        allGroupNotifications = readWriteManager.readToListOfMaps();
+        Map<String, String> newNotification = new HashMap<>();
+        newNotification.put("type", type);
+        newNotification.put("userID", userID);
+        newNotification.put("groupName", groupName);
+        allGroupNotifications.add(newNotification);
+        readWriteManager.writeFromListOfMaps(allGroupNotifications);
+    }
+
+    public void addDemotionNotification(String userID, String groupName){
+        String type = "demotion";
         NotificationReadWriteManager readWriteManager = new NotificationReadWriteManager();
         allGroupNotifications = readWriteManager.readToListOfMaps();
         Map<String, String> newNotification = new HashMap<>();
@@ -102,16 +114,15 @@ public class NotificationsManager{ // handles Notifications
         readWriteManager.writeFromListOfMaps(allGroupNotifications);
     }
     
-    public void addCommentNotification(String commenterId, String groupName){
+    public void addCommentNotification(String commenterId, String authorId){
         String type = "newComment";
         NotificationReadWriteManager readWriteManager = new NotificationReadWriteManager();
         allGroupNotifications = readWriteManager.readToListOfMaps();
         Map<String, String> newNotification = new HashMap<>();
         newNotification.put("type", type);
         newNotification.put("commenterId", commenterId);
-        newNotification.put("groupName", groupName);
+        newNotification.put("authorId", authorId);
         allGroupNotifications.add(newNotification);
         readWriteManager.writeFromListOfMaps(allGroupNotifications);
-
     }
 }

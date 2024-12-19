@@ -46,9 +46,13 @@ public class NotificationReadWriteManager {
                             break;
                         case "new Post":
                             notificationMap.put("groupName", jsonObject.getString("groupName"));
-                            notificationMap.put("postId", jsonObject.getString("postId"));
+                            notificationMap.put("authorId", jsonObject.getString("authorId"));
                             break;
-                        case "status change":
+                        case "promotion":
+                            notificationMap.put("groupName", jsonObject.getString("groupName"));
+                            notificationMap.put("userID", jsonObject.getString("userID"));
+                            break;
+                        case "demotion":
                             notificationMap.put("groupName", jsonObject.getString("groupName"));
                             notificationMap.put("userID", jsonObject.getString("userID"));
                             break;
@@ -57,7 +61,7 @@ public class NotificationReadWriteManager {
                             notificationMap.put("receiverId", jsonObject.getString("receiverId"));
                             break;
                         case "newComment":
-                            notificationMap.put("groupName", jsonObject.getString("groupName"));
+                            notificationMap.put("authorId", jsonObject.getString("authorId"));
                             notificationMap.put("commenterId", jsonObject.getString("commenterId"));
                             break;
                         default:
