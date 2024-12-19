@@ -4,6 +4,7 @@
  */
 package connect.hub.BackEndContentCreation;
 
+import NotificationsBackEnd.NotificationsManager;
 import connect.hub.*;
 import java.awt.Image;
 import java.time.LocalDateTime;
@@ -96,6 +97,7 @@ public class Post implements SocialContent {
         commentMap.put(userIdFriend, comment);
 
         comments.add(commentMap);
+        NotificationsManager.getInstance().addCommentNotification(userIdFriend, authorId);
     }
 
     public List<Map<String, String>> getComments() {
