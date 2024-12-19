@@ -52,6 +52,14 @@ public class NotificationReadWriteManager {
                             notificationMap.put("groupName", jsonObject.getString("groupName"));
                             notificationMap.put("userID", jsonObject.getString("userID"));
                             break;
+                        case "newChat":
+                            notificationMap.put("senderId", jsonObject.getString("senderId"));
+                            notificationMap.put("receiverId", jsonObject.getString("receiverId"));
+                            break;
+                        case "newComment":
+                            notificationMap.put("groupName", jsonObject.getString("groupName"));
+                            notificationMap.put("commenterId", jsonObject.getString("commenterId"));
+                            break;
                         default:
                             JOptionPane.showMessageDialog(null, "Unknown notification type", "MESSAGE", JOptionPane.ERROR_MESSAGE);
                             break;
@@ -86,11 +94,6 @@ public class NotificationReadWriteManager {
         }
         catch(IOException i){
             JOptionPane.showMessageDialog(null, "Error Writing to File", "Message", JOptionPane.ERROR_MESSAGE);
-        }
-        try {
-            Files.writeString(filePath, jsonArray.toString());
-        } catch (IOException ex) {
-            JOptionPane.showMessageDialog(null, "Writing File Error", "MESSAGE", JOptionPane.ERROR_MESSAGE);
         }
     }
 }

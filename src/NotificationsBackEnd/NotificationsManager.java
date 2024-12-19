@@ -89,5 +89,29 @@ public class NotificationsManager{ // handles Notifications
         allGroupNotifications.add(newNotification);
         readWriteManager.writeFromListOfMaps(allGroupNotifications);
     }
+    
+    public void addNewChatNotification(String senderId, String receiverId){
+        String type = "newChat";
+        NotificationReadWriteManager readWriteManager = new NotificationReadWriteManager();
+        allGroupNotifications = readWriteManager.readToListOfMaps();
+        Map<String, String> newNotification = new HashMap<>();
+        newNotification.put("type", type);
+        newNotification.put("senderId", senderId);
+        newNotification.put("receiverId", receiverId);
+        allGroupNotifications.add(newNotification);
+        readWriteManager.writeFromListOfMaps(allGroupNotifications);
+    }
+    
+    public void addCommentNotification(String commenterId, String groupName){
+        String type = "newComment";
+        NotificationReadWriteManager readWriteManager = new NotificationReadWriteManager();
+        allGroupNotifications = readWriteManager.readToListOfMaps();
+        Map<String, String> newNotification = new HashMap<>();
+        newNotification.put("type", type);
+        newNotification.put("commenterId", commenterId);
+        newNotification.put("groupName", groupName);
+        allGroupNotifications.add(newNotification);
+        readWriteManager.writeFromListOfMaps(allGroupNotifications);
 
+    }
 }

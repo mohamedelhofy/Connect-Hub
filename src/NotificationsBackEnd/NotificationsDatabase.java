@@ -55,7 +55,6 @@ public class NotificationsDatabase {
     public void updateUsersFriendRequestsNotificationsList(){
         ReadReceivedFriendRequestsNotificationsFromJSON reader = new ReadReceivedFriendRequestsNotificationsFromJSON();
         allFriendRequestsNotificationsList = reader.readToListOfMaps();
-//        System.out.println(allFriendRequestsNotificationsList);
         ArrayList<String> ids = new ArrayList<>();
         for(Map map : allFriendRequestsNotificationsList){
             if(userId.equals(map.get("receiver"))){
@@ -106,7 +105,7 @@ public class NotificationsDatabase {
         allGroupNotifications = reader.readToListOfMaps();
         readGroupFromJSON groupReader = new readGroupFromJSON();
         allGroups = (ArrayList <Group>) groupReader.convertToGroupList();
-
+        
         // Get groups the user is in
         for(Group group : allGroups){
             for(String userId : group.getMembers()){
@@ -124,23 +123,40 @@ public class NotificationsDatabase {
         allUsers = userFileManager.getUsersList();
         for(Group group : userGroups){
             for(Map map : allGroupNotifications){
-                String name = "test";
+                String name = "";
+                String name2 = "";
+                String name3 = "";
                 for(User user : allUsers){
                     if(user.getUserId().equals(map.get("addedMemberId"))){
                         name = user.getUsername();
                         break;
                     }
+                    if(user.getUserId().equals(map.get("commenterId"))){
+                        name2 = user.getUsername();
+                        break;
+                    }
+                    if(user.getUserId().equals(map.get("senderId"))){
+                        name3 = user.getUsername();
+                        break;
+                    }
                 }
-                if(map.get("groupName").equals(group.getGroupName())){
-                    if(map.get("type").equals("new Member") && !map.get("addedMemberId").equals(userId)){
-                        groupNotifications.add("New Group Member!!! Welcome \"" + name + "\" to \"" + map.get("groupName") + "\"");
+                if(map.containsKey("groupName"))
+                    if(map.get("groupName").equals(group.getGroupName())){
+                        if(map.get("type").equals("new Member") && !map.get("addedMemberId").equals(userId)){
+                            groupNotifications.add("New Group Member!!! Welcome \"" + name + "\" to \"" + map.get("groupName") + "\"");
+                        }
+                        if(map.get("type").equals("new Post")){
+                            groupNotifications.add("New post added in \"" + map.get("groupName") + "\"!!!");
+                        }
+                        if(map.get("type").equals("status change") && map.get("userID").equals(userId)){
+                            groupNotifications.add("You got promoted in " + map.get("groupName") + "!!!");
+                        }
+                        if(map.get("type").equals("newComment") && !map.get("commenterId").equals(userId)){
+                            groupNotifications.add(name2 + " commented on your post in " + map.get("groupName"));
+                        }
                     }
-                    if(map.get("type").equals("new Post")){
-                        groupNotifications.add("New post added in \"" + map.get("groupName") + "\"!!!");
-                    }
-                    if(map.get("type").equals("status change") && map.get("userID").equals(userId)){
-                        groupNotifications.add("You got promoted in " + map.get("groupName") + "!!!");
-                    }
+                if(map.get("type").equals("newChat") && map.get("receiverId").equals(userId)){
+                    groupNotifications.add(name3 + " sent you a chat");
                 }
             }
         }

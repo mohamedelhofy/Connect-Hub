@@ -46,7 +46,6 @@ public class NotificationWindow extends JFrame{
         database = new NotificationsDatabase(userInstance.getUserId());
         this.list = database.getUsersFriendRequestsNotificationsList();
         groupList = database.getGroupNotifications();
-        
         // Clear the existing table model and populate it again
         tableModel.setRowCount(0); // Clear existing rows
         for (User user : this.list) {

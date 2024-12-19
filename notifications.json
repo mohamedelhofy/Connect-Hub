@@ -1,47 +1,62 @@
 [
     {
+        "groupName": "Book Club",
         "type": "new Member",
-        "addedMemberId": "User17",
-        "groupName": "Book Club"
+        "addedMemberId": "User17"
     },
     {
-        "type": "new Post",
+        "groupName": "Book Club",
         "postId": "post301",
-        "groupName": "Book Club"
+        "type": "new Post"
     },
     {
+        "groupName": "Book Club",
         "type": "status change",
-        "userID": "User17",
-        "groupName": "Book Club"
+        "userID": "User17"
     },
     {
+        "groupName": "Book Club",
         "type": "new Member",
-        "addedMemberId": "User2",
-        "groupName": "Book Club"
+        "addedMemberId": "User2"
     },
     {
-        "type": "new Post",
+        "groupName": "Book Club",
         "postId": "post302",
-        "groupName": "Book Club"
+        "type": "new Post"
     },
     {
+        "groupName": "Book Club",
         "type": "status change",
-        "userID": "User2",
-        "groupName": "Book Club"
+        "userID": "User2"
     },
     {
+        "groupName": "Book Club",
         "type": "new Member",
-        "addedMemberId": "User1",
-        "groupName": "Book Club"
+        "addedMemberId": "User1"
     },
     {
-        "type": "new Post",
+        "groupName": "Book Club",
         "postId": "post303",
-        "groupName": "Book Club"
+        "type": "new Post"
     },
     {
+        "groupName": "Book Club",
         "type": "status change",
-        "userID": "User1",
-        "groupName": "Book Club"
+        "userID": "User1"
+    },
+    {
+        "groupName": "Book Club",
+        "type": "newComment",
+        "commenterId": "User17"
+    },
+    {
+        "senderId": "User17",
+        "type": "newChat",
+        "receiverId": "User1"
+    },
+    {
+        "groupName": "Book Club",
+        "type": "new Member",
+        "addedMemberId": "user5"
     }
 ]
