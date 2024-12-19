@@ -1,0 +1,22 @@
+{
+  "users": [
+    {
+      "id": 1,
+      "name": "User1",
+      "friends": [2, 3]
+    },
+    {
+      "id": 2,
+      "name": "User2",
+      "friends": [1]
+    }
+  ],
+  "messages": [
+    {
+      "sender_id": 1,
+      "receiver_id": 2,
+      "content": "Hello, User2!",
+      "timestamp": "2024-12-19T12:00:00"
+    }
+  ]
+}
