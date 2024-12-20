@@ -1,22 +1,38 @@
-{
-  "users": [
+{"messages": [
     {
-      "id": 1,
-      "name": "User1",
-      "friends": [2, 3]
+        "receiver_id": "User2",
+        "sender_id": "User1",
+        "content": "Hello, Bob!",
+        "timestamp": "2024-12-20"
     },
     {
-      "id": 2,
-      "name": "User2",
-      "friends": [1]
-    }
-  ],
-  "messages": [
+        "receiver_id": "User1",
+        "sender_id": "User2",
+        "content": "Hello, Alice!",
+        "timestamp": "2024-12-20"
+    },
     {
-      "sender_id": 1,
-      "receiver_id": 2,
-      "content": "Hello, User2!",
-      "timestamp": "2024-12-19T12:00:00"
+        "receiver_id": "User2",
+        "sender_id": "User1",
+        "content": "Hello, Boooooooob!",
+        "timestamp": "2024-12-20"
+    },
+    {
+        "receiver_id": "User1",
+        "sender_id": "User2",
+        "content": "Hello, Aaaaaaaalice!",
+        "timestamp": "2024-12-20"
+    },
+    {
+        "receiver_id": "User2",
+        "sender_id": "User1",
+        "content": "ahahaha",
+        "timestamp": "2024-12-20"
+    },
+    {
+        "receiver_id": "User1",
+        "sender_id": "User2",
+        "content": "hahahaha",
+        "timestamp": "2024-12-20"
     }
-  ]
-}
+]}

@@ -1,3 +1,4 @@
+package Chat;
 
 import NotificationsFrontEnd.NotificationWindow;
 import java.util.logging.Level;
