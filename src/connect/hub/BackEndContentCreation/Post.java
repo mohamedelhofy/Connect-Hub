@@ -93,8 +93,8 @@ public class Post implements SocialContent {
         }
 
         Map<String, String> commentMap = new HashMap<>();
-        commentMap.put(userIdFriend, comment);
-
+        commentMap.put("userId", userIdFriend);
+        commentMap.put("comment", comment);
         comments.add(commentMap);
     }
 
@@ -114,6 +114,16 @@ public class Post implements SocialContent {
 
     public List<String> getLikes() {
         return likes;
+    }
+    public int getSizeLike(){
+        return likes.size();
+    }
+    public LocalDateTime getTimestamp() {
+        return timestamp;
+    }
+
+    public Image getImage() {
+        return image;
     }
     
     

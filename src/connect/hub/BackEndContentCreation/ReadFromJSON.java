@@ -76,6 +76,7 @@ public class ReadFromJSON {
                                             commentMap.put(key, commentObject.optString(key));
                                         }
                                         commentsList.add(commentMap);
+                                       // System.out.print(commentMap);
                                     }
                                 }
                             }
@@ -135,9 +136,13 @@ public class ReadFromJSON {
             List<Map<String, String>> comments = (List<Map<String, String>>) dataMap.get("comments");
             if (comments != null) {
                 for (Map<String, String> comment : comments) {
-                    comment.forEach(post::setComment);
+                    
+                    String commentText = comment.get("comment");
+                    String userId = comment.get("userId");
+                    post.setComment(userId, commentText);
                 }
             }
+            //System.out.print(post.getComments());
             posts.add(post);
         }
 
