@@ -111,4 +111,6 @@ public boolean checkPassword(String plainTextPassword, String hashedPassword) {
         throw new RuntimeException("Error verifying password", e);
     }
 }
+
+ 
 }

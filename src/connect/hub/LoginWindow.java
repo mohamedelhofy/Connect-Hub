@@ -51,6 +51,14 @@ public class LoginWindow extends JFrame {
 
     // Empty constructor for login in newsfeed
     public LoginWindow() {
+        this.userServices = userServices;
+        setTitle("Login");
+        setSize(350, 250);  
+        setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+        setLocationRelativeTo(null);  
+        getContentPane().setBackground(new Color(60, 63, 65));
+
+        initComponents();
     }
 
     public LoginWindow(UserServices userServices) {
