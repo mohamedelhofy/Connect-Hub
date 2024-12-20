@@ -1,0 +1,26 @@
+[
+    {
+        "bio": "",
+        "profile photo": "D:\\OOP\\Connect-Hub\\my_photo\\WhatsApp Image 2024-12-07 at 13.38.56_c842795d.jpg",
+        "userId": "User4",
+        "cover photo": "D:\\OOP\\Connect-Hub\\my_photo\\WhatsApp Image 2023-12-14 at 13.43.35_7256691a.jpg"
+    },
+    {
+        "bio": "Tech enthusiast and avid reader.",
+        "profile photo": "D:\\OOP\\Connect-Hub\\my_photo\\mohamed elhofy2.jpg",
+        "userId": "user2",
+        "cover photo": "E:\\my_photo\\WhatsApp Image 2024-07-06 at 16.28.52_b55a06b4.jpg"
+    },
+    {
+        "bio": "Aspiring chef and part-time musician.",
+        "profile photo": "https://example.com/photos/user3/profile.jpg",
+        "userId": "user3",
+        "cover photo": "https://example.com/photos/user3/cover.jpg"
+    },
+    {
+        "bio": "just a DINO.",
+        "profile photo": "D:\\UserData\\Desktop\\كارنيه.jpg",
+        "userId": "User1",
+        "cover photo": "D:\\UserData\\Desktop\\eyeliner.jpg"
+    }
+]

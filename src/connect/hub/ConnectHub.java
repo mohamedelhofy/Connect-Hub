@@ -3,12 +3,19 @@
  * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Main.java to edit this template
  */
 package connect.hub;
-import javax.swing.SwingUtilities;
+
+//import connect.hub.FrontEndContentCreation.FriendManagementInterface;
+import NotificationsBackEnd.NotificationsDatabase;
+import NotificationsBackEnd.NotificationsManager;
+import NotificationsFrontEnd.NotificationWindow;
+import connect.hub.BackEndFriendManagement.FriendManager;
 import connect.hub.FrontEndContentCreation.NewPostGUI;
 import connect.hub.FrontEndContentCreation.NewStoryGUI;
 import connect.hub.FrontEndContentCreation.PostScrollingPage;
 import connect.hub.FrontEndContentCreation.StoryScrollingPage;
-import javax.swing.*;
+import connect.hub.FrontEndFriendManagement.FriendManagementInterface;
+import javax.swing.JButton;
+import javax.swing.JFrame;
 
 /**
  *
@@ -19,43 +26,24 @@ public class ConnectHub {
     /**
      * @param args the command line arguments
      */
-    public static void main(String[] args) {
-        // TODO code application logic here
-        JFrame frame = new JFrame("My test");
-        frame.setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
-        frame.setLayout(null);
-        frame.setLocationRelativeTo(null);
-        frame.setSize(600, 400);
-        JButton NewPost = new JButton("New Post");
-        NewPost.setBounds(20, 50, 100, 30);
-        JButton NewStory = new JButton("New Story");
-        NewStory.setBounds(150, 50, 100, 30);
-        JButton myStory = new JButton("My Story");
-        myStory.setBounds(300, 50, 100, 30);
-        JButton myPosts = new JButton("My Posts");
-        myPosts.setBounds(450, 50, 100, 30);
-        NewPost.addActionListener(e->{
-            NewPostGUI newPostFrame = new NewPostGUI("User01");
-            newPostFrame.newPostFrame();
-            frame.setVisible(false);
-        });
-        NewStory.addActionListener(e->{
-        NewStoryGUI newStoryFrame = new NewStoryGUI("User02");
-        newStoryFrame.newStoryFrame();
-        });
-        myPosts.addActionListener(e->{
-        PostScrollingPage.createAndShowGUI();
-        });
-        myStory.addActionListener(e->{
-        StoryScrollingPage.createAndShowGUI();
-        });
-        frame.add(NewPost);
-        frame.add(NewStory);
-        frame.add(myStory);
-        frame.add(myPosts);
-        frame.setVisible(true);
-        
-        
+    public static void main(String[] args) throws org.json.JSONException {
+
+        UserServices userServices = new UserServices();
+        LoginWindow loginWindow = new LoginWindow(userServices);
+        loginWindow.setVisible(true);  
+//            new NewsfeedPage().setVisible(true);
+         //   new profileGui().setVisible(true);
+//         FriendManagementInterface friendGUI = new FriendManagementInterface();
+//         friendGUI.showFrame();
+//        FriendManager f = FriendManager.getInstance();
+//        f.sendFriendRequest("User18", "User1");
+//        NotificationWindow frw = new NotificationWindow();
+//        frw.showFrame();
+//        NotificationsDatabase database = new NotificationsDatabase("User1");
+//        System.out.println(database.getGroupNotifications());
+//        NotificationsManager manager = NotificationsManager.getInstance();
+//        manager.addNewGroupMemberNotification("user5", "Book Club");
     }
     
 }
+

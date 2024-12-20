@@ -5,12 +5,15 @@
 package connect.hub.FrontEndContentCreation;
 
 import connect.hub.BackEndContentCreation.UpdateDB;
+import connect.hub.NewsfeedPage;
 import java.awt.BorderLayout;
 import java.awt.Color;
 import java.awt.Dimension;
 import java.awt.FlowLayout;
 import java.awt.Font;
 import java.awt.Image;
+import java.awt.event.WindowAdapter;
+import java.awt.event.WindowEvent;
 import java.io.IOException;
 import java.nio.file.Files;
 import java.nio.file.Paths;
@@ -27,6 +30,7 @@ import javax.swing.JScrollPane;
 import javax.swing.JTextArea;
 import javax.swing.SwingConstants;
 import org.json.JSONArray;
+import org.json.JSONException;
 import org.json.JSONObject;
 
 /**
@@ -36,7 +40,6 @@ import org.json.JSONObject;
 public class StoryScrollingPage {
     public static void createAndShowGUI() {
         JFrame frame = new JFrame("Stories");
-        frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         frame.setSize(600, 500);
         frame.setLocationRelativeTo(null);
         frame.setLayout(new BorderLayout());
@@ -52,7 +55,13 @@ public class StoryScrollingPage {
         frame.add(titleLabel, BorderLayout.NORTH);
 
         loadPostsAndStories(postPanel);
-
+        frame.addWindowListener(new WindowAdapter() {
+            @Override
+            public void windowClosing(WindowEvent e) {
+                new NewsfeedPage().setVisible(true);
+                frame.dispose(); 
+            }
+        });
         frame.setVisible(true);
     }
 
@@ -123,7 +132,7 @@ public class StoryScrollingPage {
 
         } catch (IOException e) {
             JOptionPane.showMessageDialog(postPanel, "Error loading stories: " + e.getMessage(), "Error", JOptionPane.ERROR_MESSAGE);
-        } catch (Exception e) {
+        } catch (JSONException e) {
             JOptionPane.showMessageDialog(postPanel, "Invalid JSON format in StoriesDB.json", "Error", JOptionPane.ERROR_MESSAGE);
         }
     }

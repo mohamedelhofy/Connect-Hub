@@ -1,0 +1,166 @@
+[
+    {
+        "postsId": [
+            "post301",
+            "post302",
+            "post303",
+            "post304"
+        ],
+        "groupName": "Book Club",
+        "groupDescription": "A community for book lovers to share reviews and recommendations.",
+        "members": [
+            "user8",
+            "user9",
+            "user10",
+            "user11",
+            "user1"
+        ],
+        "PrimaryAdmin": "admin6",
+        "admins": [
+            "admin6",
+            "admin7"
+        ],
+        "groupPhotoPath": "/images/book_club.jpg",
+        "memberRequest": [
+            "user8",
+            "user9",
+            "user10",
+            "user11",
+            "admin6",
+            "admin7"
+        ]
+    },
+    {
+        "postsId": [
+            "post401",
+            "post402",
+            "post403"
+        ],
+        "groupName": "Gaming Hub",
+        "groupDescription": "A place for gamers to connect, compete, and share gaming news.",
+        "members": [
+            "user12",
+            "user13",
+            "user14",
+            "user15"
+        ],
+        "PrimaryAdmin": "admin8",
+        "admins": [
+            "admin8",
+            "admin9"
+        ],
+        "groupPhotoPath": "/images/gaming_hub.jpg",
+        "memberRequest": [
+            "user12",
+            "user13",
+            "user4",
+            "user15",
+            "admin8",
+            "admin9"
+        ]
+    },
+    {
+        "postsId": [
+            "post501",
+            "post502"
+        ],
+        "groupName": "Fitness Freaks",
+        "groupDescription": "A group dedicated to fitness enthusiasts to share tips and progress.",
+        "members": [
+            "user16",
+            "user17",
+            "user18"
+        ],
+        "PrimaryAdmin": "admin10",
+        "admins": [
+            "admin10",
+            "admin11"
+        ],
+        "groupPhotoPath": "/images/fitness_freaks.jpg",
+        "memberRequest": [
+            "user16",
+            "user4",
+            "user18",
+            "admin10",
+            "admin11"
+        ]
+    },
+    {
+        "postsId": [
+            "post401",
+            "post402"
+        ],
+        "groupName": "Music Lovers",
+        "groupDescription": "A group for sharing and enjoying music",
+        "members": [
+            "user12",
+            "user13",
+            "user14"
+        ],
+        "PrimaryAdmin": "admin8",
+        "admins": [
+            "admin8",
+            "admin9"
+        ],
+        "groupPhotoPath": "/images/music_group.jpg",
+        "memberRequest": [
+            "user12",
+            "user13",
+            "user14",
+            "admin8",
+            "admin9"
+        ]
+    },
+    {
+        "postsId": [
+            "post401",
+            "post402"
+        ],
+        "groupName": "Music Lovers",
+        "groupDescription": "A group for sharing and enjoying music",
+        "members": [
+            "user4",
+            "user13",
+            "user14"
+        ],
+        "PrimaryAdmin": "admin8",
+        "admins": [
+            "admin8",
+            "admin9"
+        ],
+        "groupPhotoPath": "/images/music_group.jpg",
+        "memberRequest": [
+            "user12",
+            "user13",
+            "user14",
+            "admin8",
+            "admin9"
+        ]
+    },
+    {
+        "postsId": [
+            "post401",
+            "post402"
+        ],
+        "groupName": "Music Lovers",
+        "groupDescription": "A group for sharing and enjoying music",
+        "members": [
+            "user12",
+            "user13",
+            "user14"
+        ],
+        "PrimaryAdmin": "admin8",
+        "admins": [
+            "admin8",
+            "admin9"
+        ],
+        "groupPhotoPath": "/images/music_group.jpg",
+        "memberRequest": [
+            "user12",
+            "user13",
+            "user14",
+            "admin8",
+            "admin9"
+        ]
+    }
+]
