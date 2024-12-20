@@ -17,7 +17,7 @@ public class NotificationsManager{ // handles Notifications
     private static NotificationsManager instance = null;
     private ArrayList<Map<String, String>> allFriendRequestsNotificationsList;
     private ArrayList<Map<String, String>> allGroupNotifications;
-    private NotificationsManager(){
+    public NotificationsManager(){
          // singelton (private constructor)
     }
     public static synchronized NotificationsManager getInstance(){

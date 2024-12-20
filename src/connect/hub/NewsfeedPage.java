@@ -5,25 +5,22 @@
 package connect.hub;
 
 //import connect.hub.FrontEndContentCreation.FriendManagementInterface;
+import Chat.FriendList;
 import GroupClass.Group;
 import GroupClass.readGroupFromJSON;
 import NotificationsFrontEnd.NotificationWindow;
-import static com.sun.java.accessibility.util.AWTEventMonitor.addActionListener;
 import connect.hub.FrontEndContentCreation.NewPostGUI;
 import connect.hub.FrontEndContentCreation.NewStoryGUI;
 import connect.hub.FrontEndContentCreation.PostScrollingPage;
 import connect.hub.FrontEndContentCreation.StoryScrollingPage;
 import connect.hub.FrontEndFriendManagement.FriendManagementInterface;
 import connect.hub.FrontEndFriendManagement.FriendStatusWindow;
-import connect.hub.UserSearchFrontEnd.SearchWindow;
 import connect.hub.UserSearchFrontEnd.UserSearchResultsWindow;
 import java.awt.BorderLayout;
 import java.awt.CardLayout;
 import java.awt.Color;
 import java.awt.FlowLayout;
 import java.awt.GridLayout;
-import java.awt.event.ActionEvent;
-import java.awt.event.ActionListener;
 import javax.swing.JButton;
 import javax.swing.JFrame;
 import javax.swing.JLabel;
@@ -35,18 +32,14 @@ import javax.swing.JPanel;
  * @author rawan
  */
 
-import java.awt.event.ActionEvent;
 import javax.swing.*;
 import java.awt.*;
-import java.awt.event.ActionListener;
-import java.util.List;
-import java.util.Map;
-import javax.swing.*;
-import java.awt.*;
+import static java.awt.Color.black;
 import java.awt.event.ActionListener;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Map;
+
 
 public class NewsfeedPage extends JFrame {
     private JPanel mainPanel;
@@ -64,7 +57,7 @@ public class NewsfeedPage extends JFrame {
 
         // Header Panel - Title and Log Out button
         JPanel headerPanel = new JPanel(new BorderLayout());
-        headerPanel.setBackground(new Color(36, 48, 69)); // Dark Blue Header for all buttons//////////////
+        headerPanel.setBackground(new Color(36, 48, 69)); // Dark Blue Header for all buttons
         headerPanel.setBorder(BorderFactory.createEmptyBorder(10, 10, 10, 10));
 
         JLabel titleLabel = new JLabel("Newsfeed", JLabel.CENTER);
@@ -77,80 +70,75 @@ public class NewsfeedPage extends JFrame {
         logoutButton.addActionListener(e -> {
             JOptionPane.showMessageDialog(this, "You have logged out.");
             dispose();
-            ///////////////////////////////////////////////////////////////////////////////////////////////////////////////////
             new LoginWindow().setVisible(true);
-            
         });
-        
-        JButton notificationsButton = createStyledButton("notifications", new Color(217, 234, 253),new Color(36, 48, 69) );
+
+        JButton notificationsButton = createStyledButton("Notifications", new Color(217, 234, 253), new Color(36, 48, 69));
         notificationsButton.addActionListener(e -> {
-            
-        NotificationWindow frw = new NotificationWindow();
-        frw.setVisible(true);
-        Thread notificationThread = new Thread(frw);
-        notificationThread.start();
-        
-            new LoginWindow().setVisible(true);
-            
+            NotificationWindow frw = new NotificationWindow();
+            frw.setVisible(true);
+            Thread notificationThread = new Thread(frw);
+            notificationThread.start();
         });
-        
-        
-        JButton refreshButton = createStyledButton("Refresh", new Color(217, 234, 253),new Color(36, 48, 69) );
+
+        JButton refreshButton = createStyledButton("Refresh", new Color(217, 234, 253), new Color(36, 48, 69));
         refreshButton.addActionListener(e -> {
-            
             new FileDataActions().refresh();
             JOptionPane.showMessageDialog(this, "Your data has been refreshed");
-
-            
         });
-        
-   headerPanel.setLayout(new FlowLayout(FlowLayout.RIGHT)); //  buttons to the right
-   headerPanel.add(notificationsButton);
-     headerPanel.add(refreshButton);
-     headerPanel.add(logoutButton);
- 
+
+        // Chat Button
+        JButton chatButton = createStyledButton("Chat",black, new Color(36, 48, 69));
+        chatButton.addActionListener(e -> {
+            FriendList friendList = new FriendList();
+            friendList.setVisible(true);
+            JOptionPane.showMessageDialog(null, "Receiver not found!", "Error", JOptionPane.ERROR_MESSAGE);
+        });
+
+        headerPanel.setLayout(new FlowLayout(FlowLayout.RIGHT)); // Right-aligned buttons
+        headerPanel.add(notificationsButton);
+        headerPanel.add(refreshButton);
+        headerPanel.add(logoutButton);
+        headerPanel.add(chatButton);
+
         logoutButton.setPreferredSize(new Dimension(120, 40)); // Width: 120, Height: 40
         notificationsButton.setPreferredSize(new Dimension(120, 40));
         refreshButton.setPreferredSize(new Dimension(110, 40));
+        chatButton.setPreferredSize(new Dimension(120, 40)); // Adjust size of chat button as needed
         add(headerPanel, BorderLayout.NORTH);
-/////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-JTextField searchBar = new JTextField("Search...");
-searchBar.setForeground(Color.GRAY);
 
-// Add focus listener to manage placeholder text
-searchBar.addFocusListener(new java.awt.event.FocusAdapter() {
-    public void focusGained(java.awt.event.FocusEvent e) {
-        if (searchBar.getText().equals("Search...")) {
-            searchBar.setText("");
-            searchBar.setForeground(Color.BLACK);
-        }
-    }
+        // Search Bar
+        JTextField searchBar = new JTextField("Search...");
+        searchBar.setForeground(Color.GRAY);
+        searchBar.addFocusListener(new java.awt.event.FocusAdapter() {
+            public void focusGained(java.awt.event.FocusEvent e) {
+                if (searchBar.getText().equals("Search...")) {
+                    searchBar.setText("");
+                    searchBar.setForeground(Color.BLACK);
+                }
+            }
 
-    public void focusLost(java.awt.event.FocusEvent e) {
-        if (searchBar.getText().isEmpty()) {
-            searchBar.setForeground(Color.GRAY);
-            searchBar.setText("Search...");
-        }
-    }
-});
-     ////headerPanel.add(searchBar);
+            public void focusLost(java.awt.event.FocusEvent e) {
+                if (searchBar.getText().isEmpty()) {
+                    searchBar.setForeground(Color.GRAY);
+                    searchBar.setText("Search...");
+                }
+            }
+        });
+
         searchBar.setPreferredSize(new Dimension(200, 30));
-        searchBar.setPreferredSize(new Dimension(80, 30));
         headerPanel.add(searchBar, BorderLayout.WEST);
 
-
- searchBar.addActionListener(e -> {
+        searchBar.addActionListener(e -> {
             String keyWord = searchBar.getText().toString();
-            if(keyWord.equals("")){
+            if (keyWord.equals("")) {
                 JOptionPane.showMessageDialog(null, "Search bar is empty", "Message", JOptionPane.ERROR_MESSAGE);
-            }
-            else{
+            } else {
                 UserSearchResultsWindow resultsWindow = new UserSearchResultsWindow();
                 resultsWindow.showFrame(keyWord);
             }
         });
- 
- 
+
         JPanel sidebarPanel = new JPanel();
         sidebarPanel.setLayout(new GridLayout(7, 1, 10, 10));
         sidebarPanel.setBackground(new Color(240, 240, 240));
@@ -166,13 +154,14 @@ searchBar.addFocusListener(new java.awt.event.FocusAdapter() {
         sidebarPanel.add(createSidebarButton("Friends", e -> navigateToFriends()));
         sidebarPanel.setBackground(new Color(217, 234, 253));
         add(sidebarPanel, BorderLayout.WEST);
-        
+
         // Group Suggestion Panel
         JPanel suggestionPanel = new JPanel();
         suggestionPanel.setLayout(new BorderLayout());
         suggestionPanel.setBackground(new Color(240, 240, 240));
         suggestionPanel.setBorder(BorderFactory.createTitledBorder("Group Suggestions"));
-         suggestionPanel.setBackground(new Color(217, 234, 253));
+        suggestionPanel.setBackground(new Color(217, 234, 253));
+
         // Add a button to suggest groups for the user
         JButton suggestGroupsButton = createStyledButton("Suggest Groups", new Color(36, 48, 69), Color.WHITE);
         suggestGroupsButton.addActionListener(e -> suggestGroupsForUser(user.getUserId()));
@@ -265,7 +254,7 @@ searchBar.addFocusListener(new java.awt.event.FocusAdapter() {
 
         // Convert the data into a list of Group objects
         List<Group> groups = suggestGroup.convertToGroupList(groupListDB);
-        
+
         // Generate group suggestions for the user
         Map<String, List<String>> suggestions = suggestGroup.suggestGroups(groups);
 

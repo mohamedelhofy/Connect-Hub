@@ -1,7 +1,7 @@
 [
     {
         "password": "5994471abb01112afcc18159f6cc74b4f511b99806da59b3caf5a9c173cacfc5",
-        "dateOfBirth": "2003-01-16",
+        "dateOfBirth": "2003-01-16\n",
         "isOnline": true,
         "userId": "User1",
         "email": "rawan@gamil.com",
@@ -57,7 +57,7 @@
     },
     {
         "password": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855\n\n",
-        "dateOfBirth": "2024-12-06",
+        "dateOfBirth": "2024-12-06\n",
         "isOnline": false,
         "userId": "User8",
         "email": "user5@example.com",
@@ -65,7 +65,7 @@
     },
     {
         "password": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855\n\n",
-        "dateOfBirth": "2024-12-06",
+        "dateOfBirth": "2024-12-06\n",
         "isOnline": false,
         "userId": "User9",
         "email": "user3@example.comn",

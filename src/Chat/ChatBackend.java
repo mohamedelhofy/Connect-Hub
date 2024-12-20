@@ -1,6 +1,7 @@
 package Chat;
 
 import Chat.Message;
+import NotificationsBackEnd.NotificationsManager;
 import connect.hub.User;
 import java.io.IOException;
 import java.time.LocalDate;
@@ -49,6 +50,10 @@ public class ChatBackend {
             } catch (JSONException ex) {
                 Logger.getLogger(ChatBackend.class.getName()).log(Level.SEVERE, null, ex);
             }
+           NotificationsManager notificationsManager= new NotificationsManager();
+          notificationsManager.addNewChatNotification(sender,reciever);   
+            
+            
         }
     }
     public List<Message> getMessages(String userId1, String userId2) {
