@@ -3,22 +3,13 @@
     <editor-bookmarks xmlns="http://www.netbeans.org/ns/editor-bookmarks/2" lastBookmarkId="0"/>
     <open-files xmlns="http://www.netbeans.org/ns/projectui-open-files/2">
         <group>
-            <file>file:/D:/OOP/Connect-Hub/src/connect/hub/FrontEndFriendManagement/FriendStatusWindow.java</file>
-            <file>file:/D:/OOP/Connect-Hub/src/connect/hub/FrontEndFriendManagement/ButtonRenderer1.java</file>
-            <file>file:/D:/OOP/Connect-Hub/src/Chat/test.java</file>
-            <file>file:/D:/OOP/Connect-Hub/src/connect/hub/FrontEndFriendManagement/ButtonRenderer.java</file>
-            <file>file:/D:/OOP/Connect-Hub/src/connect/hub/FrontEndFriendManagement/FriendsWindow.java</file>
-            <file>file:/D:/OOP/Connect-Hub/src/GroupFront/GroupAdminGui.java</file>
-            <file>file:/D:/OOP/Connect-Hub/src/connect/hub/FrontEndFriendManagement/DeclineButtonEditor.java</file>
-            <file>file:/D:/OOP/Connect-Hub/src/connect/hub/FrontEndFriendManagement/ButtonRenderer3.java</file>
-            <file>file:/D:/OOP/Connect-Hub/src/connect/hub/FrontEndFriendManagement/BlockButtonEditor.java</file>
-            <file>file:/D:/OOP/Connect-Hub/src/connect/hub/BackEndContentCreation/ReadFromJSON.java</file>
-            <file>file:/D:/OOP/Connect-Hub/src/connect/hub/FrontEndFriendManagement/FriendManagementInterface.java</file>
-            <file>file:/D:/OOP/Connect-Hub/src/connect/hub/FrontEndFriendManagement/ButtonRenderer2.java</file>
-            <file>file:/D:/OOP/Connect-Hub/src/Chat/FriendList.java</file>
-            <file>file:/D:/OOP/Connect-Hub/src/connect/hub/NewsfeedPage.java</file>
-            <file>file:/D:/OOP/Connect-Hub/src/connect/hub/FrontEndFriendManagement/ButtonRenderer4.java</file>
-            <file>file:/D:/OOP/Connect-Hub/src/connect/hub/BackEndContentCreation/Post.java</file>
+            <file>file:/D:/OOP/Connect-Hub/src/NotificationsBackEnd/NotificationsDatabase.java</file>
+            <file>file:/D:/OOP/Connect-Hub/src/NotificationsBackEnd/NotificationReadWriteManager.java</file>
+            <file>file:/D:/OOP/Connect-Hub/src/Chat/ChatBackend.java</file>
+            <file>file:/D:/OOP/Connect-Hub/src/NotificationsBackEnd/WriteReceivedFriendRequestsNotificationsToJSON.java</file>
+            <file>file:/D:/OOP/Connect-Hub/src/NotificationsBackEnd/UsersReadWriteManager.java</file>
+            <file>file:/D:/OOP/Connect-Hub/src/NotificationsBackEnd/NotificationsManager.java</file>
+            <file>file:/D:/OOP/Connect-Hub/src/NotificationsBackEnd/ReadReceivedFriendRequestsNotificationsFromJSON.java</file>
         </group>
     </open-files>
 </project-private>
