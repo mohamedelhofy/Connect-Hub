@@ -7,6 +7,7 @@ package connect.hub.FrontEndContentCreation;
 import connect.hub.BackEndContentCreation.Post;
 import connect.hub.BackEndContentCreation.ReadFromJSON;
 import connect.hub.BackEndContentCreation.UpdateDB;
+import connect.hub.User;
 import org.json.JSONArray;
 import org.json.JSONObject;
 
@@ -109,19 +110,19 @@ public class PostScrollingPage {
                     showComments.setVisible(true);
                     showComments.showComments(post);
                 });
-
-                JButton addLikeButton = new JButton(post.getSizeLike() + " Likes");
+                JButton addLikeButton = new JButton (post.getNumOfLikes()+ " Likes");
                 final boolean[] liked = {false};
                 addLikeButton.addActionListener(e -> {
                     liked[0] = !liked[0];
                     if (liked[0]) {
-                        post.setLike("User5");
+                        User.getInstance().getUserId();
+                        post.setLike(User.getInstance().getUserId());
                         addLikeButton.setText("Liked");
                         addLikeButton.setBackground(new Color(24, 119, 242));
                         addLikeButton.setForeground(Color.WHITE);
                         addLikeButton.setText(post.getSizeLike() + " Likes");
                     } else {
-                        post.getLikes().remove("User5");
+                        post.getLikes().remove(User.getInstance().getUserId());
                         addLikeButton.setText("Like");
                         addLikeButton.setBackground(UIManager.getColor("Button.background"));
                         addLikeButton.setForeground(Color.BLACK);
