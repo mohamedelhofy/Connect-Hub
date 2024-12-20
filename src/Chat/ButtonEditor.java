@@ -44,7 +44,8 @@ public class ButtonEditor extends DefaultCellEditor {
         if (clicked) {
             // Open the chat frame for the selected user
             
-                new chatFrontend(username).setVisible(true);
+            new chatFrontend(username).setVisible(true);
+                
         }
         clicked = false;
         return "Chat";

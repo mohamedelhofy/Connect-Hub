@@ -1,27 +1,27 @@
 [
     {
         "password": "5994471abb01112afcc18159f6cc74b4f511b99806da59b3caf5a9c173cacfc5",
-        "dateOfBirth": "2003-01-16\n",
+        "dateOfBirth": "2003-01-16",
         "isOnline": true,
         "userId": "User1",
         "email": "rawan@gamil.com",
         "username": "rawan"
     },
     {
-        "password": "12345\n\n",
+        "password": "12345",
         "dateOfBirth": "1990-01-01\n",
         "isOnline": false,
         "userId": "User2",
-        "email": "user1@example.com\n\n",
-        "username": "user2222\n\n"
+        "email": "user1@example.com",
+        "username": "user2222"
     },
     {
         "password": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855\n\n",
         "dateOfBirth": "2024-12-06\n",
         "isOnline": false,
         "userId": "User3",
-        "email": "user4@example.com\n\n",
-        "username": "user4\n\n"
+        "email": "user4@example.com",
+        "username": "user4"
     },
     {
         "password": "5994471abb01112afcc18159f6cc74b4f511b99806da59b3caf5a9c173cacfc5",
@@ -45,7 +45,7 @@
         "isOnline": false,
         "userId": "User6",
         "email": "user2@example.com\n\n",
-        "username": "user2\n\n"
+        "username": "user2"
     },
     {
         "password": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
@@ -57,19 +57,19 @@
     },
     {
         "password": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855\n\n",
-        "dateOfBirth": "2024-12-06\n",
+        "dateOfBirth": "2024-12-06",
         "isOnline": false,
         "userId": "User8",
-        "email": "user5@example.com\n\n",
-        "username": "user5\n\n"
+        "email": "user5@example.com",
+        "username": "user5"
     },
     {
         "password": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855\n\n",
-        "dateOfBirth": "2024-12-06\n",
+        "dateOfBirth": "2024-12-06",
         "isOnline": false,
         "userId": "User9",
-        "email": "user3@example.com\n\n",
-        "username": "user3\n\n"
+        "email": "user3@example.comn",
+        "username": "user3"
     },
     {
         "password": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855\n",
@@ -77,7 +77,7 @@
         "isOnline": false,
         "userId": "User10",
         "email": "user6@example.com\n",
-        "username": "user6\n"
+        "username": "user6"
     },
     {
         "password": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",

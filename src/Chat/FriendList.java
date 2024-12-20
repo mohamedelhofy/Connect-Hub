@@ -13,6 +13,8 @@ import javax.swing.*;
 import javax.swing.border.TitledBorder;
 import javax.swing.table.DefaultTableModel;
 import java.awt.*;
+import java.awt.event.WindowAdapter;
+import java.awt.event.WindowEvent;
 import java.util.ArrayList;
 
 public class FriendList extends JFrame {
@@ -21,7 +23,7 @@ public class FriendList extends JFrame {
     private DefaultTableModel friendsTableModel = new DefaultTableModel(new Object[]{"Username", "Chat"}, 0);
 
     public FriendList() {
-        setTitle("Friends");
+        setTitle("Friends Chat");
         setSize(600, 750);
         setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
         setResizable(false);
@@ -31,6 +33,7 @@ public class FriendList extends JFrame {
         // Back button
         backButton.addActionListener(e -> {
             dispose();
+            
             new NewsfeedPage().setVisible(true);
         });
 
@@ -40,6 +43,7 @@ public class FriendList extends JFrame {
 //        FriendshipDatabase friendshipDatabase = new FriendshipDatabase(userInstance.getUserId());
         ArrayList<User> friendsList = friendshipDatabase.getFriendList();
         for (User user : friendsList) {
+
             friendsTableModel.addRow(new Object[]{user.getUsername(), "Chat"});
         }
 
@@ -53,9 +57,12 @@ public class FriendList extends JFrame {
         // Add components to frame
         add(scrollPane, BorderLayout.CENTER);
         add(backButton, BorderLayout.SOUTH);
-    }
-
-    public static void main(String[] args) {
-        SwingUtilities.invokeLater(() -> new FriendList().setVisible(true));
+        addWindowListener(new WindowAdapter() {
+            @Override
+            public void windowClosing(WindowEvent e) {
+                new NewsfeedPage().setVisible(true);
+                dispose();
+            }
+        });
     }
 }

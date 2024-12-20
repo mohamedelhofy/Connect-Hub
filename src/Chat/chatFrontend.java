@@ -1,3 +1,4 @@
+package Chat;
 import Chat.ChatBackend;
 import Chat.Message;
 import Chat.chatFileHandler;
@@ -46,7 +47,7 @@ public class chatFrontend extends JFrame implements Runnable {
         sendButton.addActionListener(e -> {
             String content = messageInput.getText();
             if (!content.isEmpty()) {
-                chatBackend.sendMessage(currentUser.getUserId(), receiver, content);
+                chatBackend.sendMessage("User1", receiver, content);
                 messageInput.setText(""); //because the input doesnor remain in text input 
                 updateMessageList(); // qqq   Immediately show the sent message
             }
@@ -77,7 +78,7 @@ public class chatFrontend extends JFrame implements Runnable {
     }
 
     private void updateMessageList() {
-        List<Message> messages = chatBackend.getMessages(currentUser.getUserId(), receiver);
+        List<Message> messages = chatBackend.getMessages("User1", receiver);
         messageListModel.clear(); 
         for (Message message : messages) {
                         // Add all messages

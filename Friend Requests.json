@@ -7,22 +7,22 @@
     {
         "receiver": "User9",
         "sender": "User1",
-        "requestStatus": "Pending"
+        "requestStatus": "Accepted"
     },
     {
         "receiver": "User1",
         "sender": "User10",
-        "requestStatus": "Pending"
+        "requestStatus": "Accepted"
     },
     {
         "receiver": "User11",
         "sender": "User1",
-        "requestStatus": "Pending"
+        "requestStatus": "Accepted"
     },
     {
         "receiver": "User6",
         "sender": "User1",
-        "requestStatus": "Pending"
+        "requestStatus": "Accepted"
     },
     {
         "receiver": "User7",
@@ -32,7 +32,7 @@
     {
         "receiver": "User1",
         "sender": "User18",
-        "requestStatus": "Pending"
+        "requestStatus": "Accepted"
     },
     {
         "receiver": "User1",
