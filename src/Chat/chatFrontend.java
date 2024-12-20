@@ -23,9 +23,9 @@ public class chatFrontend extends JFrame implements Runnable {
     private JList<String> messageList;
     private JTextField messageInput;
     private volatile boolean running = true;
-    private User receiver; 
+    private String receiver; 
 
-    public chatFrontend(User receiver) {
+    public chatFrontend(String receiver) {
         this.receiver = receiver;
         setTitle("Chat Window");
         setSize(400, 600);
@@ -46,7 +46,7 @@ public class chatFrontend extends JFrame implements Runnable {
         sendButton.addActionListener(e -> {
             String content = messageInput.getText();
             if (!content.isEmpty()) {
-                chatBackend.sendMessage(currentUser.getUserId(), receiver.getUserId(), content);
+                chatBackend.sendMessage(currentUser.getUserId(), receiver, content);
                 messageInput.setText(""); //because the input doesnor remain in text input 
                 updateMessageList(); // qqq   Immediately show the sent message
             }
@@ -77,7 +77,7 @@ public class chatFrontend extends JFrame implements Runnable {
     }
 
     private void updateMessageList() {
-        List<Message> messages = chatBackend.getMessages(currentUser.getUserId(), receiver.getUserId());
+        List<Message> messages = chatBackend.getMessages(currentUser.getUserId(), receiver);
         messageListModel.clear(); 
         for (Message message : messages) {
                         // Add all messages
