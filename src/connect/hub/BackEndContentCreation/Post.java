@@ -4,7 +4,6 @@
  */
 package connect.hub.BackEndContentCreation;
 
-import NotificationsBackEnd.NotificationsManager;
 import connect.hub.*;
 import java.awt.Image;
 import java.time.LocalDateTime;
@@ -94,10 +93,9 @@ public class Post implements SocialContent {
         }
 
         Map<String, String> commentMap = new HashMap<>();
-        commentMap.put(userIdFriend, comment);
-
+        commentMap.put("userId", userIdFriend);
+        commentMap.put("comment", comment);
         comments.add(commentMap);
-        NotificationsManager.getInstance().addCommentNotification(userIdFriend, authorId);
     }
 
     public List<Map<String, String>> getComments() {
@@ -110,7 +108,6 @@ public class Post implements SocialContent {
         }
         likes.add(userIdFriend);
     }
-    
     public int getNumOfLikes(){
         return likes.size();
     }
@@ -118,5 +115,16 @@ public class Post implements SocialContent {
     public List<String> getLikes() {
         return likes;
     }
+    public int getSizeLike(){
+        return likes.size();
+    }
+    public LocalDateTime getTimestamp() {
+        return timestamp;
+    }
+
+    public Image getImage() {
+        return image;
+    }
+    
     
 }

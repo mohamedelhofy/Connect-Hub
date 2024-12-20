@@ -12,6 +12,8 @@ import java.nio.file.Files;
 import java.nio.file.Path;
 import java.nio.file.Paths;
 import java.util.Base64;
+import java.util.List;
+import java.util.Map;
 import javax.imageio.ImageIO;
 import org.json.JSONArray;
 import org.json.JSONException;
@@ -77,11 +79,23 @@ public class StoreIntoJSON {
         if (content.getOptinalImage() != null) {
             newEntry.put("image", imageToBase64());
         }
+        if (content instanceof Post) {
+        Post post = (Post) content;
+        List<String> likes = post.getLikes();
+        newEntry.put("likes", likes != null ? new JSONArray(likes) : new JSONArray());
 
-        // Add the new entry to the JSONArray
+        // Add comments
+        List<Map<String, String>> comments = post.getComments();
+        JSONArray commentsArray = new JSONArray();
+        if (comments != null) {
+            for (Map<String, String> comment : comments) {
+                JSONObject commentObject = new JSONObject(comment);
+                commentsArray.put(commentObject);
+            }
+        }
+        newEntry.put("comments", commentsArray);
+    }
         jsonArray.put(newEntry);
-
-        // Write the updated JSONArray back to the file with indentation for readability
         Files.write(filePath, jsonArray.toString(4).getBytes());
     }
 
