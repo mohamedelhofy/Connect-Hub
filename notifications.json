@@ -16,8 +16,8 @@
     },
     {
         "groupName": "Book Club",
-        "authorId": "user17",
-        "type": "new Post"
+        "type": "new Post",
+        "authorId": "user17"
     },
     {
         "groupName": "Book Club",
@@ -31,8 +31,8 @@
     },
     {
         "groupName": "Book Club",
-        "authorId": "User17",
-        "type": "new Post"
+        "type": "new Post",
+        "authorId": "User17"
     },
     {
         "groupName": "Book Club",
@@ -40,28 +40,68 @@
         "userID": "User1"
     },
     {
-        "authorId": "user1",
         "type": "newComment",
+        "authorId": "user1",
         "commenterId": "User17"
     },
     {
-        "authorId": "user1",
         "type": "newComment",
+        "authorId": "user1",
         "commenterId": "User2"
     },
     {
         "senderId": "User17",
-        "type": "newChat",
-        "receiverId": "User1"
+        "receiverId": "User1",
+        "type": "newChat"
     },
     {
         "senderId": "User17",
-        "type": "newChat",
-        "receiverId": "User1"
+        "receiverId": "User1",
+        "type": "newChat"
     },
     {
         "groupName": "Book Club",
         "type": "new Member",
         "addedMemberId": "user5"
+    },
+    {
+        "senderId": "User4",
+        "receiverId": "rawan",
+        "type": "newChat"
+    },
+    {
+        "senderId": "User4",
+        "receiverId": "rawan",
+        "type": "newChat"
+    },
+    {
+        "senderId": "User4",
+        "receiverId": "rawan",
+        "type": "newChat"
+    },
+    {
+        "senderId": "elhofy",
+        "receiverId": "rawan",
+        "type": "newChat"
+    },
+    {
+        "senderId": "elhofy",
+        "receiverId": "rawan",
+        "type": "newChat"
+    },
+    {
+        "senderId": "User4",
+        "receiverId": "User1",
+        "type": "newChat"
+    },
+    {
+        "senderId": "User4",
+        "receiverId": "User1",
+        "type": "newChat"
+    },
+    {
+        "senderId": "User4",
+        "receiverId": "User1",
+        "type": "newChat"
     }
 ]

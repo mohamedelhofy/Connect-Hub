@@ -44,7 +44,7 @@ public class FriendList extends JFrame {
         ArrayList<User> friendsList = friendshipDatabase.getFriendList();
         for (User user : friendsList) {
 
-            friendsTableModel.addRow(new Object[]{user.getUsername(), "Chat"});
+            friendsTableModel.addRow(new Object[]{user.getUserId(), "Chat"});
         }
 
         // Friends table
