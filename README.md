@@ -92,3 +92,7 @@ Connect Hub is a Java-based social networking platform designed to provide core 
 ## Acknowledgments
 Special thanks to Alexandria University, Faculty of Engineering, Computer and Communication Engineering Department, for providing the foundation and guidance for this project.
 
+## UML
+![CONNECT HUB ](https://github.com/user-attachments/assets/79e0d6b2-b368-4fcb-8eb2-1409636471c9)
+
+
